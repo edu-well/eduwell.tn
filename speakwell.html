@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en"> 
+
+<head>
+  <meta charset="UTF-8">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="7-FD479xFj_8HbH9UlwHCnnMl0gziIaCUqk5R_oU6L4" />
+  <title>EduWell - SpeakWell </title>
+ 
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/styleeduwellspeakwell.css">
+
+    <title>Edulite - Fun Learning</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+   
+</head>
+<body>
+    <!-- Main Page -->
+    <div class="page" id="mainPage">
+        <div class="main-content">
+            <h1 class="logo">eduwell</h1>
+            <p class="tagline">Unlock your English potential with confidence and style! 🌟
+
+</p>
+            <p class="sub-tagline">Join us and make learning fun while achieving success!</p>
+            <button class="btn" id="mainBtn">Get Started</button>
+        </div>
+    </div>
+    
+    <!-- Subjects Page -->
+    <div class="page hidden" id="subjectsPage">
+        <button class="back-btn" onclick="showPage('mainPage')">Back</button>
+        <div class="content-container">
+            <h2 class="subjects-title">Choose Your Subject</h2>
+            <div class="subjects-container">
+                <div class="subject-card math" id="mathCard">
+                    <div class="subject-icon">📖</div>
+                    <h3 class="subject-name">Tenses</h3>
+                    <p class="subject-desc">Master the tenses of English to excel in your Bac exams
+</p>
+                </div>
+                <div class="subject-card science" id="scienceCard">
+                    <div class="subject-icon">📝</div>
+                    <h3 class="subject-name">Grammar</h3>
+                    <p class="subject-desc">Master the rules of grammar to unlock the full potential of the English language.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Math Levels Page -->
+    <div class="page hidden" id="mathPage">
+        <button class="back-btn" onclick="showPage('subjectsPage')">Back</button>
+        <div class="content-container">
+            <h2 class="levels-title">Math Levels</h2>
+            <div class="levels-container">
+                <div class="level-card" onclick="selectLevel('Math', 1)">
+                    <div class="level-number">1</div>
+                    <div class="level-name">Beginner</div>
+                    <div class="level-desc">Basic arithmetic and numbers</div>
+                </div>
+                <div class="level-card" onclick="selectLevel('Math', 2)">
+                    <div class="level-number">2</div>
+                    <div class="level-name">Intermediate</div>
+                    <div class="level-desc">Algebra and geometry</div>
+                </div>
+                <div class="level-card" onclick="selectLevel('Math', 3)">
+                    <div class="level-number">3</div>
+                    <div class="level-name">Advanced</div>
+                    <div class="level-desc">Trigonometry and pre-calculus</div>
+                </div>
+                <div class="level-card" onclick="selectLevel('Math', 4)">
+                    <div class="level-number">4</div>
+                    <div class="level-name">Expert</div>
+                    <div class="level-desc">Calculus and advanced topics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Science Courses Page -->
+    <div class="page hidden" id="sciencePage">
+        <button class="back-btn" onclick="showPage('subjectsPage')">Back</button>
+        <div class="content-container">
+            <h2 class="levels-title">Science Courses</h2>
+            <div class="levels-container">
+                <div class="level-card" onclick="selectCourse('Science', 1)">
+                    <div class="level-number">1</div>
+                    <div class="level-name">Physics</div>
+                    <div class="level-desc">Motion, energy, and forces</div>
+                </div>
+                <div class="level-card" onclick="selectCourse('Science', 2)">
+                    <div class="level-number">2</div>
+                    <div class="level-name">Chemistry</div>
+                    <div class="level-desc">Elements and reactions</div>
+                </div>
+                <div class="level-card" onclick="selectCourse('Science', 3)">
+                    <div class="level-number">3</div>
+                    <div class="level-name">Biology</div>
+                    <div class="level-desc">Living organisms</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Navigation -->
+    <div class="footer-nav">
+        <button class="footer-btn active" onclick="showPage('mainPage')">Home</button>
+        <button class="footer-btn" onclick="showPage('subjectsPage')">Subjects</button>
+        <button class="footer-btn" id="mathNavBtn" onclick="showPage('mathPage')" style="display:none">Math</button>
+        <button class="footer-btn" id="scienceNavBtn" onclick="showPage('sciencePage')" style="display:none">Science</button>
+    </div>
+
+    <script>
+        // Current page tracking
+        let currentPage = 'mainPage';
+        
+        // Show specific page
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.remove('hidden');
+            currentPage = pageId;
+            
+            // Update footer navigation
+            updateFooterNav();
+            
+            // Manage subject buttons visibility
+            if (pageId === 'subjectsPage' || pageId === 'mainPage') {
+                document.getElementById('mathNavBtn').style.display = 'none';
+                document.getElementById('scienceNavBtn').style.display = 'none';
+            } else {
+                document.getElementById('mathNavBtn').style.display = 'block';
+                document.getElementById('scienceNavBtn').style.display = 'block';
+            }
+        }
+        
+        // Update footer navigation active state
+        function updateFooterNav() {
+            document.querySelectorAll('.footer-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            if (currentPage === 'mainPage') {
+                document.querySelector('.footer-btn:nth-child(1)').classList.add('active');
+            } else if (currentPage === 'subjectsPage') {
+                document.querySelector('.footer-btn:nth-child(2)').classList.add('active');
+            } else if (currentPage === 'mathPage') {
+                document.querySelector('.footer-btn:nth-child(3)').classList.add('active');
+            } else if (currentPage === 'sciencePage') {
+                document.querySelector('.footer-btn:nth-child(4)').classList.add('active');
+            }
+        }
+        
+        // Level/course selection
+        function selectLevel(subject, level) {
+            alert(`Starting ${subject} Level ${level}`);
+            // Load content for selected level
+        }
+        
+        function selectCourse(subject, course) {
+            alert(`Starting ${subject} Course ${course}`);
+            // Load content for selected course
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Main button click to show subjects
+            document.getElementById('mainBtn').addEventListener('click', function() {
+                showPage('subjectsPage');
+            });
+            
+            // Math card click to show math levels
+            document.getElementById('mathCard').addEventListener('click', function() {
+                showPage('mathPage');
+            });
+            
+            // Science card click to show science courses
+            document.getElementById('scienceCard').addEventListener('click', function() {
+                showPage('sciencePage');
+            });
+        });
+    </script>
+</body>
+</html>
