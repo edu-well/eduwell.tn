@@ -156,12 +156,13 @@
             // Set result message based on score
             const percentage = (score / quizData.length) * 100;
             if (percentage >= 80) {
-                resultMessage.textContent = "Excellent work! 🎉 You've mastered this topic.";
+                resultMessage.textContent = "🎉 Awesome! You nailed it!.";
             } else if (percentage >= 50) {
-                resultMessage.textContent = "Good job! 👍 You have a solid understanding.";
+                resultMessage.textContent = "🚀 Keep it up! Your skills are improving.";
             } else {
                 resultMessage.textContent = "Keep practicing! 📚 You'll improve with more study.";
             }
+            
             
             // Hide quiz and show results
             quizContainer.style.display = 'none';
