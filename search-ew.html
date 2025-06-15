@@ -1,32 +1,46 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>  
 <head>
-  <meta charset="UTF-8">
+   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="7-FD479xFj_8HbH9UlwHCnnMl0gziIaCUqk5R_oU6L4" />
-  <title>EduWell</title>
- 
-   <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduSearch | Academic Resource Finder</title>
+    <title>EduWell - Search ew </title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="shortcut icon" href="./assets/images/search-ew.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
  <link rel="stylesheet" href="./assets/css/rsew.css">
    
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">
+            <i class="fas fa-graduation-cap"></i> Search ew
+        </div>
+        <div class="loading-bar-container">
+            <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <div class="loading-text">Chargement des supports d’étude…</div>
+    </div>
+
+    <!-- Main App Content -->
     <div class="container">
         <header>
-            <div class="logo">Search ew</div>
-            <div class="tagline"> les meilleures ressources pour réviser le Bac, notamment des cours et des exercices corrigés.</div>
+            <div class="logo">
+                <i class="fas fa-graduation-cap logo-icon"></i>
+                Search ew
+            </div>
+            <div class="tagline">Prépare ton bac avec les bonnes ressources, sans stress 
+
+</div>
         </header>
 
         <div class="search-section">
             <div class="search-container">
-                <input type="text" class="search-box" placeholder="Rechercher des cours, des articles et du matériel d'étude..." id="searchInput">
+                <input type="text" class="search-box" placeholder=" Cherche, trouve, réussis… plus de 2000 fichiers à ta disposition " id="searchInput">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
                 <div class="spinner" id="spinner"></div>
             </div>
@@ -37,11 +51,11 @@
         </div>
 
         <div class="popular-searches">
-            <div class="popular-title"><i class="fas fa-chart-line"></i> Recherches Populaires</div>
+            <div class="popular-title"><i class="fas fa-chart-line"></i> Recherches les plus consultées</div>
             <div class="popular-list">
-                <div class="popular-item"><i class="fas fa-book"></i> Complexe Exercices</div>
-                <div class="popular-item"><i class="fas fa-flask"></i> Acide base , PH</div>
-                <div class="popular-item"><i class="fas fa-calculator"></i> intégral </div>
+                <div class="popular-item"><i class="fas fa-book"></i> Géométrie dans l’espace</div>
+                <div class="popular-item"><i class="fas fa-flask"></i> Acides et bases</div>
+                <div class="popular-item"><i class="fas fa-calculator"></i> Dérivation et intégration</div>
                 <div class="popular-item"><i class="fas fa-dna"></i> Génétique humaine</div>
             </div>
         </div>
@@ -61,6 +75,7 @@
             </div>
         </div>
     </div>
+
 
   <script src="./assets/js/rsew.js"></script>
 
