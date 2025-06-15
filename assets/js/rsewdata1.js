@@ -1,4 +1,4 @@
-  // Sample educational resources data with PDFs
+ // Sample educational resources data with PDFs
             const educationalResources = [
                 {
                     id: 1,
