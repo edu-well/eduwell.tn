@@ -1,3 +1,19 @@
+ // Simulate loading progress
+        let progress = 0;
+        const loadingInterval = setInterval(() => {
+            progress += Math.random() * 15;
+            if (progress >= 100) {
+                progress = 100;
+                clearInterval(loadingInterval);
+                setTimeout(() => {
+                    document.getElementById('loadingScreen').style.opacity = '0';
+                    setTimeout(() => {
+                        document.getElementById('loadingScreen').style.display = 'none';
+                    }, 800);
+                }, 300);
+            }
+            document.getElementById('loadingBar').style.width = `${progress}%`;
+        }, 150);
 
         document.addEventListener('DOMContentLoaded', function() {
             // DOM Elements
@@ -9,8 +25,7 @@
             const modalClose = document.getElementById('modalClose');
             const modalTitle = document.getElementById('modalTitle');
             const pdfContainer = document.getElementById('pdfContainer');
-
-          
+        
 
             // Search functionality
             let searchTimeout;
@@ -139,12 +154,7 @@
                                 ${pdf.title}
                             </div>
                             <div class="pdf-actions">
-                                <button class="pdf-btn download-btn" data-url="${pdf.url.replace('/preview', '')}">
-                                    <i class="fas fa-download"></i> Download
-                                </button>
-                                <button class="pdf-btn">
-                                    <i class="fas fa-share"></i> Share
-                                </button>
+                               
                             </div>
                         </div>
                         <iframe class="pdf-viewer" src="${pdf.url}"></iframe>
