@@ -1,6 +1,6 @@
 const educationalResources = [
     {
-        id: 1,
+        id: 9,
         title: "Physique : Devoir de contrôle 1 avec Correction",
         description: "Devoirs de contrôle en physique avec corrections pour les années 2012 à 2021. Couvre les principaux sujets du programme de physique.",
         type: "devoir contrôle",
