@@ -1,5 +1,5 @@
 
-    <script>
+
         // Simulate loading progress
         const progressBar = document.getElementById('progressBar');
         const loadingScreen = document.getElementById('loading-screen');
