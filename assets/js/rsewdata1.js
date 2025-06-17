@@ -1,14 +1,4 @@
-  // Initialize app functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            // DOM Elements
-            const searchInput = document.getElementById('searchInput');
-            const searchResults = document.getElementById('searchResults');
-            const spinner = document.getElementById('spinner');
-            const popularItems = document.querySelectorAll('.popular-item');
-            const modalOverlay = document.getElementById('modalOverlay');
-            const modalClose = document.getElementById('modalClose');
-            const modalTitle = document.getElementById('modalTitle');
-            const resourceContainer = document.getElementById('resourceContainer');
+
 
             // Enhanced educational resources data with more fields for better search
             const educationalResources = [
