@@ -1,56 +1,151 @@
- // Sample educational resources data with PDFs
+  // Initialize app functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const searchInput = document.getElementById('searchInput');
+            const searchResults = document.getElementById('searchResults');
+            const spinner = document.getElementById('spinner');
+            const popularItems = document.querySelectorAll('.popular-item');
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalClose = document.getElementById('modalClose');
+            const modalTitle = document.getElementById('modalTitle');
+            const resourceContainer = document.getElementById('resourceContainer');
+
+            // Enhanced educational resources data with more fields for better search
             const educationalResources = [
                 {
                     id: 1,
-                    title: "Introduction to Machine Learning",
-                    description: "Comprehensive course covering fundamental ML concepts and algorithms",
+                    title: "Mathématiques: Nombres Complexes",
+                    description: "Cours complet sur les nombres complexes avec exercices corrigés. Ce chapitre couvre les bases des nombres complexes, leur représentation géométrique et leurs applications en physique.",
                     type: "course",
-                    author: "Prof. Sarah Johnson",
+                    subject: "Mathématiques",
+                    author: "Prof. Jean Dupont",
                     date: "2023-05-15",
-                    pdfs: [
+                    keywords: ["complexes", "maths", "algèbre", "géométrie"],
+                    resources: [
                         {
-                            title: "Lecture 1: Fundamentals of ML",
+                            type: "pdf",
+                            title: "Chapitre 1: Introduction aux nombres complexes",
                             url: "https://drive.google.com/file/d/1d9z3x8P2m7b0c1v2f3g4h5j6k7l8m9n0/preview"
                         },
                         {
-                            title: "Lecture 2: Supervised Learning",
+                            type: "pdf",
+                            title: "Chapitre 2: Forme algébrique et géométrique",
                             url: "https://drive.google.com/file/d/2e8y7x6P5m4b3c2v1f0g9h8j7k6l5m4n3/preview"
                         },
                         {
-                            title: "Lecture 3: Neural Networks",
-                            url: "https://drive.google.com/file/d/3f7x6y5P4m3b2c1v0f9g8h7j6k5l4m3n2/preview"
+                            type: "video",
+                            title: "Vidéo explicative: Nombres complexes",
+                            url: "https://www.youtube.com/embed/VIDEO_ID_1"
                         }
                     ]
                 },
                 {
                     id: 2,
-                    title: "Organic Chemistry Fundamentals",
-                    description: "Complete guide to organic chemistry principles and reactions",
+                    title: "Chimie: Acides et Bases",
+                    description: "Guide complet sur les réactions acide-base et calculs de pH. Ce manuel explique les théories de Brønsted-Lowry et d'Arrhenius, avec des exemples pratiques de calculs de pH.",
                     type: "textbook",
-                    author: "Dr. Michael Chen",
+                    subject: "Chimie",
+                    author: "Dr. Marie Lambert",
                     date: "2022-11-30",
-                    pdfs: [
+                    keywords: ["chimie", "acide", "base", "pH", "réaction"],
+                    resources: [
                         {
-                            title: "Chapter 1: Basic Concepts",
+                            type: "pdf",
+                            title: "Partie 1: Théorie des acides et bases",
                             url: "https://drive.google.com/file/d/4g8y7x6P5m4b3c2v1f0g9h8j7k6l5m4n3/preview"
                         },
                         {
-                            title: "Chapter 2: Chemical Bonding",
-                            url: "https://drive.google.com/file/d/5h9x8y7P6m5b4c3v2f1g0h9j8k7l6m5n4/preview"
+                            type: "video",
+                            title: "Cours vidéo: Les acides et bases",
+                            url: "https://www.youtube.com/embed/VIDEO_ID_2"
                         }
                     ]
                 },
                 {
                     id: 3,
-                    title: "Calculus: Advanced Techniques",
-                    description: "Video lectures on advanced calculus methods and applications",
-                    type: "video",
-                    author: "Dr. Emily Wilson",
+                    title: "Calcul Intégral",
+                    description: "Méthodes et applications du calcul intégral avec exemples. Ce cours couvre les intégrales définies et indéfinies, le théorème fondamental du calcul et des applications en sciences.",
+                    type: "course",
+                    subject: "Mathématiques",
+                    author: "Prof. Sophie Martin",
                     date: "2023-01-10",
-                    pdfs: [
+                    keywords: ["calcul", "intégral", "maths", "analyse"],
+                    resources: [
                         {
-                            title: "Differential Equations",
+                            type: "pdf",
+                            title: "Fiche de synthèse: Calcul intégral",
                             url: "https://drive.google.com/file/d/6i0x9y8P7m6b5c4v3f2g1h0j9k8l7m6n5/preview"
+                        },
+                        {
+                            type: "video",
+                            title: "Tutoriel: Calcul intégral",
+                            url: "https://www.youtube.com/embed/VIDEO_ID_3"
+                        }
+                    ]
+                },
+                {
+                    id: 4,
+                    title: "Génétique Humaine",
+                    description: "Cours approfondi sur la génétique humaine et les maladies héréditaires. Ce document couvre les lois de Mendel, les chromosomes et les maladies génétiques courantes.",
+                    type: "course",
+                    subject: "Biologie",
+                    author: "Dr. Pierre Genet",
+                    date: "2023-03-22",
+                    keywords: ["génétique", "biologie", "ADN", "chromosomes", "Mendel"],
+                    resources: [
+                        {
+                            type: "pdf",
+                            title: "Chapitre 1: Bases de la génétique",
+                            url: "https://drive.google.com/file/d/7j1x2y9P8m7b6c5v4f3g2h1j0k9l8m7n6/preview"
+                        },
+                        {
+                            type: "pdf",
+                            title: "Chapitre 2: Transmission des caractères",
+                            url: "https://drive.google.com/file/d/8k2x3y0P9m8b7c6v5f4g3h2j1k0l9m8n7/preview"
+                        },
+                        {
+                            type: "video",
+                            title: "Conférence: Génétique humaine",
+                            url: "https://www.youtube.com/embed/VIDEO_ID_4"
+                        }
+                    ]
+                },
+                {
+                    id: 5,
+                    title: "Physique: Mécanique Newtonienne",
+                    description: "Principes fondamentaux de la mécanique newtonienne avec exercices. Ce cours couvre les lois du mouvement de Newton, l'énergie et la quantité de mouvement.",
+                    type: "course",
+                    subject: "Physique",
+                    author: "Prof. Alain Newton",
+                    date: "2023-02-18",
+                    keywords: ["physique", "mécanique", "Newton", "cinématique"],
+                    resources: [
+                        {
+                            type: "pdf",
+                            title: "Lois du mouvement de Newton",
+                            url: "https://drive.google.com/file/d/9l2x3y0P9m8b7c6v5f4g3h2j1k0l9m8n7/preview"
+                        },
+                        {
+                            type: "video",
+                            title: "Démonstration: Lois de Newton",
+                            url: "https://www.youtube.com/embed/ts8H1-WLdiM?si=715wXYuRadYOLw6o"
+                        }
+                    ]
+                },
+                {
+                    id: 6,
+                    title: "Philosophie: Les Grands Courants",
+                    description: "Panorama des principaux courants philosophiques pour le Bac. Ce document couvre le rationalisme, l'empirisme, l'existentialisme et d'autres mouvements majeurs.",
+                    type: "guide",
+                    subject: "Philosophie",
+                    author: "Dr. Simone Philosophe",
+                    date: "2023-04-05",
+                    keywords: ["philosophie", "courants", "bac", "pensée"],
+                    resources: [
+                        {
+                            type: "pdf",
+                            title: "Fiche de révision: Courants philosophiques",
+                            url: "https://drive.google.com/file/d/0m1x2y9P8n7b6c5v4f3g2h1j0k9l8m7n6/preview"
                         }
                     ]
                 }
