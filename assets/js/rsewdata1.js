@@ -609,6 +609,76 @@
     }
 
 
+
+ {
+        id: 15,
+        title: "Mathématiques : Géométrie dans l'espace",
+        description: "Série d'exercices mathématiques géométrie dans l'espace bac scientifique Lycée Pilote Sfex",
+        type: "série d'exercices",
+        subject: "Mathématiques",
+        author: "Lycée Pilote Sfex",
+        date: "2025-05-15",
+        keywords: ["math", "espace", "bac", "série", "exercices"],
+        resources: [
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 1",
+                url: "https://drive.google.com/file/d/18cSQi0Yjco-GUE-vy7XIVgJ8wRgWGi7r/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 2",
+                url: "https://drive.google.com/file/d/1u_KLMuOZZSUMk9i3p-tAriGecu4opMG9/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 3",
+                url: "https://drive.google.com/file/d/1xMgG1Ro_8ahI3S3RAjcU1ytWubDe2DKc/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 4",
+                url: "https://drive.google.com/file/d/1cNpaw_t3CbSj86rFPkwlQwgXn8_XdMvJ/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 5",
+                url: "https://drive.google.com/file/d/1ErrToglsbXsp4GKKrcNRdl04tb647265/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 6",
+                url: "https://drive.google.com/file/d/1ivTF6sERuHLW4SwWuCKJCN5OBZmNYzje/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 7",
+                url: "https://drive.google.com/file/d/11fSnc-UUYlqXPK5CP7iYn43qIatVYmtY/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 8",
+                url: "https://drive.google.com/file/d/1iIaZs7eRNMVadCLf8LijuapbaAzvTmsM/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 9",
+                url: "https://drive.google.com/file/d/1BLEYgrp28apG_YYJaxeQTBCIVNVCusVo/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 10",
+                url: "https://drive.google.com/file/d/1Z0D9mjQrMPjbb8nY-FffiSLowg3apacC/preview"
+            },
+            {
+                type: "pdf",
+                title: "Géométrie dans l'espace Exercice 11",
+                url: "https://drive.google.com/file/d/1Djuh0_LzLANQR-wbmhzVZ6THUxlePEqL/preview"
+            }
+        
+    
+
+
                     ]
                 }
             ];
