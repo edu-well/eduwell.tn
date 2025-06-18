@@ -309,7 +309,7 @@
     },
      {
         id: 11,
-        title: "Physique : Devoir de controle 2 avec Correction",
+        title: "Physique : Devoir de contrôle 2 avec Correction",
         description: "Devoirs de controle 2  en physique avec corrections pour les années 2012 à 2021. Couvre les principaux sujets du programme de physique.",
         type: "devoir synthese ",
         subject: "Physique",
@@ -454,7 +454,7 @@
     },
      {
         id: 13,
-        title: "Physique : Devoir de controle 3 avec Correction",
+        title: "Physique : Devoir de contrôle 3 avec Correction",
         description: "Devoirs de controle 3  en physique avec corrections pour les années 2012 à 2021. Couvre les principaux sujets du programme de physique.",
         type: "devoir synthese ",
         subject: "Physique",
