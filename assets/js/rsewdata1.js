@@ -705,8 +705,7 @@
                 url: "https://drive.google.com/file/d/1fHN3xxc4vpehh_-VPAW_M3ZmFGaRtABH/preview"
             
         
-    },
-            // ... (other exercises)
+     }
         ]
     }
 ];
