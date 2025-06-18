@@ -677,9 +677,10 @@
                 type: "pdf",
                 title: "Géométrie dans l'espace Exercice 11",
                 url: "https://drive.google.com/file/d/1Djuh0_LzLANQR-wbmhzVZ6THUxlePEqL/preview"
-                   },
-
- {
+                                           }
+                    ]
+                },
+                {
         id: 16,  // Make sure this ID is unique
         title: "Reproduction masculine: cours + exercices",
         description: "Chapitre 1: Reproduction humaine - Reproduction chez l'homme",
@@ -705,7 +706,7 @@
                 url: "https://drive.google.com/file/d/1fHN3xxc4vpehh_-VPAW_M3ZmFGaRtABH/preview"
             
         
-     }
-        ]
-    }
-];
+                             }
+                    ]
+                }
+            ];
