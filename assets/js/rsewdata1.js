@@ -678,6 +678,34 @@
                 title: "Géométrie dans l'espace Exercice 11",
                 url: "https://drive.google.com/file/d/1Djuh0_LzLANQR-wbmhzVZ6THUxlePEqL/preview"
                    },
+
+ {
+        id: 16,  // Make sure this ID is unique
+        title: "Reproduction masculine: cours + exercices",
+        description: "Chapitre 1: Reproduction humaine - Reproduction chez l'homme",
+        type: "cours + exercices",
+        subject: "SVT",
+        author: "Drive Unknown",
+        date: "2025-05-15",  // Update with actual date if available
+        keywords: ["svt", "bac", "cours", "homme", "scientifique", "reproduction"],
+        resources: [
+            {
+                type: "pdf",
+                title: "Cours: Reproduction masculine",
+                url: "https://drive.google.com/file/d/1i0w_xrMaDMcrLq9T0Dv5y1rR-ad2IbTZ/preview"
+            },
+            {
+                type: "pdf",
+                title: "Série d'exercices: Analyse N1",
+                url: "https://drive.google.com/file/d/1mbBOIsSl8neiFws2pDHCJ6J9FiR-52OR/preview"
+            },
+            {
+                type: "pdf",
+                title: "QCM: Reproduction masculine",
+                url: "https://drive.google.com/file/d/1fHN3xxc4vpehh_-VPAW_M3ZmFGaRtABH/preview"
+            
+        
+    },
             // ... (other exercises)
         ]
     }
