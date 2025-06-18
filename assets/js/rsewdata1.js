@@ -550,12 +550,12 @@
      {
         id: 14,
         title: "Physique : Devoir de synthese 3 avec Correction",
-        description: "Devoirs de controle 3  en physique avec corrections pour les années 2012 à 2021. Couvre les principaux sujets du programme de physique.",
+        description: "Devoirs de synthese 3  en physique avec corrections pour les années 2012 à 2021. Couvre les principaux sujets du programme de physique.",
         type: "devoir synthese ",
         subject: "Physique",
         author: "Direction régionale de Ben Arous",
         date: "2025-05-15",
-        keywords: ["physique", "devoir", " controle 3", "correction", "bac"],
+        keywords: ["physique", "devoir", "synthese 3", "correction", "bac"],
         resources: [
          {
         type: "pdf",
