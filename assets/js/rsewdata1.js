@@ -14,6 +14,19 @@ const educationalResources = [
                 title: "Chapitre 1: Introduction aux nombres complexes",
                 url: "https://drive.google.com/file/d/1d9z3x8P2m7b0c1v2f3g4h5j6k7l8m9n0/preview"
             },
+            {
+                type: "pdf",
+                title: "Chapitre 2: Forme algébrique et géométrique",
+                url: "https://drive.google.com/file/d/2e8y7x6P5m4b3c2v1f0g9h8j7k6l5m4n3/preview"
+            },
+            {
+                type: "video",
+                title: "Vidéo explicative: Nombres complexes",
+                url: "https://www.youtube.com/embed/VIDEO_ID_1"
+            }
+        ]
+    },
+
 
  {
         id: 21,  // Make sure this ID is unique
@@ -88,19 +101,6 @@ const educationalResources = [
         ]
     },
 
-
-            {
-                type: "pdf",
-                title: "Chapitre 2: Forme algébrique et géométrique",
-                url: "https://drive.google.com/file/d/2e8y7x6P5m4b3c2v1f0g9h8j7k6l5m4n3/preview"
-            },
-            {
-                type: "video",
-                title: "Vidéo explicative: Nombres complexes",
-                url: "https://www.youtube.com/embed/VIDEO_ID_1"
-            }
-        ]
-    },
     {
         id: 2,
         title: "Chimie: Acides et Bases",
