@@ -14,6 +14,81 @@ const educationalResources = [
                 title: "Chapitre 1: Introduction aux nombres complexes",
                 url: "https://drive.google.com/file/d/1d9z3x8P2m7b0c1v2f3g4h5j6k7l8m9n0/preview"
             },
+
+ {
+        id: 21,  // Make sure this ID is unique
+        title: "Neurophysiologie: Exercices message nerveux",
+        description: "Séries standard avec correction",
+        type: "exercices",
+        subject: "SVT",
+        author: "Taki",
+        date: "2025-05-15",  // Update with actual date if available
+        keywords: ["neuro", "neurophysiologie", "svt", "bac sc", "message nerveux"],
+        resources: [
+            {
+                type: "pdf",
+                title: "Série 1: Message nerveux",
+                url: "https://drive.google.com/file/d/1QZvwRyvi1_-QdM_ONq_FR_EpniLz9cYH/preview"
+            },
+            {
+                type: "pdf",
+                title: "Correction Série 1",
+                url: "https://drive.google.com/file/d/18Jr6Uh1ap4H72R_QrCxuzkzgPHaE7P8x/preview"
+            },
+            {
+                type: "pdf",
+                title: "Série 2: Message nerveux",
+                url: "https://drive.google.com/file/d/1W91fXK4QBYWwLt_-56DC7nNeN3WApHKr/preview"
+            },
+            {
+                type: "pdf",
+                title: "Correction Série 2",
+                url: "https://drive.google.com/file/d/1A7iW2V8Jq8I0SRV-sQjywI7LF9jhKbmz/preview"
+            },
+            {
+                type: "pdf",
+                title: "Série 3: Message nerveux",
+                url: "https://drive.google.com/file/d/1PrVWIx03Ks0SldbmNmyGYCUgkYtZ_I8R/preview"
+            },
+            {
+                type: "pdf",
+                title: "Correction Série 3",
+                url: "https://drive.google.com/file/d/1NXxoCyzqNxiACgKjhw0J2z_zfVSj689U/preview"
+            },
+            {
+                type: "pdf",
+                title: "Série 4: Message nerveux",
+                url: "https://drive.google.com/file/d/1YKPmwXde3uX6IUfURArz2iTsHi9cQvLL/preview"
+            },
+            {
+                type: "pdf",
+                title: "Correction Série 4",
+                url: "https://drive.google.com/file/d/1zSksbk9iIVCliWhbuNWkckVn8bSXpjmU/preview"
+            },
+            {
+                type: "pdf",
+                title: "Série 5: Message nerveux",
+                url: "https://drive.google.com/file/d/1GkLFm85fzhhovvl-8kQ0Am_eYR-3B38z/preview"
+            },
+            {
+                type: "pdf",
+                title: "Correction Série 5",
+                url: "https://drive.google.com/file/d/1KbCbxMpbtC5Wkua7zvT3em50M1-taMxu/preview"
+            },
+            {
+                type: "pdf",
+                title: "Série 6: Message nerveux",
+                url: "https://drive.google.com/file/d/1DXcPw-F-Bpjy5Fqcs1K9yPx5qXyFz9py/preview"
+            },
+            {
+                type: "pdf",
+                title: "Correction Série 6",
+                url: "https://drive.google.com/file/d/1380Vm1cvqLQQNmbLZyFYIRO0Fd62jR4l/preview"
+            }
+        ]
+    },
+
+
             {
                 type: "pdf",
                 title: "Chapitre 2: Forme algébrique et géométrique",
