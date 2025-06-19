@@ -29,7 +29,7 @@ const educationalResources = [
 
 
  {
-        id: 21,  // Make sure this ID is unique
+        id: 281,  // Make sure this ID is unique
         title: "Neurophysiologie: Exercices message nerveux",
         description: "Séries standard avec correction",
         type: "exercices",
