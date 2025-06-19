@@ -628,7 +628,7 @@ const educationalResources = [
     },
 
     {
-        id: 16,  // Make sure this ID is unique in your dataset
+        id: 20,  // Make sure this ID is unique in your dataset
         title: "COURS GÉNÉTIQUE HUMAINE Avec Exercices",
         description: "Transmission des maladies héréditaires et diagnostic prénatal",
         type: "cours + exercices",
