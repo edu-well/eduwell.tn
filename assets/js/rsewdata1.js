@@ -626,6 +626,30 @@ const educationalResources = [
             }
         ]
     },
+
+    {
+        id: 16,  // Make sure this ID is unique in your dataset
+        title: "COURS GÉNÉTIQUE HUMAINE Avec Exercices",
+        description: "Transmission des maladies héréditaires et diagnostic prénatal",
+        type: "cours + exercices",
+        subject: "SVT",
+        author: "Lycée Pilote",
+        date: "2025-05-15",  // Update with actual date if available
+        keywords: ["genetique humaine", "svt", "diagnostic prénatal", "bac", "bac svt", "genetique"],
+        resources: [
+            {
+                type: "pdf",
+                title: "Cours: Génétique humaine",
+                url: "https://drive.google.com/file/d/1mPj7tgMVH6EWxNrlYbgPgTK7QQLtOM4o/preview"
+            },
+            {
+                type: "pdf",
+                title: "Exercice d'analyse: Génétique humaine",
+                url: "https://drive.google.com/file/d/10L3rHtvMSXK9fvDvvgONNiafnoRZGhUU/preview"
+            }
+        ]
+    },
+
     {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
