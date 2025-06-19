@@ -70,33 +70,7 @@ const educationalResources = [
             }
         ]
     },
-    {
-        id: 4,
-        title: "Génétique Humaine",
-        description: "Cours approfondi sur la génétique humaine et les maladies héréditaires. Ce document couvre les lois de Mendel, les chromosomes et les maladies génétiques courantes.",
-        type: "course",
-        subject: "Biologie",
-        author: "Dr. Pierre Genet",
-        date: "2023-03-22",
-        keywords: ["génétique", "biologie", "ADN", "chromosomes", "Mendel"],
-        resources: [
-            {
-                type: "pdf",
-                title: "Chapitre 1: Bases de la génétique",
-                url: "https://drive.google.com/file/d/7j1x2y9P8m7b6c5v4f3g2h1j0k9l8m7n6/preview"
-            },
-            {
-                type: "pdf",
-                title: "Chapitre 2: Transmission des caractères",
-                url: "https://drive.google.com/file/d/8k2x3y0P9m8b7c6v5f4g3h2j1k0l9m8n7/preview"
-            },
-            {
-                type: "video",
-                title: "Conférence: Génétique humaine",
-                url: "https://www.youtube.com/embed/VIDEO_ID_4"
-            }
-        ]
-    },
+    
     {
         id: 5,
         title: "Physique: Mécanique Newtonienne",
@@ -630,7 +604,7 @@ const educationalResources = [
     {
         id: 20,  // Make sure this ID is unique in your dataset
         title: "COURS GÉNÉTIQUE HUMAINE Avec Exercices",
-        description: "Transmission des maladies héréditaires et diagnostic prénatal",
+        description: "Cours approfondi sur la génétique humaine et les maladies héréditaires. Ce document couvre les lois de Mendel, les chromosomes et les maladies génétiques courantes. Transmission des maladies héréditaires et diagnostic prénatal",
         type: "cours + exercices",
         subject: "SVT",
         author: "Lycée Pilote",
