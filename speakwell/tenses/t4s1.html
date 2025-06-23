@@ -81,127 +81,129 @@
     </div>
  <script>
 
- const quizData =[
-    {
-        "question": "In moments of despair, she often ___ (to retreat) to her room, where silence ___ (to be) her only companion.",
-        "options": ["retreats / is", "retreat / was", "retreated / has been"],
-        "correctAnswer": 0,
-        "explanation": "'Often' = habitual action → Present Simple → retreats / is."
-    },
-    {
-        "question": "The children, who had been playing joyfully, suddenly grew quiet as the sky ___ (to darken) and the wind ___ (to rise).",
-        "options": ["darkens / rises", "darkened / rose", "was darkening / was rising"],
-        "correctAnswer": 1,
-        "explanation": "Sequence of events in the past → Past Simple → darkened / rose."
-    },
-    {
-        "question": "Had she ___ (to know) the truth earlier, she would have made a ___ (adjective) choice.",
-        "options": ["known / wiser", "knew / smart", "know / smartest"],
-        "correctAnswer": 0,
-        "explanation": "Third conditional → Past Perfect + comparative adjective → known / wiser."
-    },
-    {
-        "question": "By next year, this majestic building ___ (to stand) for over a century as a symbol of resilience.",
-        "options": ["will stand", "will have stood", "stands"],
-        "correctAnswer": 1,
-        "explanation": "'By next year' = Future Perfect → will have stood."
-    },
-    {
-        "question": "She speaks so ___ (adverb) that even strangers pause to listen.",
-        "options": ["beautiful", "beautifully", "beauty"],
-        "correctAnswer": 1,
-        "explanation": "Describes 'speaks' → needs an adverb → beautifully."
-    },
-    {
-        "question": "It was only after the performance that the audience realized the ___ (noun) of the message conveyed.",
-        "options": ["depth", "deep", "deeply"],
-        "correctAnswer": 0,
-        "explanation": "We need a noun as the object of 'realized' → depth."
-    },
-    {
-        "question": "When the bell rang, the students ___ (to rush) out with such enthusiasm that even the teacher ___ (to smile).",
-        "options": ["rush / smiles", "rushed / smiled", "had rushed / was smiling"],
-        "correctAnswer": 1,
-        "explanation": "Narration of a past event → Past Simple → rushed / smiled."
-    },
-    {
-        "question": "Her voice ___ (to tremble) with emotion as she delivered the speech she ___ (to prepare) for weeks.",
-        "options": ["trembled / had prepared", "trembles / prepares", "trembled / prepared"],
-        "correctAnswer": 0,
-        "explanation": "Past action + earlier past action → Past Simple / Past Perfect → trembled / had prepared."
-    },
-    {
-        "question": "You should act more ___ (adjective) if you want others to respect your opinion.",
-        "options": ["responsible", "responsibly", "responsibility"],
-        "correctAnswer": 1,
-        "explanation": "After 'act' → adverb → responsibly."
-    },
-    {
-        "question": "Every time he visits, he ___ (to bring) gifts that are more thoughtful than the last.",
-        "options": ["brings", "brought", "is bringing"],
-        "correctAnswer": 0,
-        "explanation": "'Every time' = habitual action → Present Simple → brings."
-    },
-    {
-        "question": "As the sun ___ (to set), a golden glow ___ (to spread) across the sky.",
-        "options": ["was setting / spread", "sets / spreads", "set / spread"],
-        "correctAnswer": 2,
-        "explanation": "Simple narrative of completed action → Past Simple → set / spread."
-    },
-    {
-        "question": "He rarely ___ (to speak) in meetings, but when he does, his words carry great ___ (noun).",
-        "options": ["speaks / weight", "spoke / weigh", "speak / weights"],
-        "correctAnswer": 0,
-        "explanation": "'Rarely' = Present Simple + noun → speaks / weight."
-    },
-    {
-        "question": "They ___ (to be) extremely ___ (adjective) about the outcome, despite the odds.",
-        "options": ["are / hopeful", "were / hopefully", "were / hope"],
-        "correctAnswer": 0,
-        "explanation": "Describes state and quality → 'are' + adjective → are / hopeful."
-    },
-    {
-        "question": "If you ___ (to listen) more carefully, you would not have missed such an ___ (adjective) opportunity.",
-        "options": ["listen / amazing", "listened / amazed", "had listened / amazing"],
-        "correctAnswer": 2,
-        "explanation": "Third conditional + adjective → had listened / amazing."
-    },
-    {
-        "question": "It ___ (to be) a long time since I last ___ (to hear) from her.",
-        "options": ["is / hear", "has been / heard", "was / have heard"],
-        "correctAnswer": 1,
-        "explanation": "'Since' = Present Perfect / Past Simple → has been / heard."
-    },
-    {
-        "question": "Not until she ___ (to enter) the room did we realize how ___ (adjective) the situation was.",
-        "options": ["enters / serious", "entered / seriously", "had entered / serious"],
-        "correctAnswer": 2,
-        "explanation": "Past Perfect for emphasis + adjective → had entered / serious."
-    },
-    {
-        "question": "They ___ (to not complete) the project yet, despite working on it ___ (adverb) for months.",
-        "options": ["haven’t completed / tirelessly", "didn’t complete / tireless", "don’t complete / tiring"],
-        "correctAnswer": 0,
-        "explanation": "'Yet' = Present Perfect + adverb of manner → haven’t completed / tirelessly."
-    },
-    {
-        "question": "As the years ___ (to pass), the small village slowly ___ (to transform) into a bustling town.",
-        "options": ["pass / transforms", "passed / transformed", "had passed / transforms"],
-        "correctAnswer": 1,
-        "explanation": "Narration of a change over time → Past Simple → passed / transformed."
-    },
-    {
-        "question": "Before the invention of the internet, people ___ (to communicate) through handwritten letters and ___ (to wait) days for a response.",
-        "options": ["communicated / waited", "had communicated / had waited", "communicate / wait"],
-        "correctAnswer": 0,
-        "explanation": "General past description → Past Simple → communicated / waited."
-    },
-    {
-        "question": "I would have answered the question correctly if I ___ (to pay) more ___ (adverb) attention.",
-        "options": ["paid / carefully", "had paid / careful", "have paid / carefully"],
-        "correctAnswer": 0,
-        "explanation": "Conditional with missing adverb → paid / carefully."
-    }
+const quizData = [
+  {
+    question: "Although the weather forecast predicted sunshine, dark clouds ___ (to gather) above the hills, threatening a sudden storm.",
+    options: ["gather", "gathered", "had gathered"],
+    correctAnswer: 1,
+    explanation: "الجملة تحكي على حاجة صارت، معناها Past Simple → gathered"
+  },
+  {
+    question: "Had he ___ (to invest) his money more ___ (adverb), he might have avoided the financial loss.",
+    options: ["invested / wisely", "invest / wise", "invested / wise"],
+    correctAnswer: 0,
+    explanation: "جملة شرطية في الماضي (third conditional) → Past Perfect + adverb → invested / wisely"
+  },
+  {
+    question: "The speech was so ___ (adjective) that it moved everyone to tears.",
+    options: ["emotion", "emotional", "emotionally"],
+    correctAnswer: 1,
+    explanation: "نحتاجو صفة تفسّر 'speech' → emotional"
+  },
+  {
+    question: "If you ___ (to study) more consistently, you would perform far better in your exams.",
+    options: ["study", "had studied", "studied"],
+    correctAnswer: 2,
+    explanation: "جملة شرطية من نوع ثاني (second conditional) → Past Simple → studied"
+  },
+  {
+    question: "Not only ___ (to she / win) the competition, but she also set a new record.",
+    options: ["did she win", "she won", "had she won"],
+    correctAnswer: 0,
+    explanation: "'Not only' تجي معاها inversion → did she win"
+  },
+  {
+    question: "The artist, known for his minimalist style, ___ (to capture) emotion with striking simplicity.",
+    options: ["captured", "captures", "has captured"],
+    correctAnswer: 1,
+    explanation: "جملة عامة تصف شخص → Present Simple → captures"
+  },
+  {
+    question: "Rarely ___ (to we / see) such a breathtaking performance.",
+    options: ["do we see", "we saw", "did we see"],
+    correctAnswer: 0,
+    explanation: "'Rarely' تجي معاها inversion في الزمن الحاضر → do we see"
+  },
+  {
+    question: "He looked at her with such ___ (noun) that she couldn’t help but smile.",
+    options: ["tender", "tenderness", "tenderly"],
+    correctAnswer: 1,
+    explanation: "بعد 'such' نحتاجو اسم → tenderness"
+  },
+  {
+    question: "No sooner ___ (to the meeting / start) than several employees voiced their concerns.",
+    options: ["had the meeting started", "the meeting started", "did the meeting start"],
+    correctAnswer: 0,
+    explanation: "'No sooner' تجي معاها Past Perfect و inversion → had the meeting started"
+  },
+  {
+    question: "Despite her success, she remained remarkably ___ (adjective), never boasting about her achievements.",
+    options: ["modest", "modestly", "modesty"],
+    correctAnswer: 0,
+    explanation: "نحتاجو صفة توصفها → modest"
+  },
+  {
+    question: "I ___ (to not expect) the film to be so moving, but I found myself deeply affected.",
+    options: ["didn’t expect", "don’t expect", "haven’t expected"],
+    correctAnswer: 0,
+    explanation: "تحكي على حاجة صارت → Past Simple → didn’t expect"
+  },
+  {
+    question: "He stared out the window, lost in ___ (noun) as the rain continued to fall.",
+    options: ["thought", "thinking", "think"],
+    correctAnswer: 0,
+    explanation: "بعد 'lost in' يجي اسم → thought"
+  },
+  {
+    question: "Each time the baby cried, the mother ___ (to respond) with a soothing lullaby.",
+    options: ["responds", "responded", "was responding"],
+    correctAnswer: 1,
+    explanation: "عادة في الماضي → Past Simple → responded"
+  },
+  {
+    question: "The professor explained the concept so ___ (adverb) that even the least attentive student understood it.",
+    options: ["clear", "clearly", "clarity"],
+    correctAnswer: 1,
+    explanation: "نفسّر كيفاش شرح → adverb → clearly"
+  },
+  {
+    question: "Had it not been for her encouragement, he ___ (to never attempt) the audition.",
+    options: ["would never have attempted", "would never attempt", "will never attempt"],
+    correctAnswer: 0,
+    explanation: "Third conditional → would never have attempted"
+  },
+  {
+    question: "They ___ (to be) grateful for the support they received during the difficult times.",
+    options: ["were", "are", "have been"],
+    correctAnswer: 0,
+    explanation: "فعل في الماضي كامل → Past Simple → were"
+  },
+  {
+    question: "Whenever she feels overwhelmed, she ___ (to retreat) to her favorite spot by the lake.",
+    options: ["retreat", "retreated", "retreats"],
+    correctAnswer: 2,
+    explanation: "عادة في الحاضر → Present Simple → retreats"
+  },
+  {
+    question: "Before the guests arrived, she ___ (to prepare) a lavish meal and ___ (to decorate) the room beautifully.",
+    options: ["prepared / decorated", "had prepared / had decorated", "prepares / decorates"],
+    correctAnswer: 1,
+    explanation: "زوز أفعال صاروا قبل نقطة في الماضي → Past Perfect → had prepared / had decorated"
+  },
+  {
+    question: "The scientist remained ___ (adjective), despite the criticism he faced.",
+    options: ["determined", "determination", "determine"],
+    correctAnswer: 0,
+    explanation: "نحتاجو صفة توصف الشخص → determined"
+  },
+  {
+    question: "If the team ___ (to train) harder, they might have won the championship.",
+    options: ["trained", "train", "had trained"],
+    correctAnswer: 2,
+    explanation: "Third conditional → Past Perfect → had trained"
+  }
+
+
 ];
 
 
