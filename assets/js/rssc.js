@@ -1,4 +1,4 @@
-const educationalResources = [
+const educationalResources1 = [
     {
         id: 31,
         title: "Mathématiques: Nombres Complexes",
