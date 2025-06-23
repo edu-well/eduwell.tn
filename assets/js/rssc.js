@@ -1,7 +1,7 @@
 const educationalResources1 = [
     {
         id: 31,
-        title: "Mathématiques: Nombres Complexes",
+        title: "Mathématiques: alfaNombres Complexes",
         description: "Cours complet sur les nombres complexes avec exercices corrigés. Ce chapitre couvre les bases des nombres complexes, leur représentation géométrique et leurs applications en physique.",
         type: "course",
         subject: "Mathématiques",
