@@ -715,32 +715,32 @@ const educationalResources = [
         {
             type: "pdf",
             title: "Série 1: Limites et Continuité",
-            url: "https://drive.google.com/file/d/1yTytsZ4Y72z9kipIedsx2-d_RRVJ0r7-/preview"
+            url: "https://drive.google.com/file/d/1WmNDqH9KfUF21TpwIBy7VXgwWTmiuBeY/preview"
         },
         {
             type: "pdf",
             title: "Correction Série 1 - Partie 1",
-            url: "https://drive.google.com/file/d/10C-tuQvHDzdLUSxYapnc-Eb0a8kaxeE-/preview"
+            url: "https://drive.google.com/file/d/1YuY8WBMvl-WKbGya9Nn30ry28jEZKyRi/preview"
         },
         {
             type: "pdf",
             title: "Correction Série 1 - Partie 2",
-            url: "https://drive.google.com/file/d/1mtNTzTT4AbbjixTl9Ymn5RTeTyHU8Jws/preview"
+            url: "https://drive.google.com/file/d/19F4k1Z6Jlqdrv3Ut69rxuQih2k67QRlg/preview"
         },
         {
             type: "pdf",
             title: "Série 2: Limites et Continuité",
-            url: "https://drive.google.com/file/d/1Lbv-OAAc_rmlhhdEloDfDuOESQ-p3Gb2/preview"
+            url: "https://drive.google.com/file/d/1RXOimkTEgwE0sNz9DYwf5H8RHY-Xd4D9/preview"
         },
         {
             type: "pdf",
             title: "Correction Série 2 - Partie 1",
-            url: "https://drive.google.com/file/d/16Zv2DDvWkkvOsG-0oy3okaJG7O93RJhJ/preview"
+            url: "https://drive.google.com/file/d/1pgcErZ3BmBWtpAwbSiCfZu0mgqt7xzoK/preview"
         },
         {
             type: "pdf",
             title: "Méthodes de Correction",
-            url: "https://drive.google.com/file/d/1rkIKaTXC0gQKDUBcgmUc6EtpsZi9A_YI/preview"
+            url: "https://drive.google.com/file/d/1attGtl3YN2k01LpHKUkV-QNqzFgGY-Pu/preview"
         }
     ]
 },
