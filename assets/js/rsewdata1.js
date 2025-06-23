@@ -703,6 +703,49 @@ const educationalResources = [
     },
 
     {
+    id: 41,
+    title: "Limites et Continuité",
+    description: "Chapitre fondamental en analyse mathématique couvrant les concepts de limites et de continuité des fonctions. Ce module propose des exercices progressifs avec corrections détaillées pour maîtriser les techniques de calcul de limites, l'étude de la continuité, et les applications aux problèmes réels. Idéal pour la préparation au Baccalauréat.",
+    type: "exercises",
+    subject: "Mathématiques",
+    author: "Taki",
+    date: "2023-06-20", // Added date for consistency
+    keywords: ["math", "bac", "limites", "continuité", "analyse"],
+    resources: [
+        {
+            type: "pdf",
+            title: "Série 1: Limites et Continuité",
+            url: "https://drive.google.com/file/d/1yTytsZ4Y72z9kipIedsx2-d_RRVJ0r7-/preview"
+        },
+        {
+            type: "pdf",
+            title: "Correction Série 1 - Partie 1",
+            url: "https://drive.google.com/file/d/10C-tuQvHDzdLUSxYapnc-Eb0a8kaxeE-/preview"
+        },
+        {
+            type: "pdf",
+            title: "Correction Série 1 - Partie 2",
+            url: "https://drive.google.com/file/d/1mtNTzTT4AbbjixTl9Ymn5RTeTyHU8Jws/preview"
+        },
+        {
+            type: "pdf",
+            title: "Série 2: Limites et Continuité",
+            url: "https://drive.google.com/file/d/1Lbv-OAAc_rmlhhdEloDfDuOESQ-p3Gb2/preview"
+        },
+        {
+            type: "pdf",
+            title: "Correction Série 2 - Partie 1",
+            url: "https://drive.google.com/file/d/16Zv2DDvWkkvOsG-0oy3okaJG7O93RJhJ/preview"
+        },
+        {
+            type: "pdf",
+            title: "Méthodes de Correction",
+            url: "https://drive.google.com/file/d/1rkIKaTXC0gQKDUBcgmUc6EtpsZi9A_YI/preview"
+        }
+    ]
+},
+
+    {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
         description: "Chapitre 2: Reproduction humaine - Reproduction chez la femme",
