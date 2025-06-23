@@ -752,7 +752,7 @@ const educationalResources = [
     subject: "Mathématiques",
     author: "Taki",
     date: "2023-07-15", // Added for consistency
-    keywords: ["math", "bac", "dérivée", "dérivabilité", "analyse"],
+    keywords: ["math", "bac", "derivee", "derivabilite", "analyse"],
     resources: [
         {
             type: "pdf",
