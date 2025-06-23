@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeakWell| EduWell</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="./data/imag/speakwell.png" type="image/x-icon">
+   <meta name="google-site-verification" content="7-FD479xFj_8HbH9UlwHCnnMl0gziIaCUqk5R_oU6L4" />
+  <title>EduWell - SpeakWell </title>
+  <link rel="stylesheet" href="./data/css/stylelab.css">
+  
+</head>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Mistakes build champions. Keep going</div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="window.history.back()">
+        <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Header -->
+<section>
+
+ <div class="header">
+        <div class="progress">Question <span id="current-question">1</span> of <span id="total-questions">5</span></div>
+        <div class="score">Score: <span id="score">0</span></div>
+    </div>
+
+    <div class="quiz-container" id="quiz-container">
+        <div class="question-number">Question <span id="q-number">1</span></div>
+        <div class="question-text" id="question-text">What is the capital of France?</div>
+        
+        <div class="options-container" id="options-container">
+            <!-- Options will be inserted here by JavaScript -->
+        </div>
+        
+        <button class="action-button" id="action-button" disabled>Fix</button>
+        
+        <div class="explanation" id="explanation">
+            <!-- Explanation will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <button class="nav-button" id="prev-button" disabled>Previous</button>
+        <button class="nav-button" id="next-button" disabled>Next</button>
+    </div>
+
+    <div class="result-container" id="result-container">
+        <div class="result-title">Quiz Completed</div>
+        <div class="result-score" id="final-score">0/5</div>
+        <div class="result-message" id="result-message">Good effort!</div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <button class="restart-button" id="restart-button">Start Again</button>
+    </div>
+</section>
+        <div class="logo footer-logo">
+            <div class="logo-text">SpeakWell</div>
+            <div class="logo-dot"></div>
+            <div class="logo-subtext">ew</div>
+        </div>
+    </div>
+ <script>
+
+ const quizData =[
+    {
+        "question": "In moments of despair, she often ___ (to retreat) to her room, where silence ___ (to be) her only companion.",
+        "options": ["retreats / is", "retreat / was", "retreated / has been"],
+        "correctAnswer": 0,
+        "explanation": "'Often' = habitual action → Present Simple → retreats / is."
+    },
+    {
+        "question": "The children, who had been playing joyfully, suddenly grew quiet as the sky ___ (to darken) and the wind ___ (to rise).",
+        "options": ["darkens / rises", "darkened / rose", "was darkening / was rising"],
+        "correctAnswer": 1,
+        "explanation": "Sequence of events in the past → Past Simple → darkened / rose."
+    },
+    {
+        "question": "Had she ___ (to know) the truth earlier, she would have made a ___ (adjective) choice.",
+        "options": ["known / wiser", "knew / smart", "know / smartest"],
+        "correctAnswer": 0,
+        "explanation": "Third conditional → Past Perfect + comparative adjective → known / wiser."
+    },
+    {
+        "question": "By next year, this majestic building ___ (to stand) for over a century as a symbol of resilience.",
+        "options": ["will stand", "will have stood", "stands"],
+        "correctAnswer": 1,
+        "explanation": "'By next year' = Future Perfect → will have stood."
+    },
+    {
+        "question": "She speaks so ___ (adverb) that even strangers pause to listen.",
+        "options": ["beautiful", "beautifully", "beauty"],
+        "correctAnswer": 1,
+        "explanation": "Describes 'speaks' → needs an adverb → beautifully."
+    },
+    {
+        "question": "It was only after the performance that the audience realized the ___ (noun) of the message conveyed.",
+        "options": ["depth", "deep", "deeply"],
+        "correctAnswer": 0,
+        "explanation": "We need a noun as the object of 'realized' → depth."
+    },
+    {
+        "question": "When the bell rang, the students ___ (to rush) out with such enthusiasm that even the teacher ___ (to smile).",
+        "options": ["rush / smiles", "rushed / smiled", "had rushed / was smiling"],
+        "correctAnswer": 1,
+        "explanation": "Narration of a past event → Past Simple → rushed / smiled."
+    },
+    {
+        "question": "Her voice ___ (to tremble) with emotion as she delivered the speech she ___ (to prepare) for weeks.",
+        "options": ["trembled / had prepared", "trembles / prepares", "trembled / prepared"],
+        "correctAnswer": 0,
+        "explanation": "Past action + earlier past action → Past Simple / Past Perfect → trembled / had prepared."
+    },
+    {
+        "question": "You should act more ___ (adjective) if you want others to respect your opinion.",
+        "options": ["responsible", "responsibly", "responsibility"],
+        "correctAnswer": 1,
+        "explanation": "After 'act' → adverb → responsibly."
+    },
+    {
+        "question": "Every time he visits, he ___ (to bring) gifts that are more thoughtful than the last.",
+        "options": ["brings", "brought", "is bringing"],
+        "correctAnswer": 0,
+        "explanation": "'Every time' = habitual action → Present Simple → brings."
+    },
+    {
+        "question": "As the sun ___ (to set), a golden glow ___ (to spread) across the sky.",
+        "options": ["was setting / spread", "sets / spreads", "set / spread"],
+        "correctAnswer": 2,
+        "explanation": "Simple narrative of completed action → Past Simple → set / spread."
+    },
+    {
+        "question": "He rarely ___ (to speak) in meetings, but when he does, his words carry great ___ (noun).",
+        "options": ["speaks / weight", "spoke / weigh", "speak / weights"],
+        "correctAnswer": 0,
+        "explanation": "'Rarely' = Present Simple + noun → speaks / weight."
+    },
+    {
+        "question": "They ___ (to be) extremely ___ (adjective) about the outcome, despite the odds.",
+        "options": ["are / hopeful", "were / hopefully", "were / hope"],
+        "correctAnswer": 0,
+        "explanation": "Describes state and quality → 'are' + adjective → are / hopeful."
+    },
+    {
+        "question": "If you ___ (to listen) more carefully, you would not have missed such an ___ (adjective) opportunity.",
+        "options": ["listen / amazing", "listened / amazed", "had listened / amazing"],
+        "correctAnswer": 2,
+        "explanation": "Third conditional + adjective → had listened / amazing."
+    },
+    {
+        "question": "It ___ (to be) a long time since I last ___ (to hear) from her.",
+        "options": ["is / hear", "has been / heard", "was / have heard"],
+        "correctAnswer": 1,
+        "explanation": "'Since' = Present Perfect / Past Simple → has been / heard."
+    },
+    {
+        "question": "Not until she ___ (to enter) the room did we realize how ___ (adjective) the situation was.",
+        "options": ["enters / serious", "entered / seriously", "had entered / serious"],
+        "correctAnswer": 2,
+        "explanation": "Past Perfect for emphasis + adjective → had entered / serious."
+    },
+    {
+        "question": "They ___ (to not complete) the project yet, despite working on it ___ (adverb) for months.",
+        "options": ["haven’t completed / tirelessly", "didn’t complete / tireless", "don’t complete / tiring"],
+        "correctAnswer": 0,
+        "explanation": "'Yet' = Present Perfect + adverb of manner → haven’t completed / tirelessly."
+    },
+    {
+        "question": "As the years ___ (to pass), the small village slowly ___ (to transform) into a bustling town.",
+        "options": ["pass / transforms", "passed / transformed", "had passed / transforms"],
+        "correctAnswer": 1,
+        "explanation": "Narration of a change over time → Past Simple → passed / transformed."
+    },
+    {
+        "question": "Before the invention of the internet, people ___ (to communicate) through handwritten letters and ___ (to wait) days for a response.",
+        "options": ["communicated / waited", "had communicated / had waited", "communicate / wait"],
+        "correctAnswer": 0,
+        "explanation": "General past description → Past Simple → communicated / waited."
+    },
+    {
+        "question": "I would have answered the question correctly if I ___ (to pay) more ___ (adverb) attention.",
+        "options": ["paid / carefully", "had paid / careful", "have paid / carefully"],
+        "correctAnswer": 0,
+        "explanation": "Conditional with missing adverb → paid / carefully."
+    }
+];
+
+
+
+       
+    </script>
+    <script src="./data/js/lab.js"></script>
+    <script src="./data/js/labint.js"></script>
+</body>
+</html>
