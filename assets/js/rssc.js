@@ -26,10 +26,6 @@ const educationalResources1 = [
             }
         ]
     },
-
-
- 
-
     {
         id: 32,
         title: "Chimie: Acides et Bases",
@@ -74,7 +70,6 @@ const educationalResources1 = [
             }
         ]
     },
-    
     {
         id: 34,
         title: "Physique: Mécanique Newtonienne",
@@ -111,14 +106,6 @@ const educationalResources1 = [
                 type: "pdf",
                 title: "Fiche de révision: Courants philosophiques",
                 url: "https://drive.google.com/file/d/0m1x2y9P8n7b6c5v4f3g2h1j0k9l8m7n6/preview"
-            },
-        
-    
-    
-            {
-                type: "pdf",
-                title: "QCM: Reproduction féminine",
-                url: "https://drive.google.com/file/d/1QqdtVGAJCjEDaPMw_Gt6VFfYvFu0H26N/preview"
             }
         ]
     }
