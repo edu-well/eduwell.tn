@@ -744,6 +744,33 @@ const educationalResources = [
         }
     ]
 },
+    {
+    id: 41,
+    title: "Dérivabilité",
+    description: "Série d'exercices complets sur la dérivation des fonctions, couvrant les techniques de base et les cas complexes. Ce chapitre aborde la dérivabilité en un point, les fonctions dérivées, et les applications pratiques. Parfait pour la préparation aux examens du Baccalauréat.",
+    type: "exercises",
+    subject: "Mathématiques",
+    author: "Taki",
+    date: "2023-07-15", // Added for consistency
+    keywords: ["math", "bac", "dérivée", "dérivabilité", "analyse"],
+    resources: [
+        {
+            type: "pdf",
+            title: "Série 1: Dérivabilité",
+            url: "https://drive.google.com/file/d/1qE051wdnTmDjCVwpSB0w1Ud0vAuKuMUp/preview"
+        },
+        {
+            type: "pdf",
+            title: "Correction Partie 1",
+            url: "https://drive.google.com/file/d/1AHAXN4wMt_VzpExcQXIiDKNflNFJQ-me/preview"
+        },
+        {
+            type: "pdf",
+            title: "Correction Partie 2",
+            url: "https://drive.google.com/file/d/10jXeQ0v75oUTGZx7PZ1952GuUynwOj80/preview"
+        }
+    ]
+},
 
     {
         id: 15,
