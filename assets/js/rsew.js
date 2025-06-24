@@ -215,9 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         ${item.title}
                     </div>
                     <div class="resource-actions">
-                        <button class="resource-btn download-btn" data-url="${item.url}">
-                            <i class="fas fa-download"></i> Télécharger
-                        </button>
+                       
                     </div>
                 </div>
                 <div class="pdf-container">
