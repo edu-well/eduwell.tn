@@ -662,7 +662,7 @@ const educationalResources = [
     {
     "id": 60,
     "title": "Équilibre Acido-Basique",
-    "description": "Série d'exercices sur les équilibres acido-basiques en chimie, couvrant les constantes d'acidité Ka, les pH, les diagrammes de prédominance et les dosages. Ce chapitre propose des problèmes variés pour maîtriser les réactions acide-base et leurs applications en chimie analytique. Parfait pour la préparation au Baccalauréat scientifique.",
+    "description": "Série d'exercices sur les équilibres acido-basiques en chimie, couvrant les constantes d'acidité Ka, les pH, les diagrammes de prédominance et les dosages. Ce chapitre propose des problèmes variés pour maîtriser les réactions acide-base et leurs applications en chimie analytique. ' acides et bases' Parfait pour la préparation au Baccalauréat scientifique.",
     "type": "textbook", 
     "subject": "Chimie",
     "author": "Taki",
