@@ -864,6 +864,122 @@ const educationalResources = [
 
 
 
+{
+    "id": 100,
+    "title": "Thème 1 : Reproduction Humaine",
+    "description": "Cours complet sur la reproduction humaine, couvrant l'anatomie et la physiologie des systèmes reproducteurs masculin et féminin, la régulation hormonale, le cycle menstruel, et les processus de procréation. Ce module inclut également les aspects biologiques de la fécondation et du développement précoce.",
+    "type": "course",
+    "subject": "Sciences de la Vie et de la Terre",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["SVT", "bac", "reproduction", "hormones sexuelles", "procréation", "cycle menstruel", "fécondation"],
+    "pdfs": [
+        {
+            "title": "Cours: Système Reproducteur Masculin",
+            "url": "https://drive.google.com/file/d/14j7ktPVl9RQx2l23_6nEzPLZ4ON8ASR9/preview"
+        },
+        {
+            "title": "Cours: Système Reproducteur Féminin",
+            "url": "https://drive.google.com/file/d/1RM5qjM5gjZlaTncgxzvZZZW1O9N7cXZS/preview"
+        },
+        {
+            "title": "Cours: Régulation Hormonale",
+            "url": "https://drive.google.com/file/d/1dtvthLCCaUj5bz5X-uNnoZv6LkUrKakA/preview"
+        },
+        {
+            "title": "Cours: Cycle Menstruel",
+            "url": "https://drive.google.com/file/d/1QvGjvTNG6KsrkMeS22Al-covrknRR6NQ/preview"
+        },
+        {
+            "title": "Cours: Processus de Procréation",
+            "url": "https://drive.google.com/file/d/1H6u9Ui162w68BKhF-CtkPi6XBribl9WQ/preview"
+        },
+        {
+            "title": "Cours: Fécondation et Développement",
+            "url": "https://drive.google.com/file/d/1WvOOIemy0ilvbubKUaorfqvnQ3Gm7nqN/preview"
+        },
+        {
+            "title": "Cours: Applications et Cas Cliniques",
+            "url": "https://drive.google.com/file/d/1MZfY4tO6_LfjCn6tY_qJ-BTTyMwmrJ1E/preview"
+        }
+    ]
+},
+
+
+
+{
+    "id": 101,
+    "title": "Thème 2 : Génétique Formelle et Humaine",
+    "description": "Cours complet sur la génétique, couvrant à la fois la génétique formelle (lois de Mendel, croisements) et la génétique humaine (maladies héréditaires, arbres généalogiques). Le module aborde également les bases moléculaires de l'hérédité et les applications modernes en génétique médicale.",
+    "type": "course",
+    "subject": "Sciences de la Vie et de la Terre",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["SVT", "bac", "génétique", "Mendel", "hérédité", "ADN", "chromosomes", "maladies génétiques"],
+    "pdfs": [
+        {
+            "title": "Cours: Introduction à la Génétique",
+            "url": "https://drive.google.com/file/d/16KnjGfPITJnKVMhyV_-jWzGMhJYRS_Nx/preview"
+        },
+        {
+            "title": "Cours: Lois de Mendel",
+            "url": "https://drive.google.com/file/d/10jzY2kr4mVFq20wH10-Ty4-TskGmg0oH/preview"
+        },
+        {
+            "title": "Cours: Croisements Génétiques",
+            "url": "https://drive.google.com/file/d/1X0mveTulSgpCtjWlMi5DEHfxKWDDPcAQ/preview"
+        },
+        {
+            "title": "Cours: Génétique Humaine",
+            "url": "https://drive.google.com/file/d/1bWLP3V0p-PK9FLYPMYkY0Wjmi3Gb3mS2/preview"
+        },
+        {
+            "title": "Cours: Arbres Généalogiques",
+            "url": "https://drive.google.com/file/d/1HGKIB4dt3uphlAPAzLudpNMutTCXuVyo/preview"
+        },
+        {
+            "title": "Cours: Maladies Héréditaires",
+            "url": "https://drive.google.com/file/d/16gdt6rH7B9dlI6KxZag-MmWSZwhawV67/preview"
+        },
+        {
+            "title": "Cours: Bases Moléculaires de l'Hérédité",
+            "url": "https://drive.google.com/file/d/1BXB_8u-NQffimgmbn5Yp56Nkw7sSxaPx/preview"
+        },
+        {
+            "title": "Cours: Génétique des Populations",
+            "url": "https://drive.google.com/file/d/1OxDlVwVeCj8J8K1g1Su_1QGu-EMvY8DP/preview"
+        },
+        {
+            "title": "Cours: Applications Médicales",
+            "url": "https://drive.google.com/file/d/14hKwihDBZ0NUF6Kqzgws-DTrPdlbmxTZ/preview"
+        },
+        {
+            "title": "Cours: Biotechnologies Modernes",
+            "url": "https://drive.google.com/file/d/13o66udFdincRKB8JnSRDxDticlNn0uv4/preview"
+        }
+    ]
+},
+
+{
+    "id": 102,
+    "title": "Thème 3 : Évolution Biologique",
+    "description": "Cours fondamental sur les mécanismes de l'évolution biologique, couvrant les preuves de l'évolution, la sélection naturelle, la dérive génétique et les spéciations. Ce module explore également les applications contemporaines de la théorie évolutionniste en biologie.",
+    "type": "course",
+    "subject": "Sciences de la Vie et de la Terre",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["SVT", "bac", "évolution", "sélection naturelle", "Darwin", "spéciation", "dérive génétique", "fossiles"],
+    "pdfs": [
+        {
+            "title": "Cours: Principes Fondamentaux de l'Évolution",
+            "url": "https://drive.google.com/file/d/1rXafOjiLV-JxXrf2kKsBgiiP6zpk6hkH/preview"
+        },
+        {
+            "title": "Cours: Mécanismes Évolutifs",
+            "url": "https://drive.google.com/file/d/1rt4asEmbgb1zyl6cymbBUJWV6Oyyg3C7/preview"
+        }
+    ]
+},
 
 
 
