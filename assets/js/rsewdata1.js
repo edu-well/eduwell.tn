@@ -356,6 +356,26 @@ const educationalResources = [
         ]
     },
     {
+    "id": 43,
+    "title": "Bijection",
+    "description": "Série d'exercices approfondis sur les fonctions bijectives, couvrant les définitions, propriétés et applications en analyse. Ce chapitre inclut des problèmes variés pour maîtriser les bijections et leurs utilisations dans les équations. Idéal pour la préparation aux examens du Baccalauréat et concours.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",  // Default date (adjust if needed)
+    "keywords": ["math", "bac", "bijection", "analyse"],
+    "pdfs": [
+        {
+            "title": "Série 1: Bijection",
+            "url": "https://drive.google.com/file/d/1a8dwPu-A5i88TPeh-vkshQy0rASMTApt/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 1",
+            "url": "https://drive.google.com/file/d/1KmK_8aSsg7qUe85H1vtiL5_4ZQIMmT6N/preview"
+        }
+    ]
+},
+    {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
         description: "Chapitre 2: Reproduction humaine - Reproduction chez la femme",
