@@ -376,6 +376,30 @@ const educationalResources = [
     ]
 },
     {
+    "id": 44,
+    "title": "Intégrales",
+    "description": "Série complète d'exercices sur les intégrales, couvrant les méthodes de calcul, les propriétés fondamentales et les applications en analyse. Ce chapitre propose des problèmes progressifs pour maîtriser l'intégration, des techniques de base aux cas avancés. Parfait pour la préparation au Baccalauréat et aux études supérieures.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "intégrale", "analyse", "calcul"],
+    "pdfs": [
+        {
+            "title": "Série Intégrale",
+            "url": "https://drive.google.com/file/d/1CnG7v5JblmcGU2Ydb8MmlTxEzVdTeL7W/preview"
+        },
+        {
+            "title": "Correction Partie 1",
+            "url": "https://drive.google.com/file/d/1xhz0i_HPSVrd6j2SGI6gJgMLE_Q0gMhe/preview"
+        },
+        {
+            "title": "Correction Partie 2",
+            "url": "https://drive.google.com/file/d/1GfTCkw4DU-aiWDiNuIlvIUnusiaquP1L/preview"
+        }
+    ]
+},
+    {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
         description: "Chapitre 2: Reproduction humaine - Reproduction chez la femme",
