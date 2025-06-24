@@ -625,6 +625,76 @@ const educationalResources = [
     ]
 },
     {
+    "id": 52,
+    "title": "Isométries du Plan",
+    "description": "Série complète d'exercices sur les isométries du plan euclidien, couvrant les transformations géométriques (translations, rotations, réflexions) et leurs propriétés. Ce chapitre propose des problèmes variés pour comprendre et appliquer les concepts d'isométrie, avec des exercices progressifs allant des bases aux applications complexes.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "géométrie", "isométrie", "transformations", "plan euclidien", "rotations", "translations", "réflexions"],
+    "pdfs": [
+        {
+            "title": "Série 1: Isométries Fondamentales",
+            "url": "https://drive.google.com/file/d/1etKmAJ5l3SK5RSZl7IaGAwlRZDXFcCck/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/100F8PEyRyWCsT__mZ_xlEpoAzmpKRm_5/preview"
+        },
+        {
+            "title": "Série 2: Applications des Isométries",
+            "url": "https://drive.google.com/file/d/1c0hNwRpPd7Bmz378SW66b2PGrR9yXaAv/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 1",
+            "url": "https://drive.google.com/file/d/1buWIxP_1uY6mOLC-3coaxlif4b-7aP17/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 2",
+            "url": "https://drive.google.com/file/d/13oXiDly3zI3QGD1YEMN37DI1AdNqhf3X/preview"
+        }
+    ]
+},
+
+
+    {
+    "id": 53,
+    "title": "Probabilités",
+    "description": "Série complète d'exercices sur les probabilités, couvrant les concepts fondamentaux (lois de probabilité, événements, arbres pondérés) et les cas complexes (variables aléatoires, lois continues). Ce chapitre propose des problèmes progressifs avec des applications concrètes, idéal pour la préparation au Baccalauréat.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "probabilités", "variables aléatoires", "lois de probabilité", "analyse combinatoire"],
+    "pdfs": [
+        {
+            "title": "Série 1: Probabilités Discrètes",
+            "url": "https://drive.google.com/file/d/1y_lWvwYBB9yWhYjl55LHtUFDRIFT75wD/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 1",
+            "url": "https://drive.google.com/file/d/12WF1RLDS2sTPDsG5R4_v1lcyrLxwsmKf/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 2",
+            "url": "https://drive.google.com/file/d/17h6SHuhyFjWztaBcrosDfMqunP0P1JX2/preview"
+        },
+        {
+            "title": "Série 2: Probabilités Avancées",
+            "url": "https://drive.google.com/file/d/1Gs-_yUPh5tXwLGvXsiRgETv7xpar0Aj1/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 1",
+            "url": "https://drive.google.com/file/d/1TuoMAoigcTEnLsm9Q3g5RIQMCKbsjgIs/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 2",
+            "url": "https://drive.google.com/file/d/1oIW6-ZcOeCkvaE50E7IdDGnohqdLbKh6/preview"
+        }
+    ]
+},
+    {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
         description: "Chapitre 2: Reproduction humaine - Reproduction chez la femme",
