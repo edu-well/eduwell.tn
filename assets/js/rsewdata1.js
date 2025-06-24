@@ -400,6 +400,231 @@ const educationalResources = [
     ]
 },
     {
+    "id": 45,
+    "title": "Fonction ln",
+    "description": "Série d'exercices complets sur la fonction logarithme népérien (ln), couvrant ses propriétés, dérivées, intégrales et applications. Ce chapitre propose des problèmes variés pour maîtriser cette fonction essentielle en analyse. Idéal pour la préparation au Baccalauréat et aux études supérieures en mathématiques.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "logarithme", "ln", "analyse", "fonction"],
+    "pdfs": [
+        {
+            "title": "Série 1: Fonction ln",
+            "url": "https://drive.google.com/file/d/1NVfTv6LrMXaTzKt983QU3q6L30B3LBU1/preview"
+        },
+        {
+            "title": "Correction Partie 1",
+            "url": "https://drive.google.com/file/d/1F9Stz17q2LcI_Kul9tAjEXSXW1Q6Desm/preview"
+        },
+        {
+            "title": "Correction Partie 2",
+            "url": "https://drive.google.com/file/d/1RnNVzNrgdUUUyHUfHueDtM_Sbg1RU-xX/preview"
+        }
+    ]
+},
+            {
+    "id": 46,
+    "title": "Fonction Exponentielle",
+    "description": "Série complète d'exercices sur la fonction exponentielle, couvrant ses propriétés fondamentales, dérivées, limites et applications pratiques. Ce chapitre inclut des problèmes variés pour comprendre et maîtriser cette fonction essentielle en analyse mathématique. Parfait pour la préparation au Baccalauréat scientifique.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "exponentielle", "fonction", "analyse", "limites"],
+    "pdfs": [
+        {
+            "title": "Série Fonction Exponentielle",
+            "url": "https://drive.google.com/file/d/1LG-JkGHHKTuhmjNFMC6H81LK3qQCEVak/preview"
+        },
+        {
+            "title": "Correction Partie 1",
+            "url": "https://drive.google.com/file/d/1csQ0XO4CJ_ZRHTEIjGdO8_6zqxf2epST/preview"
+        },
+        {
+            "title": "Correction Partie 2",
+            "url": "https://drive.google.com/file/d/1YvJcZ4awhq6hKi4aXkIGkcJVWkfzAjs5/preview"
+        }
+    ]
+},
+    {
+    "id": 47,
+    "title": "Primitives",
+    "description": "Série complète d'exercices sur les primitives, couvrant les techniques de base, les méthodes d'intégration et les applications pratiques. Ce chapitre propose des problèmes progressifs pour maîtriser le calcul des primitives, des cas simples aux situations complexes. Idéal pour la préparation au Baccalauréat et aux études supérieures en mathématiques.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "primitive", "intégration", "calcul", "analyse"],
+    "pdfs": [
+        {
+            "title": "Série 1: Primitives",
+            "url": "https://drive.google.com/file/d/1UllafWr5TMCv5IZACafIpbP0bBmzJyrT/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1ORx2zQgPD0eafcEhAnEmrxUDp6KYt__D/preview"
+        },
+        {
+            "title": "Série 2: Primitives Avancées",
+            "url": "https://drive.google.com/file/d/1d-G9o7p78EpDbQwI73f0oXrnmc8i2gWg/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 1",
+            "url": "https://drive.google.com/file/d/1ZAJx-VuR7JyJdI0W-eQ1XrqusN6Ydiiy/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 2",
+            "url": "https://drive.google.com/file/d/1JFc6qvlHRaE0QVGX9qK21GgKjy5iwTUM/preview"
+        }
+    ]
+},
+    {
+    "id": 48,
+    "title": "Suites Réelles",
+    "description": "Série complète d'exercices sur les suites réelles, couvrant les notions de convergence, limites, raisonnement par récurrence et méthodes d'étude. Ce chapitre propose des problèmes variés allant des fondamentaux aux cas complexes, parfait pour la préparation aux examens du Baccalauréat et aux études supérieures en mathématiques.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "suites", "reelles", "convergence", "limites", "récurrence"],
+    "pdfs": [
+        {
+            "title": "Série 1: Suites Réelles",
+            "url": "https://drive.google.com/file/d/1hWhg3ekRz9UcS01Ii0vGJQ2F13XBI6pX/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 1",
+            "url": "https://drive.google.com/file/d/18BqDwqZAyvBUOq__limfzwManBChVRDe/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 2",
+            "url": "https://drive.google.com/file/d/1OXhXHoK2lmEnQ5kLGT_gpWTz9LHiut72/preview"
+        },
+        {
+            "title": "Série 2: Suites Réelles Avancées",
+            "url": "https://drive.google.com/file/d/1UR9UpXMZYHvx0d9jMRxgCVutRJFd1TBo/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 1",
+            "url": "https://drive.google.com/file/d/1htxZ300ukB2rz1Zy6Y7wrnJRaoEp4KSi/preview"
+        },
+        {
+            "title": "Correction Série 2 - Partie 2",
+            "url": "https://drive.google.com/file/d/10InPfUxXnsqg3QmobECrLOiEHeI2jZhh/preview"
+        }
+    ]
+},
+    {
+    "id": 49,
+    "title": "Équations Différentielles",
+    "description": "Ressources complètes sur les équations différentielles, incluant un cours théorique et des séries d'exercices. Ce chapitre couvre les équations différentielles linéaires du premier ordre, les problèmes de Cauchy et leurs applications. Parfait pour la préparation aux examens du Baccalauréat et pour les étudiants en classes préparatoires.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "équations différentielles", "analyse", "première ordre", "Cauchy"],
+    "pdfs": [
+        {
+            "title": "Cours: Équations Différentielles",
+            "url": "https://drive.google.com/file/d/19EwPK3-HTtqNIXqPBet5BDvFb_adehnK/preview"
+        },
+        {
+            "title": "Série 1: Équations Différentielles",
+            "url": "https://drive.google.com/file/d/17Od9TWJ8d5RdxmNtUwg6PyIpECQNkeB9/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 1",
+            "url": "https://drive.google.com/file/d/15pf6lPzKNg2xAvNbfcaIPwpF2mPQiCO8/preview"
+        },
+        {
+            "title": "Correction Série 1 - Partie 2",
+            "url": "https://drive.google.com/file/d/13kUEsZQ7TmP2xuQ-em0C3jV6QS0xCRJH/preview"
+        }
+    ]
+},
+    {
+    "id": 50,
+    "title": "Racine n-ième",
+    "description": "Série d'exercices sur les racines n-ièmes des nombres complexes, couvrant les concepts fondamentaux, les propriétés algébriques et les représentations géométriques dans le plan complexe. Ce chapitre inclut des problèmes variés pour maîtriser cette notion clé de l'analyse complexe, idéale pour la préparation au Baccalauréat et aux études supérieures.",
+    "type": "exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "racine n-ième","racine nieme", "nombres complexes", "analyse", "géométrie","geometrie"],
+    "pdfs": [
+        {
+            "title": "Série: Racines n-ièmes",
+            "url": "https://drive.google.com/file/d/1Z6UHEWGslB_I41eZ-NolFUenfMmS2Cjw/preview"
+        },
+        {
+            "title": "Correction Série",
+            "url": "https://drive.google.com/file/d/1NEJZ13MsMZkCQ05E7Hd5yVbBdNA6M0FG/preview"
+        }
+    ]
+},
+
+    {
+    "id": 51,
+    "title": "Nombres Complexes",
+    "description": "Cours complet et exercices sur les nombres complexes, couvrant les concepts fondamentaux, les différentes formes (algébrique, trigonométrique), les opérations et leurs applications géométriques. Ce module inclut des cours théoriques détaillés, des exercices d'application et des séries type Bac pour une préparation optimale aux examens.",
+    "type": "course_and_exercises",
+    "subject": "Mathématiques",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["math", "bac", "nombres complexes", "analyse", "géométrie", "forme algébrique", "forme trigonométrique"],
+    "pdfs": [
+        {
+            "title": "Cours 1: Introduction aux Nombres Complexes",
+            "url": "https://drive.google.com/file/d/1395Y3I43ySSyqKlkxOxZwqsQb-TYbT2t/preview"
+        },
+        {
+            "title": "Correction Cours 1",
+            "url": "https://drive.google.com/file/d/195sfsvI1DT5iZ_5vxy63_dml07IHUOQQ/preview"
+        },
+        {
+            "title": "Cours 2: Opérations sur les Complexes",
+            "url": "https://drive.google.com/file/d/1xhmVDsH33XfNQZevODDr5aUQukQU4M-J/preview"
+        },
+        {
+            "title": "Correction Cours 2",
+            "url": "https://drive.google.com/file/d/13MFIG-gG9fL5fNgopZ1vme69gssRvqGM/preview"
+        },
+        {
+            "title": "Cours 3: Forme Trigonométrique",
+            "url": "https://drive.google.com/file/d/1WofBVOZQR9cowZNgm-yUE1LuVa_GAGYx/preview"
+        },
+        {
+            "title": "Correction Cours 3 - Partie 1",
+            "url": "https://drive.google.com/file/d/1nLS3eWl_arGF3BVSbZ7Rw2CNuDFaSms5/preview"
+        },
+        {
+            "title": "Correction Cours 3 - Partie 2",
+            "url": "https://drive.google.com/file/d/1F9XT6IxZJeXa-pZUrNlk6Uu3dIKKbwBk/preview"
+        },
+        {
+            "title": "Cours 4: Applications Géométriques",
+            "url": "https://drive.google.com/file/d/1IvKmylVsEODw23VHYQ3_k1PgOXAFwR5S/preview"
+        },
+        {
+            "title": "Série Type Bac",
+            "url": "https://drive.google.com/file/d/1dqeineQfkMmg0YXyhUAf-GdnhLlEt_KW/preview"
+        },
+        {
+            "title": "Correction Série - Partie 1",
+            "url": "https://drive.google.com/file/d/1clpv_Bo8S81QuDlG5Mcg_QF-OZP_oKw2/preview"
+        },
+        {
+            "title": "Correction Série - Partie 2",
+            "url": "https://drive.google.com/file/d/1_xjFFAlj23niZvbH_YirPMgpqS-5xXqM/preview"
+        },
+        {
+            "title": "Correction Série - Partie 3",
+            "url": "https://drive.google.com/file/d/1StNY_mvIFtEvB_cWYNuiWtiI-z0ktZOC/preview"
+        }
+    ]
+},
+    {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
         description: "Chapitre 2: Reproduction humaine - Reproduction chez la femme",
