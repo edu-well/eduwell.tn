@@ -694,6 +694,287 @@ const educationalResources = [
         }
     ]
 },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+    "id": 60,
+    "title": "Équilibre Acido-Basique",
+    "description": "Série d'exercices sur les équilibres acido-basiques en chimie, couvrant les constantes d'acidité Ka, les pH, les diagrammes de prédominance et les dosages. Ce chapitre propose des problèmes variés pour maîtriser les réactions acide-base et leurs applications en chimie analytique. Parfait pour la préparation au Baccalauréat scientifique.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "acide-base", "pH", "Ka", "équilibre chimique", "dosage"],
+    "pdfs": [
+        {
+            "title": "Série 1: Équilibres Acido-Basiques",
+            "url": "https://drive.google.com/file/d/1beK4a2atUGJRhrrsTRjSVrC3paVPpR-z/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1YT_cbP_jobK4K77Pv_eyggAk1Jmfex-l/preview"
+        }
+    ]
+},
+{
+    "id": 61,
+    "title": "Solutions Aqueuses & Notion de pH",
+    "description": "Série complète d'exercices sur les solutions aqueuses et la notion de pH en chimie, couvrant les calculs de concentration, les échelles de pH, les solutions tampons et les indicateurs colorés. Ce chapitre propose des problèmes progressifs pour maîtriser les aspects quantitatifs et qualitatifs des solutions acides et basiques.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "solution aqueuse", "pH", "concentration", "tampon", "indicateur coloré"],
+    "pdfs": [
+        {
+            "title": "Série 1: Notions Fondamentales de pH",
+            "url": "https://drive.google.com/file/d/1QKzMVbz6228co5AogO-lombzfQ6x8Zdu/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1nlaMwQngr43tSsFe5y1rmcYYuLAKIiJc/preview"
+        },
+        {
+            "title": "Série 2: Applications des Solutions Aqueuses",
+            "url": "https://drive.google.com/file/d/1vgfo4cM9lMlDJmTrQFETJp0CYlTpxIRl/preview"
+        },
+        {
+            "title": "Correction Série 2",
+            "url": "https://drive.google.com/file/d/1RGAr07VRI5Ku6lYnfxrj34EHvi3-iCNS/preview"
+        }
+    ]
+},
+    {
+    "id": 62,
+    "title": "Dosage Acide-Base",
+    "description": "Série complète sur les dosages acido-basiques en chimie analytique, couvrant les méthodes de titrage, les courbes pH-métriques, et le repérage des équivalences. Ce chapitre inclut des exercices pratiques avec différents indicateurs colorés et systèmes acide-base, essentiels pour les TP de chimie et la préparation au Baccalauréat.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "dosage", "titrage", "acide-base", "pH-métrie", "équivalence"],
+    "pdfs": [
+        {
+            "title": "Série 1: Dosages Directs",
+            "url": "https://drive.google.com/file/d/1UPdFrRdPO5vD2QqxJd8Ba52BQom8F8UZ/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1wcqLQGebTqobf_8qymIDJxhEXy_7Wosf/preview"
+        },
+        {
+            "title": "Série 2: Dosages Complexes",
+            "url": "https://drive.google.com/file/d/1p_xtzXt3EbVvXmzOew6kRgNVJak0fLW8/preview"
+        },
+        {
+            "title": "Correction Série 2",
+            "url": "https://drive.google.com/file/d/1CkQmL0zbNwdxQjDGtvkMraP2vrUZQEIE/preview"
+        }
+    ]
+},
+
+    {
+    "id": 63,
+    "title": "Cinétique Chimique",
+    "description": "Série d'exercices sur la cinétique chimique, couvrant les vitesses de réaction, les lois de vitesse, et les facteurs influençant la cinétique (température, catalyseurs). Ce chapitre inclut des problèmes sur les méthodes expérimentales (suivi pH-métrique, conductimétrie) et des applications industrielles.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "cinetique", "vitesse réaction", "loi d'Arrhenius", "catalyse", "méthodes expérimentales"],
+    "pdfs": [
+        {
+            "title": "Série 1: Cinétique Fondamentale",
+            "url": "https://drive.google.com/file/d/1ww3xScwdaV3bz5KIoqVIzMHIyW0IBiVR/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1q43V4HW5JWp0-y2sc0AQItGWC8YlK2Fp/preview"
+        },
+        {
+            "title": "Série 2: Applications Cinétiques",
+            "url": "https://drive.google.com/file/d/18BHCmDqYRo-PHAougx0CCYBizKIu5gGm/preview"
+        },
+        {
+            "title": "Correction Série 2",
+            "url": "https://drive.google.com/file/d/124karxi8yENY8lMtUz5fouQ_L8FqVWO7/preview"
+        }
+    ]
+},
+    {
+    "id": 64,
+    "title": "Avancement de Réaction",
+    "description": "Exercices sur l'avancement chimique (ξ), couvrant les tableaux d'avancement, les réactions limitantes et les bilans matière. Ce chapitre propose des problèmes concrets pour déterminer l'état final d'un système chimique, avec applications aux calculs stœchiométriques et optimisations de réactions.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "avancement", "stœchiométrie", "tableau d'avancement", "réaction limitante", "bilan matière"],
+    "pdfs": [
+        {
+            "title": "Série 1: Bases de l'Avancement",
+            "url": "https://drive.google.com/file/d/1ffs2TZNDficeiQOK4-7aQ8Pf7JWLBOFF/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/124karxi8yENY8lMtUz5fouQ_L8FqVWO7/preview"
+        }
+    ]
+},
+{
+    "id": 65,
+    "title": "Estérification",
+    "description": "Série complète sur les réactions d'estérification et hydrolyse, couvrant les mécanismes réactionnels, l'équilibre estérification/hydrolyse, et les applications industrielles. Ce chapitre inclut des exercices sur le rendement, les facteurs cinétiques, et les techniques de purification (relargage, distillation).",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "esterification", "hydrolyse", "rendement", "catalyse acide", "chimie organique"],
+    "pdfs": [
+        {
+            "title": "Série 1: Estérification Simple",
+            "url": "https://drive.google.com/file/d/1YQqccbeQg7ahm37gqnG9JmBMCbatKSYa/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1FcKUow9_BdB70rcrly-xLMxGlE4B-1Uv/preview"
+        },
+        {
+            "title": "Série 2: Applications Industrielles",
+            "url": "https://drive.google.com/file/d/1v5z8igaHW91DnV5cXxXWyTpDp3WE-V48/preview"
+        },
+        {
+            "title": "Correction Série 2",
+            "url": "https://drive.google.com/file/d/1StS4Mn4IOQn22wtIIb0e7f5Z8dzyV5TV/preview"
+        }
+    ]
+},
+    {
+    "id": 66,
+    "title": "Piles Électrochimiques",
+    "description": "Série d'exercices sur les piles électrochimiques, couvrant les potentiels standards, les équations de Nernst, et les applications technologiques (accumulateurs, piles à combustible). Ce chapitre propose des problèmes sur le calcul de f.é.m., les demi-équations redox, et l'évolution des systèmes.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "pile", "electrochimie", "oxydoréduction", "Nernst", "f.é.m."],
+    "pdfs": [
+        {
+            "title": "Série 1: Piles Standards",
+            "url": "https://drive.google.com/file/d/1bSvR0GmwA2OFBeHysFZMGHE7ZQFXtLe1/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1ckcYCDjxk-Cl9GTw1l80Ftq14UpdyEMK/preview"
+        },
+        {
+            "title": "Série 2: Piles Spéciales",
+            "url": "https://drive.google.com/file/d/1OafD8xKXPJqXp3Xmfo4ZHZu9KeDc71XH/preview"
+        },
+        {
+            "title": "Correction Série 2",
+            "url": "https://drive.google.com/file/d/1ZaUATptcwOErJ0-h_Xxfcys1QpNPcHch/preview"
+        }
+    ]
+},
+    {
+    "id": 67,
+    "title": "Amides",
+    "description": "Exercices sur la famille des amides en chimie organique, couvrant leur nomenclature, propriétés (solubilité, point de fusion) et réactivité (hydrolyse acide/base). Ce chapitre inclut des problèmes sur les peptides simples et les mécanismes réactionnels caractéristiques.",
+    "type": "exercises",
+    "subject": "Chimie",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["chimie", "bac", "amide", "chimie organique", "hydrolyse", "peptide", "nomenclature"],
+    "pdfs": [
+        {
+            "title": "Série 1: Amides Simples",
+            "url": "https://drive.google.com/file/d/1-1cpJ2_56LNYYlgVWFipARGwf74TEGmm/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/163kWqPrJ26WqHmdiKQvH-LGyRlDRoiM6/preview"
+        }
+    ]
+},
+
+
+
+
+
+
+
+
+
+
+
+    
     {
         id: 15,
         title: "Reproduction féminine: cours + exercices",
