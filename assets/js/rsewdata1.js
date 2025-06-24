@@ -910,7 +910,7 @@ const educationalResources = [
 {
     "id": 101,
     "title": "Thème 2 : Génétique Formelle et Humaine",
-    "description": "Cours complet sur la génétique, couvrant à la fois la génétique formelle (lois de Mendel, croisements) et la génétique humaine (maladies héréditaires, arbres généalogiques). Le module aborde également les bases moléculaires de l'hérédité et les applications modernes en génétique médicale.",
+    "description": "Cours complet sur la genetique, couvrant à la fois la génétique formelle (lois de Mendel, croisements) et la génétique humaine (maladies héréditaires, arbres généalogiques). Le module aborde également les bases moléculaires de l'hérédité et les applications modernes en génétique médicale.",
     "type": "course",
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
@@ -963,7 +963,7 @@ const educationalResources = [
 {
     "id": 102,
     "title": "Thème 3 : Évolution Biologique",
-    "description": "Cours fondamental sur les mécanismes de l'évolution biologique, couvrant les preuves de l'évolution, la sélection naturelle, la dérive génétique et les spéciations. Ce module explore également les applications contemporaines de la théorie évolutionniste en biologie.",
+    "description": "Cours fondamental sur les mécanismes de l'evolution biologique, couvrant les preuves de l'évolution, la sélection naturelle, la dérive génétique et les spéciations. Ce module explore également les applications contemporaines de la théorie évolutionniste en biologie.",
     "type": "course",
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
@@ -981,6 +981,64 @@ const educationalResources = [
     ]
 },
 
+
+
+{
+    "id": 103,
+    "title": "Thème 4 : Neurophysiologie",
+    "description": "Cours complet sur la neurophysiologie, couvrant la structure et le fonctionnement du système nerveux, la transmission synaptique, les potentiels d'action, et les grandes fonctions cérébrales. Ce module inclut également des applications cliniques et les dernières avancées en neurosciences.",
+    "type": "course",
+    "subject": "Sciences de la Vie et de la Terre",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["SVT", "bac", "neurophysiologie", "système nerveux", "neurone", "synapse", "potentiel d'action", "neurosciences", "cerveau"],
+    "pdfs": [
+        {
+            "title": "Cours: Organisation du Système Nerveux",
+            "url": "https://drive.google.com/file/d/1OW7sMaB0orHpM8QhuBDaTaK6CAA42WYq/preview"
+        },
+        {
+            "title": "Cours: Le Neurone et ses Propriétés",
+            "url": "https://drive.google.com/file/d/1iAlSkPBR334JLdkCu-40vCmyP1NE3APH/preview"
+        },
+        {
+            "title": "Cours: Potentiels Membranaires",
+            "url": "https://drive.google.com/file/d/1raqZrW_t05g-LwyWmAGy_ziWTz8fBHsX/preview"
+        },
+        {
+            "title": "Cours: Transmission Synaptique",
+            "url": "https://drive.google.com/file/d/1Gf-odrr148VRPzwNzUxq2dXkf-5HMuDi/preview"
+        },
+        {
+            "title": "Cours: Neurotransmetteurs et Modulation",
+            "url": "https://drive.google.com/file/d/1lHCMv9ggSRWiGatX9Dhr9LiCxJq1ecCs/preview"
+        },
+        {
+            "title": "Cours: Fonctions Sensorielles",
+            "url": "https://drive.google.com/file/d/1zkYxHRrJbmvihaGfYZNtAz8YOr0NhZDW/preview"
+        },
+        {
+            "title": "Cours: Contrôle Moteur",
+            "url": "https://drive.google.com/file/d/14BMFQfO9p027RokmQOQUvjOCrHlwshZ_/preview"
+        },
+        {
+            "title": "Cours: Plasticité Cérébrale",
+            "url": "https://drive.google.com/file/d/1sUELVxDO6p0iHXQJEcrovHjJ1D9uRBGc/preview"
+        },
+        {
+            "title": "Cours: Fonctions Cognitives",
+            "url": "https://drive.google.com/file/d/1RsxDeUYbkZ0MlJVaWu36uo7v3hnOb4Vf/preview"
+        },
+        {
+            "title": "Cours: Pathologies Neurologiques",
+            "url": "https://drive.google.com/file/d/15pCteCSg27P_yUCH9wXjBqvLO_ZrdVsm/preview"
+        },
+        {
+            "title": "Cours: Méthodes d'Étude en Neurosciences",
+            "url": "https://drive.google.com/file/d/1naTIXKZKot1Ca6L7QXYuvUTrrJOtFNLH/preview"
+        }
+    ]
+},
 
 
 
