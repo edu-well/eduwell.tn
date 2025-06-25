@@ -989,380 +989,314 @@ const educationalResources = [
         }
     ]
 },
-
-{
-    "id": 105,
-    "title": "Thème 1 : Exercices sur la Reproduction Humaine",
-    "description": "Série complète d'exercices avec corrections sur la reproduction humaine, couvrant tous les aspects du programme de SVT au Baccalauréat.",
-    "type": "exercises",
-    "subject": "Sciences de la Vie et de la Terre",
-    "author": "Taki",
-    "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "reproduction humaine", "exercices", "corrigés"],
-    "series": [
-        {
-            "serie": {
+    {
+        "id": 105,
+        "title": "Thème 1 : Exercices sur la Reproduction Humaine",
+        "description": "Série complète d'exercices avec corrections sur la reproduction humaine, couvrant tous les aspects du programme de SVT au Baccalauréat.",
+        "type": "exercises",
+        "subject": "Sciences de la Vie et de la Terre",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["SVT", "bac", "reproduction humaine", "exercices", "corrigés"],
+        "pdfs": [
+            {
                 "title": "Série 1: Anatomie Reproductive",
                 "url": "https://drive.google.com/file/d/12KrIrXMdvyqWwGgBPS8MEbjfMoFhJ0hh/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 1",
                 "url": "https://drive.google.com/file/d/12sLKaWwtJHomBQDcDBpXsY0EHRmpoMZn/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 2: Physiologie de la Reproduction",
                 "url": "https://drive.google.com/file/d/15Kse_WWKJYfRTs7OCajTfLGH5Lqz0WMS/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 2",
                 "url": "https://drive.google.com/file/d/1Jrlcn5NinG-0rAFrrYh1lrLKqELSSbqK/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 3: Hormones et Régulation",
                 "url": "https://drive.google.com/file/d/1_jAwOsldK5YCy7gc9w4ydWX12fCSIvcC/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 3",
                 "url": "https://drive.google.com/file/d/1a58LEFEARJgznrZymiPvip-X28d_41Ya/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 4: Cycle Menstruel",
                 "url": "https://drive.google.com/file/d/1XSUvUOpIaV_L_uVSgZLb36zOVLotyXbg/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 4",
                 "url": "https://drive.google.com/file/d/1syhz--x1KEw-MYMkmbHsS5LODXIgIQBY/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 5: Gamétogenèse",
                 "url": "https://drive.google.com/file/d/1v55Snt4WXniH7koCGk-bKy-JNo0w0B_0/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 5",
                 "url": "https://drive.google.com/file/d/1GAQMK35jBaBqEmtghrF8uefIkP3U1x6g/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 6: Fécondation",
                 "url": "https://drive.google.com/file/d/16j_m7EbkTQb1Z9DOg3A71g9H40c5YpEM/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 6",
                 "url": "https://drive.google.com/file/d/1kP8ANznBi4O-jyaZKWrJmZMeMu7abTq5/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 7: Contrôle Nerveux",
                 "url": "https://drive.google.com/file/d/1SNthkV5kZNDpYcIi6NdppI1g4rDqNrIk/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 7",
                 "url": "https://drive.google.com/file/d/1KvNF40so-P3E33UnOIqAgFBHToxq97K1/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 8: Applications Cliniques",
                 "url": "https://drive.google.com/file/d/1jRwHk2SpR011NCIcCWjxgC9K5Z3Udai1/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 8",
                 "url": "https://drive.google.com/file/d/1YGd2qaEkuTtAbJ2f3Jg1EEcmnwL0pWRw/preview"
             }
-        }
-    ]
-},
-{
-    "id": 106,
-    "title": "Thème 2 : Exercices de Génétique",
-    "description": "Série complète d'exercices corrigés sur la genetique mendélienne et humaine, incluant les lois de l'hérédité, les croisements génétiques et l'analyse d'arbres généalogiques. Parfait pour la préparation au Baccalauréat en SVT.",
-    "type": "exercises",
-    "subject": "Sciences de la Vie et de la Terre",
-    "author": "Taki",
-    "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "génétique", "exercices", "mendélienne", "hérédité", "croisements", "arbres généalogiques"],
-    "series": [
-        {
-            "serie": {
+        ]
+    },
+    {
+        "id": 106,
+        "title": "Thème 2 : Exercices de Génétique",
+        "description": "Série complète d'exercices corrigés sur la genetique mendélienne et humaine, incluant les lois de l'hérédité, les croisements génétiques et l'analyse d'arbres généalogiques. Parfait pour la préparation au Baccalauréat en SVT.",
+        "type": "exercises",
+        "subject": "Sciences de la Vie et de la Terre",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["SVT", "bac", "génétique", "exercices", "mendélienne", "hérédité", "croisements", "arbres généalogiques"],
+        "pdfs": [
+            {
                 "title": "Série 1: Lois de Mendel",
                 "url": "https://drive.google.com/file/d/1SswS05mMGhpmpBIt5vksAk10e4esC7ck/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 1",
                 "url": "https://drive.google.com/file/d/1Nqk-uTjC43Y0KmfBy4WAXndxvAjq5k2T/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 2: Croisements Génétiques",
                 "url": "https://drive.google.com/file/d/1Kl1zHrLMLT9N-cDzEtlVyvKvrFowrnzK/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 2",
                 "url": "https://drive.google.com/file/d/1uV4JFqhsLYshoiTy8RFPdS4qOzb0H2OX/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 3: Génétique Humaine",
                 "url": "https://drive.google.com/file/d/1pgb6ZVIwWyi3P6J5X921pY5NT5ESLWhF/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 3",
                 "url": "https://drive.google.com/file/d/1L5y2vSKHRsiBZ6tQ9Sdc2LzuWa0AvY4A/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 4: Arbres Généalogiques",
                 "url": "https://drive.google.com/file/d/1J0LkjyzeJaXgLydCUKE3b_4ZUGFitEio/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 4",
                 "url": "https://drive.google.com/file/d/1C2IXqSNKJ5ZfCKGcJybucCji8xql_si6/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 5: Maladies Héréditaires",
                 "url": "https://drive.google.com/file/d/1iKgL5O7q8AI9o27YKdPFZlC3j9nRdrpB/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 5",
                 "url": "https://drive.google.com/file/d/1O-R1AUT8lm9vJIk4kdSAolDbY_10giq3/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 6: Génétique des Populations",
                 "url": "https://drive.google.com/file/d/1YHIKCvYG967Bwt0raCV4w-KpzOWR0ZkB/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 6",
                 "url": "https://drive.google.com/file/d/10J01oWLQISKusp4xF1zsh_ptCNUOt9gu/preview"
             }
-        }
-    ]
-},
-{
-    "id": 107,
-    "title": "Thème 3 : Exercices sur l'Évolution Biologique",
-    "description": "Série d'exercices corrigés sur les mécanismes de l'evolution biologique, incluant la sélection naturelle, la dérive génétique et les preuves de l'évolution. Ces exercices permettent de maîtriser les concepts clés du programme de SVT au Baccalauréat.",
-    "type": "exercises",
-    "subject": "Sciences de la Vie et de la Terre",
-    "author": "Taki",
-    "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "évolution", "sélection naturelle", "dérive génétique", "fossiles", "adaptation"],
-    "series": [
-        {
-            "serie": {
+        ]
+    },
+    {
+        "id": 107,
+        "title": "Thème 3 : Exercices sur l'Évolution Biologique",
+        "description": "Série d'exercices corrigés sur les mécanismes de l'evolution biologique, incluant la sélection naturelle, la dérive génétique et les preuves de l'évolution. Ces exercices permettent de maîtriser les concepts clés du programme de SVT au Baccalauréat.",
+        "type": "exercises",
+        "subject": "Sciences de la Vie et de la Terre",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["SVT", "bac", "évolution", "sélection naturelle", "dérive génétique", "fossiles", "adaptation"],
+        "pdfs": [
+            {
                 "title": "Série 1: Mécanismes de l'Évolution",
                 "url": "https://drive.google.com/file/d/1EVjdc9DpJK8Y21XTtO1E2y89IPXH9RDd/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 1",
                 "url": "https://drive.google.com/file/d/1Fd6_NEQ0dUa_aOn0O0P1nQsqKheBf_x_/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 2: Preuves de l'Évolution",
                 "url": "https://drive.google.com/file/d/1GtkGv5FFq3c5roM6M0BqbAZNVF5I2Sj2/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 2",
                 "url": "https://drive.google.com/file/d/1rekzs-1NrEQYWw_7_k_XQhN6s289vs_0/preview"
             }
-        }
-    ]
-},
-
-{
-    "id": 108,
-    "title": "Thème 4 : Exercices de Neurophysiologie",
-    "description": "Série complète d'exercices corrigés sur la neurophysiologie, couvrant le fonctionnement des neurones, la transmission synaptique, les potentiels d'action et les principales fonctions du système nerveux.",
-    "type": "exercises",
-    "subject": "Sciences de la Vie et de la Terre",
-    "author": "Taki",
-    "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "neurophysiologie", "neurone", "synapse", "potentiel d'action", "système nerveux"],
-    "series": [
-        {
-            "serie": {
+        ]
+    },
+    {
+        "id": 108,
+        "title": "Thème 4 : Exercices de Neurophysiologie",
+        "description": "Série complète d'exercices corrigés sur la neurophysiologie, couvrant le fonctionnement des neurones, la transmission synaptique, les potentiels d'action et les principales fonctions du système nerveux.",
+        "type": "exercises",
+        "subject": "Sciences de la Vie et de la Terre",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["SVT", "bac", "neurophysiologie", "neurone", "synapse", "potentiel d'action", "système nerveux"],
+        "pdfs": [
+            {
                 "title": "Série 1: Structure du Neurone",
                 "url": "https://drive.google.com/file/d/1raI_UCz7WBAK2XaQqPtd2PtJStdraoQZ/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 1",
                 "url": "https://drive.google.com/file/d/19_tmW6981jipVyN7kwkUBsJI9BPwcDN-/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 2: Potentiels Membranaires",
                 "url": "https://drive.google.com/file/d/1bnYgaqUyjQGVeDcUzul0fR6rUZbky8Zc/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 2",
                 "url": "https://drive.google.com/file/d/16JUW0_h3aOpnqCPT3Vk1wDMbefQZqHOQ/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 3: Potentiel d'Action",
                 "url": "https://drive.google.com/file/d/1Ub56U4h4Ph3WuiaaYJsg8JbRab-S4F08/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 3",
                 "url": "https://drive.google.com/file/d/10Ed780VHnu94Rl1vCCGyo1VYxn3yphCy/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 4: Transmission Synaptique",
                 "url": "https://drive.google.com/file/d/1YhQqdmvY_IzM3n3swyWSRGH4pWf2wPge/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 4",
                 "url": "https://drive.google.com/file/d/1ihsTWCcdSmZelRatp6ovHSc1CzOlLTfe/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 5: Neurotransmetteurs",
                 "url": "https://drive.google.com/file/d/14KGxFI1f4mkmeA2qoh4z18sUGmOj_C3L/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 5",
                 "url": "https://drive.google.com/file/d/1kspe1jYAijZnat98iFBNAkmFb0q6lRIA/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 6: Réflexes Médullaires",
                 "url": "https://drive.google.com/file/d/1Wg4HiaszaEx3Pk8jdVu4qOzJZbotLpRR/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 6",
                 "url": "https://drive.google.com/file/d/1Ow6urad2a3Vg6InPh-i6N1EF-qKTTl9Y/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 7: Contrôle Cérébral",
                 "url": "https://drive.google.com/file/d/1IhczdqM90jxBNr49wKoZQe0Z5ziRG2Ar/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 7",
                 "url": "https://drive.google.com/file/d/18yevwlG1cfWh0JNaAsRBqF6WnIFCgZJb/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 8: Plasticité Cérébrale",
                 "url": "https://drive.google.com/file/d/1jY8GGJv3h0UJhxiS1PKhBUd97VZxuTw_/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 8",
                 "url": "https://drive.google.com/file/d/1hnko2e8BAJsURpjIvXrvfRz8l3HQuLTb/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 9: Pathologies Neurologiques",
                 "url": "https://drive.google.com/file/d/1CDKkfdg227lWeCh7MnNvPLj61oTff2u_/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 9",
                 "url": "https://drive.google.com/file/d/1INIRzX6dQ-eixGHdHbZaFOU4phyDZAo3/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 10: Méthodes d'Étude",
                 "url": "https://drive.google.com/file/d/1VouWGenMSrii_ui092MC_r2fishzIYfM/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 10",
                 "url": "https://drive.google.com/file/d/1CwcCOonsbB9Q8n0H76bFyimhki9D35M0/preview"
             }
-        }
-    ]
-},
-{
-    "id": 109,
-    "title": "Thème 5 : Exercices d'Immunologie",
-    "description": "Série d'exercices corrigés sur le système immunitaire, couvrant l'immunité innée et adaptative, la réponse aux pathogènes, et les applications médicales comme la vaccination.",
-    "type": "exercises",
-    "subject": "Sciences de la Vie et de la Terre",
-    "author": "Taki",
-    "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "immunité", "lymphocytes", "anticorps", "vaccination", "pathogènes"],
-    "series": [
-        {
-            "serie": {
+        ]
+    },
+    {
+        "id": 109,
+        "title": "Thème 5 : Exercices d'Immunologie",
+        "description": "Série d'exercices corrigés sur le système immunitaire, couvrant l'immunité innée et adaptative, la réponse aux pathogènes, et les applications médicales comme la vaccination.",
+        "type": "exercises",
+        "subject": "Sciences de la Vie et de la Terre",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["SVT", "bac", "immunité", "lymphocytes", "anticorps", "vaccination", "pathogènes"],
+        "pdfs": [
+            {
                 "title": "Série 1: Immunité Innée",
                 "url": "https://drive.google.com/file/d/15vcsM6sA8Ftt4AwmeNAnXEkHCuDl-8yv/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 1",
                 "url": "https://drive.google.com/file/d/1_0VjdcAZkYJlap9O9cbW8_E8siPXenY3/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 2: Immunité Adaptative",
                 "url": "https://drive.google.com/file/d/14dB98nIxqhgJrrSn0QYU3DGeJa8RGzNj/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 2",
                 "url": "https://drive.google.com/file/d/1pU5ob9j6nlFWdk0I4YhDhLVgnxiA-PyC/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 3: Réponse Immunitaire",
                 "url": "https://drive.google.com/file/d/1gg-h9ubn1ckHJf6fz7rIdkeyRbtpvV3O/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 3",
                 "url": "https://drive.google.com/file/d/1S0qLJF7YEo2za0Yj8OB5UDxXFbOOO_8r/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 4: Anticorps et Vaccination",
                 "url": "https://drive.google.com/file/d/1flbusgTXgqSh4QiiPvnSOz0hGa_iyCvL/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 4",
                 "url": "https://drive.google.com/file/d/1wcaq1w-129-iB2oWMtmcTmifUMxeuUe8/preview"
-            }
-        },
-        {
-            "serie": {
+            },
+            {
                 "title": "Série 5: Pathologies Immunitaires",
                 "url": "https://drive.google.com/file/d/1vDPZN02tBCuG7EXIz_uFGEKOeZXONK0k/preview"
             },
-            "correction": {
+            {
                 "title": "Correction Série 5",
                 "url": "https://drive.google.com/file/d/1SHNZjU5w0aRWCFhbbp16x1oxcXv8XV2x/preview"
             }
-        }
-    ]
-},
-
-
+        ]
+    },
     
     {
         id: 15,
