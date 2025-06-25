@@ -1297,6 +1297,397 @@ const educationalResources = [
             }
         ]
     },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {
+    "id": 200,
+    "title": "Exercices de Physique - Série RC",
+    "description": "Série d'exercices sur les circuits RC en physique avec corrections complètes.",
+    "type": "exercises",
+    "subject": "Physique",
+    "author": "Taki",
+    "date": "2023-07-15",
+    "keywords": ["physique", "circuits RC", "exercices", "corrigés"],
+    "pdfs": [
+        {
+            "title": "Série 1: Circuits RC",
+            "url": "https://drive.google.com/file/d/13RwAOPHNIlo5mJJMmmgxQ9ktrgIxzw44/preview"
+        },
+        {
+            "title": "Correction Série 1",
+            "url": "https://drive.google.com/file/d/1Pq13TCyCTk_xxWCCs01CFH3qCdLo0aKZ/preview"
+        },
+        {
+            "title": "Série 2: Applications des Circuits RC",
+            "url": "https://drive.google.com/file/d/1hD6ybCZCrG33BDYgaiGhx6tqFZxoVggJ/preview"
+        },
+        {
+            "title": "Correction Série 2",
+            "url": "https://drive.google.com/file/d/1e7X07gW74w2gFWxQTb5xrpMzvkp_MSDh/preview"
+        }
+    ]
+},
+
+    {
+        "id": 201,
+        "title": "Exercices de Physique - Circuits RL",
+        "description": "Série d'exercices sur les circuits RL en physique avec corrections complètes.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "circuits RL", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Circuits RL",
+                "url": "https://drive.google.com/file/d/1B_HHv96HIqbMyx3_h4Ai3rrhZpQPJTtY/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1d56htsQwjp061edX7ePyb9Kk4yZyK8DD/preview"
+            },
+            {
+                "title": "Série 2: Applications des Circuits RL",
+                "url": "https://drive.google.com/file/d/1Ua2v8hu_LNnTaH-6fNJgvcyaichn_8vD/preview"
+            },
+            {
+                "title": "Correction Série 2",
+                "url": "https://drive.google.com/file/d/17TDSvgY8ZnZcrktBrN6TKH4P_lsGNzhr/preview"
+            }
+        ]
+    },
+    {
+        "id": 202,
+        "title": "Exercices de Physique - Circuits RLC (Amortis et Non Amortis)",
+        "description": "Série complète d'exercices sur les circuits RLC amortis et non amortis avec corrections détaillées.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "circuits RLC", "amorti", "non amorti", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Circuits RLC",
+                "url": "https://drive.google.com/file/d/1HaKUYVuHdpTORKzaQb5ih8-RBKpZCdce/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1YCv40RHgFRMIplg19K3RG9KYX70nD86r/preview"
+            },
+            {
+                "title": "Série 2: Applications des Circuits RLC",
+                "url": "https://drive.google.com/file/d/1sJs02LGezSIOwHGVGu6dVkV0Q-m114jE/preview"
+            },
+            {
+                "title": "Correction Série 2",
+                "url": "https://drive.google.com/file/d/17iFd1V1zyOTfG5aaFXMTH42zKVt8227-/preview"
+            },
+            {
+                "title": "Série 3: Problèmes Avancés RLC",
+                "url": "https://drive.google.com/file/d/1VtUrhSrVrq1Jkb1Q3NbTi4WxhYcGtA2e/preview"
+            },
+            {
+                "title": "Correction Série 3",
+                "url": "https://drive.google.com/file/d/1NQ6PZ2ePIgHe1RjWaCHUAONMpt6RimFJ/preview"
+            }
+        ]
+    },
+    {
+        "id": 203,
+        "title": "Exercices de Physique - Force Électrique",
+        "description": "Série complète d'exercices sur la force électrique et ses applications, avec corrections détaillées.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "force électrique", "électrostatique", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Force Électrique",
+                "url": "https://drive.google.com/file/d/1V6gcUKD0cWmQS1l26-i8EfJl_15ufgkC/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1ve_YoEvXL84Bbu2Pz0xA4C_rbJ2_V_GB/preview"
+            },
+            {
+                "title": "Série 2: Applications de la Force Électrique",
+                "url": "https://drive.google.com/file/d/1vgmFNndOQ3BG1AURYEswIhTRNd3bOwZY/preview"
+            },
+            {
+                "title": "Correction Série 2",
+                "url": "https://drive.google.com/file/d/1zNcAeXlntm7AncO64f430LizTiZBskQI/preview"
+            },
+            {
+                "title": "Série 3: Problèmes Complexes",
+                "url": "https://drive.google.com/file/d/1KUMDTaaFkFkjOcYJZ-Lm8zs4pOvkSjMP/preview"
+            },
+            {
+                "title": "Correction Série 3 (Partie 1)",
+                "url": "https://drive.google.com/file/d/1CoZ62vLZcn1lJ6dTq7Vh-EJKeq9alVUK/preview"
+            },
+            {
+                "title": "Correction Série 3 (Partie 2)",
+                "url": "https://drive.google.com/file/d/1dSXkyzdbVRIzBcSpBD6YJIRKK0lpqoch/preview"
+            }
+        ]
+    },
+
+
+
+    
+    {
+        "id": 204,
+        "title": "Exercices de Physique - Spectres",
+        "description": "Série d'exercices sur l'analyse des spectres en physique avec corrections.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "spectres", "analyse spectrale", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Analyse de Spectres",
+                "url": "https://drive.google.com/file/d/1uaInrMw6Ds3e3tEtzmtXx0V2Qukbm_z6/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1sXwr8k_gWPfqcROCEf-LIAo80rXV1ouB/preview"
+            }
+        ]
+    },
+    {
+        "id": 205,
+        "title": "Exercices de Physique - Ondes Mécaniques",
+        "description": "Série complète d'exercices sur les ondes mecaniques avec corrections détaillées.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "ondes mécaniques", "propagation", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Propriétés des Ondes Mécaniques",
+                "url": "https://drive.google.com/file/d/1kKrej2MRzOnN_LY3SATDmaHCj9VRDkhx/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1o7fbw-2i_MXYaP90Al7RKkZCGTcGDYrB/preview"
+            },
+            {
+                "title": "Série 2: Propagation des Ondes",
+                "url": "https://drive.google.com/file/d/1hGT_-6LaX_sAqmTnoEYMST1bsYh-z2JO/preview"
+            },
+            {
+                "title": "Correction Série 2",
+                "url": "https://drive.google.com/file/d/1VauoOLAAfw1Fd1t1sw-efCjk75X4u3W8/preview"
+            },
+            {
+                "title": "Série 3: Applications des Ondes Mécaniques",
+                "url": "https://drive.google.com/file/d/1mzGsDLEdhem_q9q0zjsozsOk6VIaXbt9/preview"
+            },
+            {
+                "title": "Correction Série 3",
+                "url": "https://drive.google.com/file/d/1RIpoS2g6GSV7jxVO9AcacAQ6aPdbpfC4/preview"
+            }
+        ]
+    },
+    {
+        "id": 206,
+        "title": "Exercices de Physique - Mécanique",
+        "description": "Série complète d'exercices de mecanique avec corrections détaillées.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "mécanique", "dynamique", "cinématique", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Principes Fondamentaux",
+                "url": "https://drive.google.com/file/d/1T1QGd2fm8RsgyiKtbJeq4z7JO132_LpP/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1-0i34luVssEFfqG85HCT7A_jKIl0iOEF/preview"
+            },
+            {
+                "title": "Série 2: Applications de la Mécanique",
+                "url": "https://drive.google.com/file/d/1fe-Qh7Fi0qB6LaiW536lAjq9MvfmTjxh/preview"
+            },
+            {
+                "title": "Correction Série 2",
+                "url": "https://drive.google.com/file/d/122yUXRw3gDLtTSHFQLHbKzSCDfQa6_2d/preview"
+            },
+            {
+                "title": "Série 3: Problèmes Complexes de Mécanique",
+                "url": "https://drive.google.com/file/d/1bjMcy_fcVAmdQHMnmwIisapKiA6SKq7z/preview"
+            },
+            {
+                "title": "Correction Série 3",
+                "url": "https://drive.google.com/file/d/1GnmpObtUqaSyiUBjiN2uM5EI8k0WNJke/preview"
+            }
+        ]
+    },
+
+
+    
+    {
+        "id": 207,
+        "title": "Exercices de Physique - Radioactivité",
+        "description": "Série d'exercices sur la radioactivité et les phénomènes nucléaires avec corrections.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "radioactivité", "nucléaire", "désintégration", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Phénomènes de Radioactivité",
+                "url": "https://drive.google.com/file/d/1WFdfBODT6OK2wru-xGVy8B39CQI0c4pA/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1f2kTrsdK4GyVzajcClq8Ay5YsVn4RHf2/preview"
+            }
+        ]
+    },
+    {
+        "id": 208,
+        "title": "Exercices de Physique - Cinétique Chimique",
+        "description": "Série complète d'exercices sur la cinétique chimique avec corrections détaillées.",
+        "type": "exercises",
+        "subject": "Physique",
+        "author": "Taki",
+        "date": "2023-07-15",
+        "keywords": ["physique", "cinétique", "réactions chimiques", "vitesse de réaction", "exercices", "corrigés"],
+        "pdfs": [
+            {
+                "title": "Série 1: Principes de Cinétique",
+                "url": "https://drive.google.com/file/d/1-l-qGnui5yX8qwxevS3eZ-CMU5GfhlkY/preview"
+            },
+            {
+                "title": "Correction Série 1",
+                "url": "https://drive.google.com/file/d/1FUkEjf11SZ61KFshBto6Hjh0eISC7waL/preview"
+            },
+            {
+                "title": "Série 2: Méthodes d'Étude Cinétique",
+                "url": "https://drive.google.com/file/d/1Qd5mwO3jJt8nvz4lwFcYDfaEIE-OII-e/preview"
+            },
+            {
+                "title": "Correction Série 2",
+                "url": "https://drive.google.com/file/d/1JStCUHbXhW_PWYKRA-yR5FUtx072DhjE/preview"
+            },
+            {
+                "title": "Série 3: Applications de la Cinétique",
+                "url": "https://drive.google.com/file/d/1LKJvWOhKHKi_WVg8g-w5HHycDA8ucJHV/preview"
+            },
+            {
+                "title": "Correction Série 3",
+                "url": "https://drive.google.com/file/d/1O512G-tUqhOZD42OwleH-9hUOIXzwoMH/preview"
+            }
+        ]
+    },
+
     
     {
         id: 15,
