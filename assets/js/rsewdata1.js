@@ -31,7 +31,7 @@ const educationalResources = [
     {
         id: 20,
         title: "COURS GÉNÉTIQUE HUMAINE Avec Exercices",
-        description: "Cours approfondi sur la génétique humaine et les maladies héréditaires. Ce document couvre les lois de Mendel, les chromosomes et les maladies génétiques courantes. Transmission des maladies héréditaires et diagnostic prénatal",
+        description: "Cours approfondi sur la genetique humaine et les maladies héréditaires. Ce document couvre les lois de Mendel, les chromosomes et les maladies génétiques courantes. Transmission des maladies héréditaires et diagnostic prénatal",
         type: "cours + exercices",
         subject: "SVT",
         author: "Lycée Pilote",
@@ -959,7 +959,7 @@ const educationalResources = [
 
 {
     "id": 104,
-    "title": "Thème 5 : Immunologie",
+    "title": "Thème 5 : Immunité",
     "description": "Cours complet sur le système immunitaire, couvrant l'immunité innée et adaptative, les cellules immunitaires, les anticorps, et la réponse aux pathogènes. Ce module inclut également les applications médicales (vaccination, allergies) et les désordres immunitaires.",
     "type": "course",
     "subject": "Sciences de la Vie et de la Terre",
@@ -1247,7 +1247,7 @@ const educationalResources = [
     },
     {
         "id": 109,
-        "title": "Thème 5 : Exercices d'Immunologie",
+        "title": "Thème 5 : Exercices Immunité",
         "description": "Série d'exercices corrigés sur le système immunitaire, couvrant l'immunité innée et adaptative, la réponse aux pathogènes, et les applications médicales comme la vaccination.",
         "type": "exercises",
         "subject": "Sciences de la Vie et de la Terre",
