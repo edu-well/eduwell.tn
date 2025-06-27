@@ -1,7 +1,3 @@
-this is the css code 
-
-
-
 /* Premium Purple Gradient Theme - Apple/Microsoft Style */
 :root {
   --primary: #6C5CE7;
@@ -270,8 +266,8 @@ header {
 
 .search-box {
   width: 100%;
-  height: 4.7rem;
-  padding: 0 4.7rem 0 1.7rem;
+  height: 4.5rem;
+  padding: 0 4.5rem 0 1.5rem;
   font-size: 1.125rem;
   border: var(--border-dark);
   border-radius: var(--radius-md);
@@ -524,14 +520,14 @@ header {
   margin: 0 auto;
 }
 
-/* Popular Searches - Compact Version */
+/* Popular Searches */
 .popular-searches {
   width: 100%;
-  max-width: 32rem; /* Reduced from 46rem */
-  margin: 1.5rem auto 0; /* Reduced top margin */
+  max-width: 46rem;
+  margin: 3rem auto 0;
   background-color: var(--white);
   border-radius: var(--radius-md);
-  padding: 1rem; /* Reduced padding */
+  padding: 1.5rem;
   box-shadow: var(--shadow-sm);
   border: var(--border-dark);
   transition: var(--transition);
@@ -541,19 +537,19 @@ header {
 
 .popular-searches:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-3px); /* Reduced hover effect */
+  transform: translateY(-5px);
 }
 
 .popular-title {
-  font-size: 0.75rem; /* Smaller font */
-  font-weight: 700;
-  margin-bottom: 0.75rem; /* Reduced margin */
+  font-size: 1.375rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
   color: var(--text-dark);
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Reduced gap */
+  gap: 0.75rem;
   position: relative;
-  padding-bottom: 0.5rem; /* Reduced padding */
+  padding-bottom: 0.75rem;
 }
 
 .popular-title::after {
@@ -561,33 +557,33 @@ header {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 2.5rem; /* Shorter underline */
-  height: 2px; /* Thinner underline */
+  width: 3.75rem;
+  height: 3px;
   background: var(--primary-gradient);
-  border-radius: 2px;
+  border-radius: 3px;
 }
 
 .popular-title i {
   color: var(--primary);
-  font-size: 0.875rem; /* Smaller icon */
+  font-size: 1.5rem;
 }
 
 .popular-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); /* Narrower items */
-  gap: 0.5rem; /* Reduced gap */
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
 }
 
 .popular-item {
-  padding: 0.5rem 0.75rem; /* Reduced padding */
+  padding: 0.875rem 1.25rem;
   background-color: var(--white);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
-  font-size: 0.6875rem; /* Smaller font */
+  font-size: 0.9375rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Reduced gap */
+  gap: 0.75rem;
   border: var(--border);
   color: var(--text-dark);
   font-weight: 500;
@@ -610,7 +606,7 @@ header {
 .popular-item:hover {
   border-color: var(--primary);
   box-shadow: var(--shadow-sm);
-  transform: translateY(-2px); /* Reduced hover effect */
+  transform: translateY(-3px);
 }
 
 .popular-item:hover::before {
@@ -619,13 +615,14 @@ header {
 
 .popular-item i {
   color: var(--primary);
-  font-size: 0.875rem; /* Smaller icon */
+  font-size: 1.125rem;
   transition: var(--transition);
 }
 
 .popular-item:hover i {
-  transform: scale(1.1); /* Reduced hover scale */
+  transform: scale(1.2);
 }
+
 /* Subjects Filter */
 .subjects-filter {
   width: 100%;
@@ -691,22 +688,16 @@ header {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
 }
 
-/* Featured Resources with Animations */
+/* Featured Resources */
 .featured-section {
   width: 100%;
   margin: 6.25rem auto;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.featured-section.in-view {
-  opacity: 1;
-  transform: translateY(0);
+  animation: fadeIn 0.8s ease forwards;
+  animation-delay: 0.6s;
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin-bottom: 3rem;
   color: var(--text-dark);
@@ -715,7 +706,6 @@ header {
   gap: 1rem;
   position: relative;
   padding-bottom: 1rem;
-  overflow: hidden;
 }
 
 .section-title::after {
@@ -723,39 +713,15 @@ header {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0;
+  width: 5rem;
   height: 4px;
   background: var(--primary-gradient);
   border-radius: 4px;
-  transition: width 1s ease 0.5s;
-}
-
-.featured-section.in-view .section-title::after {
-  width: 5rem;
 }
 
 .section-title i {
   color: var(--primary);
-  font-size: 1.5rem;
-}
-
-/* Typing animation for title */
-.section-title-text {
-  display: inline-block;
-  position: relative;
-}
-
-.section-title-text::after {
-  content: '|';
-  position: absolute;
-  right: -8px;
-  animation: blink 0.7s infinite;
-  color: var(--primary);
-}
-
-.featured-section.in-view .section-title-text::after {
-  animation: typing 1.5s steps(20) 1s forwards, 
-             blink 0.7s infinite 2.5s;
+  font-size: 2rem;
 }
 
 .featured-grid {
@@ -773,20 +739,7 @@ header {
   border: var(--border-dark);
   cursor: pointer;
   position: relative;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
 }
-
-.featured-section.in-view .featured-card {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.featured-card:nth-child(1) { transition-delay: 0.2s; }
-.featured-card:nth-child(2) { transition-delay: 0.4s; }
-.featured-card:nth-child(3) { transition-delay: 0.6s; }
-.featured-card:nth-child(4) { transition-delay: 0.8s; }
 
 .featured-card::before {
   content: '';
@@ -826,13 +779,6 @@ header {
   height: 100%;
   object-fit: cover;
   transition: var(--transition);
-  transform: scale(1.1);
-  opacity: 0.8;
-}
-
-.featured-card.in-view .card-image img {
-  transform: scale(1);
-  opacity: 1;
 }
 
 .featured-card:hover .card-image img {
@@ -847,20 +793,15 @@ header {
   color: white;
   padding: 0.375rem 1rem;
   border-radius: var(--radius-full);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 600;
   box-shadow: var(--shadow-sm);
   z-index: 2;
   transition: var(--transition);
-  transform: scale(0);
-}
-
-.featured-card.in-view .card-badge {
-  transform: scale(1);
 }
 
 .featured-card:hover .card-badge {
-  transform: translateY(-5px) scale(1.05);
+  transform: translateY(-5px);
   box-shadow: var(--shadow-md);
 }
 
@@ -869,19 +810,11 @@ header {
 }
 
 .card-title {
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   color: var(--text-dark);
   transition: var(--transition);
-  opacity: 0;
-  transform: translateX(-10px);
-}
-
-.featured-card.in-view .card-title {
-  opacity: 1;
-  transform: translateX(0);
-  transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s, color 0.3s ease;
 }
 
 .featured-card:hover .card-title {
@@ -889,32 +822,18 @@ header {
 }
 
 .card-description {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: var(--text-light);
   margin-bottom: 1.5rem;
   line-height: 1.5;
-  opacity: 0;
-  transform: translateY(10px);
-}
-
-.featured-card.in-view .card-description {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
 }
 
 .card-meta {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--text-lighter);
-  opacity: 0;
-}
-
-.featured-card.in-view .card-meta {
-  opacity: 1;
-  transition: opacity 0.4s ease 0.7s;
 }
 
 .card-meta i {
@@ -922,29 +841,16 @@ header {
   color: var(--medium-gray);
 }
 
-/* Keyframes for animations */
-@keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink {
-  from, to { opacity: 0 }
-  50% { opacity: 1 }
-}
-
-/* JavaScript will need to add these classes on scroll */
-
-/* Compact Modal Styles */
+/* Modal Styles */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
-  backdrop-filter: blur(8px); /* Reduced blur */
-  -webkit-backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -961,13 +867,13 @@ header {
 
 .modal {
   width: 90%;
-  max-width: 48rem; /* Reduced from 62.5rem */
-  max-height: 85vh; /* Slightly smaller */
+  max-width: 62.5rem;
+  max-height: 90vh;
   background-color: var(--white);
-  border-radius: var(--radius-md); /* Smaller radius */
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
-  transform: translateY(1rem); /* Reduced initial offset */
+  transform: translateY(1.25rem);
   transition: var(--transition);
   display: flex;
   flex-direction: column;
@@ -978,8 +884,8 @@ header {
 }
 
 .modal-header {
-  padding: 1rem 1.5rem; /* More compact */
-  border-bottom: var(--border);
+  padding: 1.25rem 2.25rem;
+  border-bottom: var(--border-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -988,21 +894,21 @@ header {
 }
 
 .modal-title {
-  font-size: 1.25rem; /* Smaller title */
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 .modal-close {
   background: none;
   border: none;
-  font-size: 1.5rem; /* Smaller close button */
+  font-size: 1.75rem;
   cursor: pointer;
   color: white;
   transition: var(--transition);
   padding: 0.25rem;
   border-radius: 0.25rem;
-  width: 2rem; /* Smaller hit area */
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1014,25 +920,25 @@ header {
 }
 
 .modal-content {
-  padding: 1.5rem; /* Reduced padding */
+  padding: 2.5rem;
   overflow-y: auto;
-  max-height: calc(85vh - 4rem); /* Adjusted for smaller header */
+  max-height: calc(90vh - 5rem);
 }
 
-/* Compact Resource Styles */
 .resource-container {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* Reduced gap */
+  gap: 2rem;
 }
 
 .resource-box {
-  border: var(--border);
-  border-radius: var(--radius-sm); /* Smaller radius */
+  border: var(--border-dark);
+  border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   position: relative;
+  overflow: hidden;
 }
 
 .resource-box::before {
@@ -1040,7 +946,7 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  width: 3px; /* Thinner accent */
+  width: 4px;
   height: 100%;
   background: var(--primary);
   transition: var(--transition);
@@ -1048,46 +954,46 @@ header {
 
 .resource-box:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-2px); /* Reduced hover effect */
+  transform: translateY(-0.3125rem);
 }
 
 .resource-box:hover::before {
-  width: 5px; /* Less expansion */
+  width: 8px;
 }
 
 .resource-header {
-  padding: 0.75rem 1.25rem; /* More compact */
+  padding: 1rem 1.5rem;
   background-color: var(--light);
-  border-bottom: var(--border);
+  border-bottom: var(--border-dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .resource-title {
-  font-size: 1rem; /* Smaller title */
+  font-size: 0.725rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* Reduced gap */
+  gap: 0.75rem;
   color: var(--text-dark);
 }
 
 .resource-actions {
   display: flex;
-  gap: 0.75rem; /* Reduced gap */
+  gap: 1rem;
 }
 
 .resource-btn {
-  padding: 0.5rem 1rem; /* More compact */
+  padding: 0.625rem 1.25rem;
   border-radius: var(--radius-sm);
   background-color: var(--white);
-  border: var(--border);
+  border: var(--border-dark);
   cursor: pointer;
-  font-size: 0.8125rem; /* Smaller text */
+  font-size: 0.875rem;
   display: flex;
   align-items: center;
-  gap: 0.375rem; /* Reduced gap */
+  gap: 0.5rem;
   transition: var(--transition);
   color: var(--text-dark);
   font-weight: 500;
@@ -1097,21 +1003,21 @@ header {
   background-color: var(--primary-light);
   border-color: var(--primary);
   color: var(--primary);
-  transform: translateY(-1px); /* Reduced hover effect */
+  transform: translateY(-2px);
 }
 
-/* Compact PDF Container */
+/* PDF Container */
 .pdf-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem; /* Reduced padding */
+  padding: 2.75rem;
   background-color: var(--light);
-  border-radius: var(--radius-sm); /* Smaller radius */
+  border-radius: var(--radius-md);
   margin: 0;
   text-align: center;
-  border: 1px dashed var(--light-gray); /* Thinner border */
+  border: 2px dashed var(--light-gray);
   transition: var(--transition);
 }
 
@@ -1121,21 +1027,21 @@ header {
 }
 
 .pdf-icon {
-  font-size: 3.5rem; /* Smaller icon */
+  font-size: 3rem;
   color: #E53E3E;
-  margin-bottom: 1rem; /* Reduced spacing */
+  margin-bottom: 1rem;
   transition: var(--transition);
 }
 
 .pdf-container:hover .pdf-icon {
-  transform: scale(1.05) rotate(-3deg); /* More subtle effect */
+  transform: scale(1.1) rotate(-5deg);
 }
 
 .pdf-name {
-  font-size: 1.125rem; /* Smaller text */
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
   color: var(--text-dark);
-  margin-bottom: 1rem; /* Reduced spacing */
+  margin-bottom: 1.5rem;
   word-break: break-word;
   max-width: 100%;
 }
@@ -1143,28 +1049,26 @@ header {
 .pdf-link {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem; /* Reduced gap */
-  padding: 0.75rem 1.5rem; /* More compact */
+  gap: 0.75rem;
+  padding: 0.75rem 1.75rem;
   background: var(--primary-gradient);
   color: white;
   border-radius: var(--radius-sm);
   text-decoration: none;
   font-weight: 600;
   transition: var(--transition);
-  margin-top: 0.75rem; /* Reduced spacing */
+  margin-top: 1rem;
   box-shadow: var(--shadow-sm);
   border: none;
   cursor: pointer;
-  font-size: 0.875rem; /* Smaller text */
 }
 
 .pdf-link:hover {
   background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-  transform: translateY(-2px); /* Reduced hover effect */
+  transform: translateY(-3px);
   box-shadow: var(--shadow-md);
 }
 
-/* Compact Video Container */
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -1265,9 +1169,9 @@ footer {
 }
 
 .footer-copyright {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
   color: var(--text-lighter);
-  font-size: 0.875rem;
+  font-size: 0.5rem;
 }
 
 /* Responsive Adjustments */
@@ -1480,215 +1384,3 @@ footer {
   transform: scale(1.03);
 }
 
-
-
-and this the html code 
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="7-FD479xFj_8HbH9UlwHCnnMl0gziIaCUqk5R_oU6L4" />
-  <title>EduWell - La plateforme intelligente de ressources éducatives</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="shortcut icon" href="./assets/images/searchew.png" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/rsew.css">
-  <style>
-
-
-
-
-
-
-
-  </style>
-</head>
-<body>
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="loader-logo">
-                <div class="loader-logo-inner">
-                    <i class="fas fa-book" style="font-size: 36px;"></i>
-                </div>
-            </div>
-            <div class="loader-text">Préparation de votre espace éducatif</div>
-            <div class="progress-container">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-        </div>
-    </div>
-
-    <div id="app">
-        <div class="container">
-            <header>
-                <div class="logo">
-                    <i class="fas fa-book logo-icon"></i>
-                    <span class="logo-text">EduWell Search V0.3</span>
-                </div>
-                <p class="tagline">La plateforme intelligente de ressources éducatives pour le Baccalauréat</p>
-            </header>
-
-            <div class="search-section">
-                <div class="search-container">
-                    <input type="text" class="search-box" placeholder="Rechercher des cours, exercices, fiches de révision..." id="searchInput">
-                    <div class="search-actions">
-                        <button class="search-clear hidden" id="searchClear">
-                            <i class="fas fa-times"></i>
-                        </button>
-                        <div class="spinner" id="spinner"></div>
-                    </div>
-                    <div class="search-icon"><i class="fas fa-search"></i></div>
-                </div>
-
-                <div class="search-results" id="searchResults"></div>
-            </div>
-
-            <div class="subjects-filter" id="subjectsFilter">
-                <button class="subject-btn active" data-subject="all">Toutes les matières</button>
-                <button class="subject-btn" data-subject="Mathématiques">Mathématiques</button>
-                <button class="subject-btn" data-subject="physics">Physique</button>
-                <button class="subject-btn" data-subject="chemistry">Chimie</button>
-                <button class="subject-btn" data-subject="Sciences de la Vie et de la Terre">SVT</button>
-                <button class="subject-btn" data-subject="philosophy">Philosophie</button>
-                <button class="subject-btn" data-subject="fr">Français</button>
-                <button class="subject-btn" data-subject="arb">عربية</button>
-                <button class="subject-btn" data-subject="english">Anglais</button>
-            </div>
-
-            <div class="popular-searches">
-                <div class="popular-title"><i class="fas fa-chart-line"></i> Recherches Populaires</div>
-                <div class="popular-list">
-                    <div class="popular-item"><i class="fas fa-square-root-alt"></i> Nombres complexes</div>
-                    <div class="popular-item"><i class="fas fa-flask"></i> Acides et bases</div>
-                    <div class="popular-item"><i class="fas fa-calculator"></i> Calcul intégral</div>
-                    <div class="popular-item"><i class="fas fa-dna"></i> Génétique humaine</div>
-                    <div class="popular-item"><i class="fas fa-atom"></i> noyau atomique</div>
-                    <div class="popular-item"><i class="fas fa-brain"></i>  neurophysiologie</div>
-                    <div class="popular-item"><i class="fas fa-language"></i> Grammaire anglaise</div>
-                    <div class="popular-item"><i class="fas fa-landmark"></i> Resumé La Liberté</div>
-                </div>
-            </div>
-
-
-
-            <div class="featured-section">
-                <h2 class="section-title"><i class="fas fa-star"></i> Ressources en vedette</h2>
-                <div class="featured-grid">
-                    <div class="featured-card slide-up" data-search="Nombres complexes">
-                        <div class="card-image">
-                            <i class="fas fa-square-root-alt"></i>
-                            <span class="card-badge">Mathématiques</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Nombres complexes</h3>
-                            <p class="card-description">Cours complet avec exercices corrigés sur les nombres complexes pour le Baccalauréat scientifique.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-user"></i> Prof. Dupont</span>
-                                <span><i class="fas fa-calendar-alt"></i> 15/03/2025</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="featured-card slide-up delay-1" data-search="Acides et bases">
-                        <div class="card-image">
-                            <i class="fas fa-flask"></i>
-                            <span class="card-badge">Chimie</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Acides et bases</h3>
-                            <p class="card-description">Fiche de révision complète sur les acides et bases avec exercices types du Bac.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-user"></i> Prof. Martin</span>
-                                <span><i class="fas fa-calendar-alt"></i> 22/02/2025</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="featured-card slide-up delay-2" data-search="Génétique humaine">
-                        <div class="card-image">
-                            <i class="fas fa-dna"></i>
-                            <span class="card-badge">SVT</span>
-                        </div>
-                        <div class="card-content">
-                            <h3 class="card-title">Génétique humaine</h3>
-                            <p class="card-description">Cours vidéo et exercices interactifs sur la génétique humaine et les maladies héréditaires.</p>
-                            <div class="card-meta">
-                                <span><i class="fas fa-user"></i> Prof. Leclerc</span>
-                                <span><i class="fas fa-calendar-alt"></i> 10/04/2025</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <footer>
-
-                <div class="footer-social">
-
-
-                </div>
-                <p>&copy; 2025 EduWell. Tous droits réservés.</p>
-            </div>
-        </footer>
-    </div>
-
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal">
-            <div class="modal-header">
-                <div class="modal-title" id="modalTitle">Document Viewer</div>
-                <button class="modal-close" id="modalClose">&times;</button>
-            </div>
-            <div class="modal-content">
-                <div class="resource-container" id="resourceContainer"></div>
-            </div>
-        </div>
-    </div>
-
-
-    <script src="./assets/js/rsew.js"></script>
-    <script src="./assets/js/rsewdata1.js"></script>
-    <script src="./assets/js/rssc.js"></script>
-    <script src="./dataew/data1.js"></script>
-
-<script>
-// Scroll animation trigger
-function animateOnScroll() {
-  const sections = document.querySelectorAll('.featured-section');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-
-        // Add in-view class to each card with staggered delay
-        const cards = entry.target.querySelectorAll('.featured-card');
-        cards.forEach(card => {
-          setTimeout(() => {
-            card.classList.add('in-view');
-          }, parseInt(card.style.getPropertyValue('--delay') || 0);
-        });
-      }
-    });
-  }, { threshold: 0.1 });
-
-  sections.forEach(section => {
-    observer.observe(section);
-  });
-}
-
-// Initialize on DOM load
-document.addEventListener('DOMContentLoaded', animateOnScroll);
-</script>
-</body>
-</html>
-
-
-
-
-give me all final corract code with modification 
-make it profational
