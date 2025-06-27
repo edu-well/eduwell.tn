@@ -22,319 +22,146 @@
   </style>
 </head>
 <body>
-  <div id="loading-screen">
-    <div class="loading-content">
-      <div class="loader-logo">
-        <div class="loader-logo-inner">
-          <i class="fas fa-book"></i>
-        </div>
-      </div>
-      <div class="loader-text">Préparation de votre espace éducatif</div>
-      <div class="progress-container">
-        <div class="progress-bar" id="progressBar"></div>
-      </div>
-    </div>
-  </div>
-
-  <div id="app">
-    <div class="container">
-      <header>
-        <div class="logo">
-          <i class="fas fa-book logo-icon"></i>
-          <span class="logo-text">EduWell Search V0.3</span>
-        </div>
-        <p class="tagline">La plateforme intelligente de ressources éducatives pour le Baccalauréat</p>
-      </header>
-
-      <div class="search-section">
-        <div class="search-container">
-          <input type="text" class="search-box" placeholder="Rechercher des cours, exercices, fiches de révision..." id="searchInput">
-          <div class="search-actions">
-            <button class="search-clear hidden" id="searchClear">
-              <i class="fas fa-times"></i>
-            </button>
-            <div class="spinner" id="spinner"></div>
-          </div>
-          <div class="search-icon"><i class="fas fa-search"></i></div>
-        </div>
-
-        <div class="search-results" id="searchResults"></div>
-      </div>
-
-      <div class="subjects-filter" id="subjectsFilter">
-        <button class="subject-btn active" data-subject="all">Toutes les matières</button>
-        <button class="subject-btn" data-subject="Mathématiques">Mathématiques</button>
-        <button class="subject-btn" data-subject="physics">Physique</button>
-        <button class="subject-btn" data-subject="chemistry">Chimie</button>
-        <button class="subject-btn" data-subject="Sciences de la Vie et de la Terre">SVT</button>
-        <button class="subject-btn" data-subject="philosophy">Philosophie</button>
-        <button class="subject-btn" data-subject="fr">Français</button>
-        <button class="subject-btn" data-subject="arb">عربية</button>
-        <button class="subject-btn" data-subject="english">Anglais</button>
-      </div>
-
-      <div class="popular-searches">
-        <div class="popular-title"><i class="fas fa-chart-line"></i> Recherches Populaires</div>
-        <div class="popular-list">
-          <div class="popular-item"><i class="fas fa-square-root-alt"></i> Nombres complexes</div>
-          <div class="popular-item"><i class="fas fa-flask"></i> Acides et bases</div>
-          <div class="popular-item"><i class="fas fa-calculator"></i> Calcul intégral</div>
-          <div class="popular-item"><i class="fas fa-dna"></i> Génétique humaine</div>
-          <div class="popular-item"><i class="fas fa-atom"></i> noyau atomique</div>
-          <div class="popular-item"><i class="fas fa-brain"></i> neurophysiologie</div>
-          <div class="popular-item"><i class="fas fa-language"></i> Grammaire anglaise</div>
-          <div class="popular-item"><i class="fas fa-landmark"></i> Resumé La Liberté</div>
-        </div>
-      </div>
-
-      <div class="featured-section">
-        <h2 class="section-title"><i class="fas fa-star"></i> <span class="typewriter">Ressources en vedette</span></h2>
-        <div class="featured-grid">
-          <div class="featured-card" data-search="Nombres complexes">
-            <div class="card-image">
-              <i class="fas fa-square-root-alt"></i>
-              <span class="card-badge">Mathématiques</span>
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Nombres complexes</h3>
-              <p class="card-description">Cours complet avec exercices corrigés sur les nombres complexes pour le Baccalauréat scientifique.</p>
-              <div class="card-meta">
-                <span><i class="fas fa-user"></i> Prof. Dupont</span>
-                <span><i class="fas fa-calendar-alt"></i> 15/03/2025</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="featured-card" data-search="Acides et bases">
-            <div class="card-image">
-              <i class="fas fa-flask"></i>
-              <span class="card-badge">Chimie</span>
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Acides et bases</h3>
-              <p class="card-description">Fiche de révision complète sur les acides et bases avec exercices types du Bac.</p>
-              <div class="card-meta">
-                <span><i class="fas fa-user"></i> Prof. Martin</span>
-                <span><i class="fas fa-calendar-alt"></i> 22/02/2025</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="featured-card" data-search="Génétique humaine">
-            <div class="card-image">
-              <i class="fas fa-dna"></i>
-              <span class="card-badge">SVT</span>
-            </div>
-            <div class="card-content">
-              <h3 class="card-title">Génétique humaine</h3>
-              <p class="card-description">Cours vidéo et exercices interactifs sur la génétique humaine et les maladies héréditaires.</p>
-              <div class="card-meta">
-                <span><i class="fas fa-user"></i> Prof. Leclerc</span>
-                <span><i class="fas fa-calendar-alt"></i> 10/04/2025</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <div class="footer-content">
-        <div class="footer-links">
-          <a href="#" class="footer-link">À propos</a>
-          <a href="#" class="footer-link">Contact</a>
-          <a href="#" class="footer-link">Confidentialité</a>
-          <a href="#" class="footer-link">Conditions</a>
-        </div>
-        <div class="footer-social">
-          <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <p class="footer-copyright">&copy; 2025 EduWell. Tous droits réservés.</p>
-      </div>
-    </footer>
-  </div>
-
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal">
-      <div class="modal-header">
-        <div class="modal-title" id="modalTitle">Document Viewer</div>
-        <button class="modal-close" id="modalClose">&times;</button>
-      </div>
-      <div class="modal-content">
-        <div class="resource-container" id="resourceContainer"></div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // Loading screen simulation
-    document.addEventListener('DOMContentLoaded', function() {
-      const progressBar = document.getElementById('progressBar');
-      const loadingScreen = document.getElementById('loading-screen');
-      const app = document.getElementById('app');
-
-      let progress = 0;
-      const interval = setInterval(() => {
-        progress += Math.random() * 10;
-        progressBar.style.width = `${Math.min(progress, 100)}%`;
-
-        if (progress >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            loadingScreen.style.visibility = 'hidden';
-            app.style.display = 'flex';
-            setTimeout(() => {
-              app.style.opacity = '1';
-            }, 50);
-          }, 500);
-        }
-      }, 150);
-    });
-
-    // Scroll animation trigger
-    function animateOnScroll() {
-      const sections = document.querySelectorAll('.featured-section');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-
-            // Add in-view class to each card with staggered delay
-            const cards = entry.target.querySelectorAll('.featured-card');
-            cards.forEach((card, index) => {
-              setTimeout(() => {
-                card.classList.add('in-view');
-              }, index * 150);
-            });
-          }
-        });
-      }, { 
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      });
-
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    }
-
-    // Initialize on DOM load
-    document.addEventListener('DOMContentLoaded', animateOnScroll);
-
-    // Modal functionality
-    const modalOverlay = document.getElementById('modalOverlay');
-    const modalClose = document.getElementById('modalClose');
-
-    if (modalClose) {
-      modalClose.addEventListener('click', () => {
-        modalOverlay.classList.remove('active');
-      });
-    }
-
-    // Sample search functionality
-    const searchInput = document.getElementById('searchInput');
-    const searchClear = document.getElementById('searchClear');
-    const searchResults = document.getElementById('searchResults');
-
-    if (searchInput && searchClear && searchResults) {
-      searchInput.addEventListener('input', function() {
-        if (this.value.length > 0) {
-          searchClear.classList.remove('hidden');
-          // Here you would typically make an API call
-          // For demo purposes, we'll just show some results
-          searchResults.innerHTML = `
-            <div class="result-item">
-              <div class="result-icon"><i class="fas fa-book"></i></div>
-              <div class="result-content">
-                <div class="result-title">${this.value} <span class="result-badge course">Cours</span></div>
-                <p class="result-description">Ressource éducative sur le sujet ${this.value}</p>
-                <div class="result-meta">
-                  <span><i class="fas fa-user"></i> Prof. Dupont</span>
-                  <span><i class="fas fa-calendar-alt"></i> 15/03/2025</span>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loader-logo">
+                <div class="loader-logo-inner">
+                    <i class="fas fa-book" style="font-size: 36px;"></i>
                 </div>
-              </div>
             </div>
-            <div class="result-item">
-              <div class="result-icon"><i class="fas fa-video"></i></div>
-              <div class="result-content">
-                <div class="result-title">Vidéo: ${this.value} <span class="result-badge video">Vidéo</span></div>
-                <p class="result-description">Tutoriel vidéo expliquant ${this.value}</p>
-                <div class="result-meta">
-                  <span><i class="fas fa-clock"></i> 12 min</span>
-                  <span><i class="fas fa-eye"></i> 1.2K vues</span>
+            <div class="loader-text">Préparation de votre espace éducatif</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app">
+        <div class="container">
+            <header>
+                <div class="logo">
+                    <i class="fas fa-book logo-icon"></i>
+                    <span class="logo-text">EduWell Search V0.3</span>
                 </div>
-              </div>
+                <p class="tagline">La plateforme intelligente de ressources éducatives pour le Baccalauréat</p>
+            </header>
+
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" class="search-box" placeholder="Rechercher des cours, exercices, fiches de révision..." id="searchInput">
+                    <div class="search-actions">
+                        <button class="search-clear hidden" id="searchClear">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <div class="spinner" id="spinner"></div>
+                    </div>
+                    <div class="search-icon"><i class="fas fa-search"></i></div>
+                </div>
+
+                <div class="search-results" id="searchResults"></div>
             </div>
-          `;
-          searchResults.classList.add('visible');
-        } else {
-          searchClear.classList.add('hidden');
-          searchResults.classList.remove('visible');
-        }
-      });
 
-      searchClear.addEventListener('click', function() {
-        searchInput.value = '';
-        searchInput.focus();
-        this.classList.add('hidden');
-        searchResults.classList.remove('visible');
-      });
-    }
-
-    // Subject filter functionality
-    const subjectButtons = document.querySelectorAll('.subject-btn');
-    subjectButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        subjectButtons.forEach(btn => btn.classList.remove('active'));
-        this.classList.add('active');
-        // Here you would filter content based on the selected subject
-      });
-    });
-
-    // Popular searches functionality
-    const popularItems = document.querySelectorAll('.popular-item');
-    popularItems.forEach(item => {
-      item.addEventListener('click', function() {
-        const searchText = this.textContent.trim();
-        searchInput.value = searchText;
-        searchInput.dispatchEvent(new Event('input'));
-        searchInput.focus();
-      });
-    });
-
-    // Featured cards functionality
-    const featuredCards = document.querySelectorAll('.featured-card');
-    featuredCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const title = this.querySelector('.card-title').textContent;
-        document.getElementById('modalTitle').textContent = title;
-        modalOverlay.classList.add('active');
-
-        // Here you would load the actual content
-        document.getElementById('resourceContainer').innerHTML = `
-          <div class="resource-box">
-            <div class="resource-header">
-              <h3 class="resource-title"><i class="fas fa-book"></i> ${title}</h3>
-              <div class="resource-actions">
-                <button class="resource-btn"><i class="fas fa-download"></i> Télécharger</button>
-                <button class="resource-btn"><i class="fas fa-share-alt"></i> Partager</button>
-              </div>
+            <div class="subjects-filter" id="subjectsFilter">
+                <button class="subject-btn active" data-subject="all">Toutes les matières</button>
+                <button class="subject-btn" data-subject="Mathématiques">Mathématiques</button>
+                <button class="subject-btn" data-subject="physics">Physique</button>
+                <button class="subject-btn" data-subject="chemistry">Chimie</button>
+                <button class="subject-btn" data-subject="Sciences de la Vie et de la Terre">SVT</button>
+                <button class="subject-btn" data-subject="philosophy">Philosophie</button>
+                <button class="subject-btn" data-subject="fr">Français</button>
+                <button class="subject-btn" data-subject="arb">عربية</button>
+                <button class="subject-btn" data-subject="english">Anglais</button>
             </div>
-            <div class="pdf-container">
-              <i class="fas fa-file-pdf pdf-icon"></i>
-              <h4 class="pdf-name">${title}.pdf</h4>
-              <button class="pdf-link"><i class="fas fa-eye"></i> Voir le document</button>
+
+            <div class="popular-searches">
+                <div class="popular-title"><i class="fas fa-chart-line"></i> Recherches Populaires</div>
+                <div class="popular-list">
+                    <div class="popular-item"><i class="fas fa-square-root-alt"></i> Nombres complexes</div>
+                    <div class="popular-item"><i class="fas fa-flask"></i> Acides et bases</div>
+                    <div class="popular-item"><i class="fas fa-calculator"></i> Calcul intégral</div>
+                    <div class="popular-item"><i class="fas fa-dna"></i> Génétique humaine</div>
+                    <div class="popular-item"><i class="fas fa-atom"></i> noyau atomique</div>
+                    <div class="popular-item"><i class="fas fa-brain"></i>  neurophysiologie</div>
+                    <div class="popular-item"><i class="fas fa-language"></i> Grammaire anglaise</div>
+                    <div class="popular-item"><i class="fas fa-landmark"></i> Resumé La Liberté</div>
+                </div>
             </div>
-          </div>
-        `;
-      });
-    });
-  </script>
+
+
+
+            <div class="featured-section">
+                <h2 class="section-title"><i class="fas fa-star"></i> Ressources en vedette</h2>
+                <div class="featured-grid">
+                    <div class="featured-card slide-up" data-search="Nombres complexes">
+                        <div class="card-image">
+                            <i class="fas fa-square-root-alt"></i>
+                            <span class="card-badge">Mathématiques</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Nombres complexes</h3>
+                            <p class="card-description">Cours complet avec exercices corrigés sur les nombres complexes pour le Baccalauréat scientifique.</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-user"></i> Prof. Dupont</span>
+                                <span><i class="fas fa-calendar-alt"></i> 15/03/2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="featured-card slide-up delay-1" data-search="Acides et bases">
+                        <div class="card-image">
+                            <i class="fas fa-flask"></i>
+                            <span class="card-badge">Chimie</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Acides et bases</h3>
+                            <p class="card-description">Fiche de révision complète sur les acides et bases avec exercices types du Bac.</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-user"></i> Prof. Martin</span>
+                                <span><i class="fas fa-calendar-alt"></i> 22/02/2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="featured-card slide-up delay-2" data-search="Génétique humaine">
+                        <div class="card-image">
+                            <i class="fas fa-dna"></i>
+                            <span class="card-badge">SVT</span>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Génétique humaine</h3>
+                            <p class="card-description">Cours vidéo et exercices interactifs sur la génétique humaine et les maladies héréditaires.</p>
+                            <div class="card-meta">
+                                <span><i class="fas fa-user"></i> Prof. Leclerc</span>
+                                <span><i class="fas fa-calendar-alt"></i> 10/04/2025</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+
+                <div class="footer-social">
+
+
+                </div>
+                <p>&copy; 2025 EduWell. Tous droits réservés.</p>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Document Viewer</div>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-content">
+                <div class="resource-container" id="resourceContainer"></div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="./assets/js/rsew.js"></script>
@@ -342,6 +169,9 @@
     <script src="./assets/js/rssc.js"></script>
     <script src="./dataew/data1.js"></script>
 
-
 </body>
 </html>
+
+
+
+
