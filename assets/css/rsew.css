@@ -434,16 +434,16 @@ header {
 }
 
 .result-title {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
   color: var(--dark);
   display: flex;
   align-items: center;
 }
 
 .result-description {
-  font-size: 1rem;
+  font-size: 0.7rem;
   color: var(--text-light);
   line-height: 1.5;
 }
