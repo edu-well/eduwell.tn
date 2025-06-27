@@ -696,7 +696,7 @@ header {
 }
 
 .section-title {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
   color: var(--text-dark);
@@ -720,7 +720,7 @@ header {
 
 .section-title i {
   color: var(--primary);
-  font-size: 1rem;
+  font-size: 1.25rem;
 }
 
 .featured-grid {
@@ -762,7 +762,7 @@ header {
 }
 
 .card-image {
-  height: 9.5rem;
+  height: 10.5rem;
   background-color: var(--light-gray);
   display: flex;
   align-items: center;
