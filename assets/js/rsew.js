@@ -395,3 +395,36 @@ const progressBar = document.getElementById('progressBar');
                 }
             });
         });
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const featuredSection = document.querySelector('.featured-section');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        
+        // Animate cards with staggered delays
+        const cards = entry.target.querySelectorAll('.featured-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('animate-in');
+          }, index * 150);
+        });
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+  });
+
+  if (featuredSection) {
+    observer.observe(featuredSection);
+  }
+});
