@@ -520,14 +520,14 @@ header {
   margin: 0 auto;
 }
 
-/* Popular Searches */
+/* Popular Searches - Compact Version */
 .popular-searches {
   width: 100%;
-  max-width: 46rem;
-  margin: 3rem auto 0;
+  max-width: 32rem; /* Reduced from 46rem */
+  margin: 1.5rem auto 0; /* Reduced top margin */
   background-color: var(--white);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
+  padding: 1rem; /* Reduced padding */
   box-shadow: var(--shadow-sm);
   border: var(--border-dark);
   transition: var(--transition);
@@ -537,19 +537,19 @@ header {
 
 .popular-searches:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-5px);
+  transform: translateY(-3px); /* Reduced hover effect */
 }
 
 .popular-title {
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 0.75rem; /* Smaller font */
+  font-weight: 700;
+  margin-bottom: 0.75rem; /* Reduced margin */
   color: var(--text-dark);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem; /* Reduced gap */
   position: relative;
-  padding-bottom: 0.75rem;
+  padding-bottom: 0.5rem; /* Reduced padding */
 }
 
 .popular-title::after {
@@ -557,33 +557,33 @@ header {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 3.75rem;
-  height: 3px;
+  width: 2.5rem; /* Shorter underline */
+  height: 2px; /* Thinner underline */
   background: var(--primary-gradient);
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .popular-title i {
   color: var(--primary);
-  font-size: 1rem;
+  font-size: 0.875rem; /* Smaller icon */
 }
 
 .popular-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
-  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); /* Narrower items */
+  gap: 0.5rem; /* Reduced gap */
 }
 
 .popular-item {
-  padding: 0.8rem 1rem;
+  padding: 0.5rem 0.75rem; /* Reduced padding */
   background-color: var(--white);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
-  font-size: 0.7375rem;
+  font-size: 0.6875rem; /* Smaller font */
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem; /* Reduced gap */
   border: var(--border);
   color: var(--text-dark);
   font-weight: 500;
@@ -606,7 +606,7 @@ header {
 .popular-item:hover {
   border-color: var(--primary);
   box-shadow: var(--shadow-sm);
-  transform: translateY(-3px);
+  transform: translateY(-2px); /* Reduced hover effect */
 }
 
 .popular-item:hover::before {
@@ -615,14 +615,13 @@ header {
 
 .popular-item i {
   color: var(--primary);
-  font-size: 1rem;
+  font-size: 0.875rem; /* Smaller icon */
   transition: var(--transition);
 }
 
 .popular-item:hover i {
-  transform: scale(1.2);
+  transform: scale(1.1); /* Reduced hover scale */
 }
-
 /* Subjects Filter */
 .subjects-filter {
   width: 100%;
