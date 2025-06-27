@@ -168,5 +168,35 @@
     <script src="./assets/js/rsewdata1.js"></script>
     <script src="./assets/js/rssc.js"></script>
     <script src="./dataew/data1.js"></script>
+
+<script>
+// Scroll animation trigger
+function animateOnScroll() {
+  const sections = document.querySelectorAll('.featured-section');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        
+        // Add in-view class to each card with staggered delay
+        const cards = entry.target.querySelectorAll('.featured-card');
+        cards.forEach(card => {
+          setTimeout(() => {
+            card.classList.add('in-view');
+          }, parseInt(card.style.getPropertyValue('--delay') || 0);
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+}
+
+// Initialize on DOM load
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+</script>
 </body>
 </html>
