@@ -28,6 +28,29 @@ const educationalResources = [
             }
         ]
     },
+
+            {
+                id: 3,
+                title: "Génétique humaine - Vidéo cours",
+                description: "Cours vidéo complet sur la génétique humaine avec exercices interactifs.",
+                type: "video",
+                subject: "biology",
+                author: "Prof. Leclerc",
+                date: "2025-04-10",
+                keywords: ["svt", "bac", "vidéo", "génétique", "humaine", "ADN"],
+                media: [
+                    {
+                        title: "Vidéo: Génétique humaine",
+                        url: "https://www.youtube.com/embed/example"
+                    },
+                    {
+                        title: "Exercices interactifs",
+                        url: "https://example.com/genetics-exercises"
+                    }
+                ]
+            },
+
+
     {
         id: 20,
         title: "COURS GÉNÉTIQUE HUMAINE Avec Exercices",
