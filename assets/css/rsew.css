@@ -266,8 +266,8 @@ header {
 
 .search-box {
   width: 100%;
-  height: 4.5rem;
-  padding: 0 4.5rem 0 1.5rem;
+  height: 4.7rem;
+  padding: 0 4.7rem 0 1.7rem;
   font-size: 1.125rem;
   border: var(--border-dark);
   border-radius: var(--radius-md);
@@ -541,9 +541,9 @@ header {
 }
 
 .popular-title {
-  font-size: 1.375rem;
+  font-size: 0.875rem;
   font-weight: 600;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   color: var(--text-dark);
   display: flex;
   align-items: center;
@@ -565,7 +565,7 @@ header {
 
 .popular-title i {
   color: var(--primary);
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .popular-list {
@@ -575,12 +575,12 @@ header {
 }
 
 .popular-item {
-  padding: 0.875rem 1.25rem;
+  padding: 0.8rem 1rem;
   background-color: var(--white);
   border-radius: var(--radius-sm);
   cursor: pointer;
   transition: var(--transition);
-  font-size: 0.9375rem;
+  font-size: 0.7375rem;
   display: flex;
   align-items: center;
   gap: 0.75rem;
@@ -615,7 +615,7 @@ header {
 
 .popular-item i {
   color: var(--primary);
-  font-size: 1.125rem;
+  font-size: 1rem;
   transition: var(--transition);
 }
 
