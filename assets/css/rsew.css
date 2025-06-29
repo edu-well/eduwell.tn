@@ -347,34 +347,6 @@ header {
   }
 }
 
-/* Inner Glow Effect */
-.logo-text::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: transparent;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 
-    0 0 1px rgba(255, 255, 255, 0.4),
-    0 0 2px rgba(255, 255, 255, 0.2);
-  z-index: -1;
-}
-
-/* Dark Mode Adjustments */
-@media (prefers-color-scheme: dark) {
-  .logo-text {
-    text-shadow: 
-      0 4px 20px rgba(37, 99, 235, 0.5);
-  }
-  .logo-text::after {
-    text-shadow: 
-      0 0 1px rgba(255, 255, 255, 0.3),
-      0 0 2px rgba(255, 255, 255, 0.15);
-  }
-}
 .tagline {
   font-size: 0.85rem;
   color: var(--text-light);
