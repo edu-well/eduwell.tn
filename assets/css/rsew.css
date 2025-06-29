@@ -463,20 +463,6 @@ header {
   transform: rotate(90deg);
 }
 
-.spinner {
-  display: none;
-  width: 1.5rem;
-  height: 1.5rem;
-  border: 3px solid rgba(108, 92, 231, 0.1);
-  border-radius: 50%;
-  border-top-color: var(--primary);
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: translateY(-50%) rotate(360deg); }
-}
-
 /* Search Results */
 .search-results {
   width: 100%;
@@ -769,7 +755,7 @@ header {
 .subject-btn.active {
   background: var(--primary-gradient);
   color: white;
-  box-shadow: 0 6px 16px rgba(108, 92, 231, 0.3);
+  box-shadow: 0 6px 16px rgba(72, 50, 241, 0.3);
 }
 
 .subject-btn.active:hover {
