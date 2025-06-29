@@ -9,10 +9,10 @@ const educationalResources = [
         title: "Reproduction masculine: cours + exercices",
         description: "Chapitre 1: Reproduction humaine - Reproduction chez l'homme",
         type: "cours + exercices",
-        subject: "SVT",
+        subject: "Sciences de la Vie et de la Terre",
         author: "Drive Unknown",
         date: "2025-05-15",
-        keywords: ["svt", "bac", "cours", "homme", "scientifique", "reproduction"],
+        keywords: ["Sciences de la Vie et de la Terre", "bac", "cours", "homme", "scientifique", "reproduction"],
         pdfs: [
             {
                 title: "Cours: Reproduction masculine",
@@ -37,7 +37,7 @@ const educationalResources = [
                 subject: "biology",
                 author: "Prof. Leclerc",
                 date: "2025-04-10",
-                keywords: ["svt", "bac", "vidéo", "génétique", "humaine", "ADN"],
+                keywords: ["Sciences de la Vie et de la Terre", "bac", "vidéo", "génétique", "humaine", "ADN"],
                 media: [
                     {
                         title: "Vidéo: Génétique humaine",
@@ -56,10 +56,10 @@ const educationalResources = [
         title: "COURS GÉNÉTIQUE HUMAINE Avec Exercices",
         description: "Cours approfondi sur la genetique humaine et les maladies héréditaires. Ce document couvre les lois de Mendel, les chromosomes et les maladies génétiques courantes. Transmission des maladies héréditaires et diagnostic prénatal",
         type: "cours + exercices",
-        subject: "SVT",
+        subject: "Sciences de la Vie et de la Terre",
         author: "Lycée Pilote",
         date: "2025-05-15",
-        keywords: ["genetique humaine", "svt", "diagnostic prénatal", "bac", "bac svt", "genetique"],
+        keywords: ["genetique humaine", "Sciences de la Vie et de la Terre", "diagnostic prénatal", "bac", "bac Sciences de la Vie et de la Terre", "genetique"],
         pdfs: [
             {
                 title: "Cours: Génétique humaine",
@@ -76,10 +76,10 @@ const educationalResources = [
         title: "Neurophysiologie: Exercices message nerveux",
         description: "Séries standard avec correction",
         type: "exercices",
-        subject: "SVT",
+        subject: "Sciences de la Vie et de la Terre",
         author: "Taki",
         date: "2025-05-15",
-        keywords: ["neuro", "neurophysiologie", "svt", "bac sc", "message nerveux"],
+        keywords: ["neuro", "neurophysiologie", "Sciences de la Vie et de la Terre", "bac sc", "message nerveux"],
         pdfs: [
             {
                 title: "Série 1: Message nerveux",
@@ -136,7 +136,7 @@ const educationalResources = [
         title: "Limites et Continuité",
         description: "Chapitre fondamental en analyse mathématique couvrant les concepts de limites et de continuité des fonctions. Ce module propose des exercices progressifs avec corrections détaillées pour maîtriser les techniques de calcul de limites, l'étude de la continuité, et les applications aux problèmes réels. Idéal pour la préparation au Baccalauréat.",
         type: "exercises",
-        subject: "Mathématiques",
+        subject: "math",
         author: "Taki",
         date: "2023-06-20",
         keywords: ["math", "bac", "limites", "continuité", "analyse"],
@@ -172,7 +172,7 @@ const educationalResources = [
         title: "Dérivabilité",
         description: "Série d'exercices complets sur la dérivation des fonctions, couvrant les techniques de base et les cas complexes. Ce chapitre aborde la dérivabilité en un point, les fonctions dérivées, et les applications pratiques. Parfait pour la préparation aux examens du Baccalauréat.",
         type: "exercises",
-        subject: "Mathématiques",
+        subject: "math",
         author: "Taki",
         date: "2023-07-15",
         keywords: ["math", "bac", "derivee", "derivabilite", "analyse"],
@@ -196,7 +196,7 @@ const educationalResources = [
     "title": "Bijection",
     "description": "Série d'exercices approfondis sur les fonctions bijectives, couvrant les définitions, propriétés et applications en analyse. Ce chapitre inclut des problèmes variés pour maîtriser les bijections et leurs utilisations dans les équations. Idéal pour la préparation aux examens du Baccalauréat et concours.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",  // Default date (adjust if needed)
     "keywords": ["math", "bac", "bijection", "analyse"],
@@ -216,7 +216,7 @@ const educationalResources = [
     "title": "Intégrales",
     "description": "Série complète d'exercices sur les intégrales, couvrant les méthodes de calcul, les propriétés fondamentales et les applications en analyse. Ce chapitre propose des problèmes progressifs pour maîtriser l'intégration, des techniques de base aux cas avancés. Parfait pour la préparation au Baccalauréat et aux études supérieures.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "intégrale", "analyse", "calcul"],
@@ -238,9 +238,9 @@ const educationalResources = [
     {
     "id": 45,
     "title": "Fonction ln",
-    "description": "Série d'exercices complets sur la fonction logarithme népérien (ln), couvrant ses propriétés, dérivées, intégrales et applications. Ce chapitre propose des problèmes variés pour maîtriser cette fonction essentielle en analyse. Idéal pour la préparation au Baccalauréat et aux études supérieures en mathématiques.",
+    "description": "Série d'exercices complets sur la fonction logarithme népérien (ln), couvrant ses propriétés, dérivées, intégrales et applications. Ce chapitre propose des problèmes variés pour maîtriser cette fonction essentielle en analyse. Idéal pour la préparation au Baccalauréat et aux études supérieures en math.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "logarithme", "ln", "analyse", "fonction"],
@@ -264,7 +264,7 @@ const educationalResources = [
     "title": "Fonction Exponentielle",
     "description": "Série complète d'exercices sur la fonction exponentielle, couvrant ses propriétés fondamentales, dérivées, limites et applications pratiques. Ce chapitre inclut des problèmes variés pour comprendre et maîtriser cette fonction essentielle en analyse mathématique. Parfait pour la préparation au Baccalauréat scientifique.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "exponentielle", "fonction", "analyse", "limites"],
@@ -286,9 +286,9 @@ const educationalResources = [
     {
     "id": 47,
     "title": "Primitives",
-    "description": "Série complète d'exercices sur les primitives, couvrant les techniques de base, les méthodes d'intégration et les applications pratiques. Ce chapitre propose des problèmes progressifs pour maîtriser le calcul des primitives, des cas simples aux situations complexes. Idéal pour la préparation au Baccalauréat et aux études supérieures en mathématiques.",
+    "description": "Série complète d'exercices sur les primitives, couvrant les techniques de base, les méthodes d'intégration et les applications pratiques. Ce chapitre propose des problèmes progressifs pour maîtriser le calcul des primitives, des cas simples aux situations complexes. Idéal pour la préparation au Baccalauréat et aux études supérieures en math.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "primitive", "intégration", "calcul", "analyse"],
@@ -318,9 +318,9 @@ const educationalResources = [
     {
     "id": 48,
     "title": "Suites Réelles",
-    "description": "Série complète d'exercices sur les suites réelles, couvrant les notions de convergence, limites, raisonnement par récurrence et méthodes d'étude. Ce chapitre propose des problèmes variés allant des fondamentaux aux cas complexes, parfait pour la préparation aux examens du Baccalauréat et aux études supérieures en mathématiques.",
+    "description": "Série complète d'exercices sur les suites réelles, couvrant les notions de convergence, limites, raisonnement par récurrence et méthodes d'étude. Ce chapitre propose des problèmes variés allant des fondamentaux aux cas complexes, parfait pour la préparation aux examens du Baccalauréat et aux études supérieures en math.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "suites", "reelles", "convergence", "limites", "récurrence"],
@@ -356,7 +356,7 @@ const educationalResources = [
     "title": "Équations Différentielles",
     "description": "Ressources complètes sur les équations différentielles, incluant un cours théorique et des séries d'exercices. Ce chapitre couvre les équations différentielles linéaires du premier ordre, les problèmes de Cauchy et leurs applications. Parfait pour la préparation aux examens du Baccalauréat et pour les étudiants en classes préparatoires.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "équations différentielles", "analyse", "première ordre", "Cauchy"],
@@ -384,7 +384,7 @@ const educationalResources = [
     "title": "Racine n-ième",
     "description": "Série d'exercices sur les racines n-ièmes des nombres complexes, couvrant les concepts fondamentaux, les propriétés algébriques et les représentations géométriques dans le plan complexe. Ce chapitre inclut des problèmes variés pour maîtriser cette notion clé de l'analyse complexe, idéale pour la préparation au Baccalauréat et aux études supérieures.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "racine n-ième","racine nieme", "nombres complexes", "analyse", "géométrie","geometrie"],
@@ -405,7 +405,7 @@ const educationalResources = [
     "title": "Nombres Complexes",
     "description": "Cours complet et exercices sur les nombres complexes, couvrant les concepts fondamentaux, les différentes formes (algébrique, trigonométrique), les opérations et leurs applications géométriques. Ce module inclut des cours théoriques détaillés, des exercices d'application et des séries type Bac pour une préparation optimale aux examens.",
     "type": "course_and_exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "nombres complexes", "analyse", "géométrie", "forme algébrique", "forme trigonométrique"],
@@ -465,7 +465,7 @@ const educationalResources = [
     "title": "Isométries du Plan",
     "description": "Série complète d'exercices sur les isométries du plan euclidien, couvrant les transformations géométriques (translations, rotations, réflexions) et leurs propriétés. Ce chapitre propose des problèmes variés pour comprendre et appliquer les concepts d'isométrie, avec des exercices progressifs allant des bases aux applications complexes.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "géométrie", "isométrie", "transformations", "plan euclidien", "rotations", "translations", "réflexions"],
@@ -499,7 +499,7 @@ const educationalResources = [
     "title": "Probabilités",
     "description": "Série complète d'exercices sur les probabilités, couvrant les concepts fondamentaux (lois de probabilité, événements, arbres pondérés) et les cas complexes (variables aléatoires, lois continues). Ce chapitre propose des problèmes progressifs avec des applications concrètes, idéal pour la préparation au Baccalauréat.",
     "type": "exercises",
-    "subject": "Mathématiques",
+    "subject": "math",
     "author": "Taki",
     "date": "2023-07-15",
     "keywords": ["math", "bac", "probabilités", "variables aléatoires", "lois de probabilité", "analyse combinatoire"],
@@ -811,7 +811,7 @@ const educationalResources = [
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
     "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "reproduction", "hormones sexuelles", "procréation", "cycle menstruel", "fécondation"],
+    "keywords": ["Sciences de la Vie et de la Terre", "bac", "reproduction", "hormones sexuelles", "procréation", "cycle menstruel", "fécondation"],
     "pdfs": [
         {
             "title": "Cours: Système Reproducteur Masculin",
@@ -854,7 +854,7 @@ const educationalResources = [
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
     "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "génétique", "Mendel", "hérédité", "ADN", "chromosomes", "maladies génétiques"],
+    "keywords": ["Sciences de la Vie et de la Terre", "bac", "génétique", "Mendel", "hérédité", "ADN", "chromosomes", "maladies génétiques"],
     "pdfs": [
         {
             "title": "Cours: Introduction à la Génétique",
@@ -907,7 +907,7 @@ const educationalResources = [
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
     "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "évolution", "sélection naturelle", "Darwin", "spéciation", "dérive génétique", "fossiles"],
+    "keywords": ["Sciences de la Vie et de la Terre", "bac", "évolution", "sélection naturelle", "Darwin", "spéciation", "dérive génétique", "fossiles"],
     "pdfs": [
         {
             "title": "Cours: Principes Fondamentaux de l'Évolution",
@@ -930,7 +930,7 @@ const educationalResources = [
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
     "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "neurophysiologie", "système nerveux", "neurone", "synapse", "potentiel d'action", "neurosciences", "cerveau"],
+    "keywords": ["Sciences de la Vie et de la Terre", "bac", "neurophysiologie", "système nerveux", "neurone", "synapse", "potentiel d'action", "neurosciences", "cerveau"],
     "pdfs": [
         {
             "title": "Cours: Organisation du Système Nerveux",
@@ -988,7 +988,7 @@ const educationalResources = [
     "subject": "Sciences de la Vie et de la Terre",
     "author": "Taki",
     "date": "2023-07-15",
-    "keywords": ["SVT", "bac", "immunité", "lymphocytes", "anticorps", "vaccination", "allergie", "système immunitaire", "pathogènes"],
+    "keywords": ["Sciences de la Vie et de la Terre", "bac", "immunité", "lymphocytes", "anticorps", "vaccination", "allergie", "système immunitaire", "pathogènes"],
     "pdfs": [
         {
             "title": "Cours: Introduction au Système Immunitaire",
@@ -1015,12 +1015,12 @@ const educationalResources = [
     {
         "id": 105,
         "title": "Thème 1 : Exercices sur la Reproduction Humaine",
-        "description": "Série complète d'exercices avec corrections sur la reproduction humaine, couvrant tous les aspects du programme de SVT au Baccalauréat.",
+        "description": "Série complète d'exercices avec corrections sur la reproduction humaine, couvrant tous les aspects du programme de Sciences de la Vie et de la Terre au Baccalauréat.",
         "type": "exercises",
         "subject": "Sciences de la Vie et de la Terre",
         "author": "Taki",
         "date": "2023-07-15",
-        "keywords": ["SVT", "bac", "reproduction humaine", "exercices", "corrigés"],
+        "keywords": ["Sciences de la Vie et de la Terre", "bac", "reproduction humaine", "exercices", "corrigés"],
         "pdfs": [
             {
                 "title": "Série 1: Anatomie Reproductive",
@@ -1091,12 +1091,12 @@ const educationalResources = [
     {
         "id": 106,
         "title": "Thème 2 : Exercices de Génétique",
-        "description": "Série complète d'exercices corrigés sur la genetique mendélienne et humaine, incluant les lois de l'hérédité, les croisements génétiques et l'analyse d'arbres généalogiques. Parfait pour la préparation au Baccalauréat en SVT.",
+        "description": "Série complète d'exercices corrigés sur la genetique mendélienne et humaine, incluant les lois de l'hérédité, les croisements génétiques et l'analyse d'arbres généalogiques. Parfait pour la préparation au Baccalauréat en Sciences de la Vie et de la Terre.",
         "type": "exercises",
         "subject": "Sciences de la Vie et de la Terre",
         "author": "Taki",
         "date": "2023-07-15",
-        "keywords": ["SVT", "bac", "génétique", "exercices", "mendélienne", "hérédité", "croisements", "arbres généalogiques"],
+        "keywords": ["Sciences de la Vie et de la Terre", "bac", "génétique", "exercices", "mendélienne", "hérédité", "croisements", "arbres généalogiques"],
         "pdfs": [
             {
                 "title": "Série 1: Lois de Mendel",
@@ -1151,12 +1151,12 @@ const educationalResources = [
     {
         "id": 107,
         "title": "Thème 3 : Exercices sur l'Évolution Biologique",
-        "description": "Série d'exercices corrigés sur les mécanismes de l'evolution biologique, incluant la sélection naturelle, la dérive génétique et les preuves de l'évolution. Ces exercices permettent de maîtriser les concepts clés du programme de SVT au Baccalauréat.",
+        "description": "Série d'exercices corrigés sur les mécanismes de l'evolution biologique, incluant la sélection naturelle, la dérive génétique et les preuves de l'évolution. Ces exercices permettent de maîtriser les concepts clés du programme de Sciences de la Vie et de la Terre au Baccalauréat.",
         "type": "exercises",
         "subject": "Sciences de la Vie et de la Terre",
         "author": "Taki",
         "date": "2023-07-15",
-        "keywords": ["SVT", "bac", "évolution", "sélection naturelle", "dérive génétique", "fossiles", "adaptation"],
+        "keywords": ["Sciences de la Vie et de la Terre", "bac", "évolution", "sélection naturelle", "dérive génétique", "fossiles", "adaptation"],
         "pdfs": [
             {
                 "title": "Série 1: Mécanismes de l'Évolution",
@@ -1184,7 +1184,7 @@ const educationalResources = [
         "subject": "Sciences de la Vie et de la Terre",
         "author": "Taki",
         "date": "2023-07-15",
-        "keywords": ["SVT", "bac", "neurophysiologie", "neurone", "synapse", "potentiel d'action", "système nerveux"],
+        "keywords": ["Sciences de la Vie et de la Terre", "bac", "neurophysiologie", "neurone", "synapse", "potentiel d'action", "système nerveux"],
         "pdfs": [
             {
                 "title": "Série 1: Structure du Neurone",
@@ -1276,7 +1276,7 @@ const educationalResources = [
         "subject": "Sciences de la Vie et de la Terre",
         "author": "Taki",
         "date": "2023-07-15",
-        "keywords": ["SVT", "bac", "immunité", "lymphocytes", "anticorps", "vaccination", "pathogènes"],
+        "keywords": ["Sciences de la Vie et de la Terre", "bac", "immunité", "lymphocytes", "anticorps", "vaccination", "pathogènes"],
         "pdfs": [
             {
                 "title": "Série 1: Immunité Innée",
@@ -1717,10 +1717,10 @@ const educationalResources = [
         title: "Reproduction féminine: cours + exercices",
         description: "Chapitre 2: Reproduction humaine - Reproduction chez la femme",
         type: "cours + exercices",
-        subject: "SVT",
+        subject: "Sciences de la Vie et de la Terre",
         author: "Drive Unknown",
         date: "2025-05-15",
-        keywords: ["svt", "bac", "cours", "femme", "scientifique", "reproduction"],
+        keywords: ["Sciences de la Vie et de la Terre", "bac", "cours", "femme", "scientifique", "reproduction"],
         pdfs: [
             {
                 title: "Cours: Reproduction féminine",
