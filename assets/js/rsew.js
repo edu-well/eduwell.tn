@@ -400,5 +400,36 @@ const progressBar = document.getElementById('progressBar');
 
 
 
+// notifiction fonction top rigth
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  const versionElement = document.querySelector('.version');
+  const versions = versionElement.dataset.versions.split(',');
+  const duration = 3000; // 3 seconds per version
+  let currentIndex = 0;
+  
+  function cycleVersion() {
+    // Add animation class
+    versionElement.classList.add('animating');
+    
+    // Change version after animation starts
+    setTimeout(() => {
+      currentIndex = (currentIndex + 1) % versions.length;
+      versionElement.textContent = versions[currentIndex];
+      
+      // Remove animation class when done
+      setTimeout(() => {
+        versionElement.classList.remove('animating');
+        
+        // Continue cycling if not last version
+        if(currentIndex < versions.length - 1) {
+          setTimeout(cycleVersion, duration);
+        }
+      }, 600);
+    }, 50);
+  }
+  
+  // Start cycling after initial delay
+  setTimeout(cycleVersion, duration);
+});
