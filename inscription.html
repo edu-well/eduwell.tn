@@ -655,6 +655,23 @@
                 }
             });
 
+            // Function to send email using EmailJS
+            function sendEmail(formData) {
+                // Initialize EmailJS with your public key
+                emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your actual EmailJS public key
+                
+                const templateParams = {
+                    to_email: "eduwellofficial@gmail.com",
+                    from_name: "EduVision Pro Registration",
+                    whatsapp: formData.whatsapp,
+                    email: formData.email,
+                    selected_class: formData.selectedClass,
+                    timestamp: formData.timestamp
+                };
+
+                return emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", templateParams);
+            }
+
             // Form submission with email sending
             submitBtn.addEventListener('click', async function() {
                 const whatsapp = whatsappInput.value;
@@ -688,7 +705,7 @@
                 submitBtn.innerHTML = '<i class="fas fa-spinner"></i> Processing...';
                 submitBtn.disabled = true;
 
-                // Prepare email data
+                // Prepare form data
                 const formData = {
                     whatsapp: whatsapp,
                     email: email,
@@ -697,100 +714,107 @@
                 };
 
                 try {
-                    // Simulate API call (replace with actual API call)
-                    await new Promise(resolve => setTimeout(resolve, 1500));
-                    
-                    // For demo purposes, we'll simulate a successful submission
-                    const success = true;
-
-                    if (success) {
-                        // Show success message
-                        formSection.innerHTML = `
-                            <div class="success-section">
-                                <i class="fas fa-check-circle success-icon animate"></i>
-                                <h2 style="margin-bottom: 1rem; font-weight: 600;">Registration Successful!</h2>
-                                <p style="margin-bottom: 1.5rem; color: var(--gray); font-size: 0.9375rem;">We've sent confirmation details to ${email}. You'll receive WhatsApp instructions shortly.</p>
-                                <button class="return-btn" id="returnBtn">
-                                    <i class="fas fa-arrow-left"></i>
-                                    Return to Home
-                                </button>
-                            </div>
-                        `;
-
-                        // Add event listener to return button
-                        document.getElementById('returnBtn').addEventListener('click', function() {
-                            // Hide form
-                            formSection.classList.remove('visible');
-                            
-                            // Reset form fields
-                            whatsappInput.value = '';
-                            emailInput.value = '';
-                            classOptions.forEach(opt => opt.classList.remove('selected'));
-                            
-                            // Show welcome section after a delay
-                            setTimeout(() => {
-                                welcomeSection.classList.remove('hidden');
-                                document.body.style.overflow = 'auto';
-                                
-                                // Reset form content
-                                formSection.innerHTML = `
-                                    <button class="close-btn" id="closeBtn">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                    <div class="form-header">
-                                        <h2 class="form-title">BAC Program Registration</h2>
-                                        <p class="form-subtitle">Enter your details to join our program</p>
-                                    </div>
-                                    
-                                    <div class="input-group">
-                                        <i class="fab fa-whatsapp"></i>
-                                        <input type="tel" id="whatsapp" placeholder="Tunisian WhatsApp Number" required pattern="[2,4,5,9][0-9]{7}" maxlength="8">
-                                        <div class="error-message" id="whatsappError">Please enter a valid Tunisian number starting with 2, 4, 5, or 9 (8 digits)</div>
-                                    </div>
-                                    
-                                    <div class="input-group">
-                                        <i class="fas fa-envelope"></i>
-                                        <input type="email" id="email" placeholder="Email Address" required>
-                                        <div class="error-message" id="emailError">Please enter a valid email address</div>
-                                    </div>
-                                    
-                                    <div class="class-options">
-                                        <div class="class-option" data-value="bac-math">
-                                            <i class="fas fa-square-root-alt"></i>
-                                            <div class="class-name">BAC Math</div>
-                                        </div>
-                                        <div class="class-option" data-value="bac-science">
-                                            <i class="fas fa-flask"></i>
-                                            <div class="class-name">BAC Science</div>
-                                        </div>
-                                        <div class="class-option" data-value="bac-technique">
-                                            <i class="fas fa-cogs"></i>
-                                            <div class="class-name">BAC Technique</div>
-                                        </div>
-                                        <div class="class-option" data-value="bac-eco">
-                                            <i class="fas fa-chart-line"></i>
-                                            <div class="class-name">BAC Eco</div>
-                                        </div>
-                                    </div>
-                                    
-                                    <button class="submit-btn" id="submitBtn">
-                                        <i class="fas fa-paper-plane"></i>
-                                        Submit Application
-                                    </button>
-                                `;
-                                
-                                // Reattach event listeners
-                                document.getElementById('submitBtn').addEventListener('click', arguments.callee);
-                                document.getElementById('closeBtn').addEventListener('click', function() {
-                                    formSection.classList.remove('visible');
-                                    setTimeout(() => {
-                                        welcomeSection.classList.remove('hidden');
-                                        document.body.style.overflow = 'auto';
-                                    }, 300);
-                                });
-                            }, 300);
+                    // First try to send email via EmailJS
+                    try {
+                        await sendEmail(formData);
+                    } catch (emailError) {
+                        console.error('EmailJS error:', emailError);
+                        // Fallback to Formspree if EmailJS fails
+                        await fetch("https://formspree.io/f/eduwellofficial@gmail.com", {
+                            method: "POST",
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify(formData)
                         });
                     }
+                    
+                    // Show success message
+                    formSection.innerHTML = `
+                        <div class="success-section">
+                            <i class="fas fa-check-circle success-icon animate"></i>
+                            <h2 style="margin-bottom: 1rem; font-weight: 600;">Registration Successful!</h2>
+                            <p style="margin-bottom: 1.5rem; color: var(--gray); font-size: 0.9375rem;">We've sent confirmation details to ${email}. You'll receive WhatsApp instructions shortly.</p>
+                            <button class="return-btn" id="returnBtn">
+                                <i class="fas fa-arrow-left"></i>
+                                Return to Home
+                            </button>
+                        </div>
+                    `;
+
+                    // Add event listener to return button
+                    document.getElementById('returnBtn').addEventListener('click', function() {
+                        // Hide form
+                        formSection.classList.remove('visible');
+                        
+                        // Reset form fields
+                        whatsappInput.value = '';
+                        emailInput.value = '';
+                        classOptions.forEach(opt => opt.classList.remove('selected'));
+                        
+                        // Show welcome section after a delay
+                        setTimeout(() => {
+                            welcomeSection.classList.remove('hidden');
+                            document.body.style.overflow = 'auto';
+                            
+                            // Reset form content
+                            formSection.innerHTML = `
+                                <button class="close-btn" id="closeBtn">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                                <div class="form-header">
+                                    <h2 class="form-title">BAC Program Registration</h2>
+                                    <p class="form-subtitle">Enter your details to join our program</p>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <input type="tel" id="whatsapp" placeholder="Tunisian WhatsApp Number" required pattern="[2,4,5,9][0-9]{7}" maxlength="8">
+                                    <div class="error-message" id="whatsappError">Please enter a valid Tunisian number starting with 2, 4, 5, or 9 (8 digits)</div>
+                                </div>
+                                
+                                <div class="input-group">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="email" placeholder="Email Address" required>
+                                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                                </div>
+                                
+                                <div class="class-options">
+                                    <div class="class-option" data-value="bac-math">
+                                        <i class="fas fa-square-root-alt"></i>
+                                        <div class="class-name">BAC Math</div>
+                                    </div>
+                                    <div class="class-option" data-value="bac-science">
+                                        <i class="fas fa-flask"></i>
+                                        <div class="class-name">BAC Science</div>
+                                    </div>
+                                    <div class="class-option" data-value="bac-technique">
+                                        <i class="fas fa-cogs"></i>
+                                        <div class="class-name">BAC Technique</div>
+                                    </div>
+                                    <div class="class-option" data-value="bac-eco">
+                                        <i class="fas fa-chart-line"></i>
+                                        <div class="class-name">BAC Eco</div>
+                                    </div>
+                                </div>
+                                
+                                <button class="submit-btn" id="submitBtn">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Submit Application
+                                </button>
+                            `;
+                            
+                            // Reattach event listeners
+                            document.getElementById('submitBtn').addEventListener('click', arguments.callee);
+                            document.getElementById('closeBtn').addEventListener('click', function() {
+                                formSection.classList.remove('visible');
+                                setTimeout(() => {
+                                    welcomeSection.classList.remove('hidden');
+                                    document.body.style.overflow = 'auto';
+                                }, 300);
+                            });
+                        }, 300);
+                    });
                 } catch (error) {
                     console.error('Error:', error);
                     submitBtn.innerHTML = originalBtnContent;
@@ -799,6 +823,22 @@
                 }
             });
         });
+    </script>
+    
+    <!-- Load EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your public key
+        (function() {
+            emailjs.init({
+                publicKey: "YOUR_EMAILJS_PUBLIC_KEY", // Replace with your actual EmailJS public key
+                blockHeadless: true,
+                limitRate: {
+                    id: 'app',
+                    throttle: 10000, // 10 seconds
+                }
+            });
+        })();
     </script>
 </body>
 </html>
