@@ -34,7 +34,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
         }
 
         body {
@@ -84,6 +84,7 @@
             font-weight: 600;
             color: var(--primary);
             margin-bottom: 2rem;
+            text-decoration: none;
         }
 
         .logo-icon {
@@ -158,7 +159,6 @@
             left: 0;
             right: 0;
             bottom: 0;
-            transform: scale(0.98);
             width: 100%;
             max-width: 500px;
             background: var(--surface);
@@ -173,12 +173,13 @@
             overflow-y: auto;
             margin: auto;
             border: 1px solid var(--light-gray);
+            transform: translateY(20px);
         }
 
         .form-section.visible {
             opacity: 1;
-            transform: scale(1);
             pointer-events: all;
+            transform: translateY(0);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -202,29 +203,31 @@
             font-weight: 400;
         }
 
-        .input-group {
-            position: relative;
+        .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .input-group i {
-            position: absolute;
-            left: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--gray);
-            font-size: 1rem;
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--dark);
+        }
+
+        .form-group label.required::after {
+            content: " *";
+            color: var(--error);
         }
 
         input {
             width: 100%;
-            padding: 0.5rem 0.75rem 0.5rem 2.25rem;
+            padding: 0.75rem;
             border: 1px solid var(--light-gray);
             border-radius: var(--border-radius);
             font-size: 0.9375rem;
             transition: var(--transition);
             background-color: var(--surface);
-            height: 32px;
             font-weight: 400;
         }
 
@@ -243,14 +246,14 @@
         }
 
         /* Class options - Compact grid */
-        .class-options {
+        .program-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 0.75rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
-        .class-option {
+        .program-option {
             background: var(--surface);
             border: 1px solid var(--light-gray);
             border-radius: var(--border-radius);
@@ -266,29 +269,27 @@
             justify-content: center;
         }
 
-        .class-option:hover {
+        .program-option:hover {
             background-color: var(--light);
             box-shadow: var(--shadow);
             border-color: var(--primary-light);
         }
 
-        .class-option.selected {
+        .program-option.selected {
             background-color: var(--primary);
             color: white;
             border-color: var(--primary);
             box-shadow: var(--shadow);
         }
 
-        .class-option i {
+        .program-option i {
             font-size: 1rem;
             margin-bottom: 0.5rem;
             display: block;
             color: inherit;
-            position: static;
-            transform: none;
         }
 
-        .class-option .class-name {
+        .program-option .program-name {
             font-weight: 600;
             font-size: 0.8125rem;
         }
@@ -325,9 +326,10 @@
         }
 
         /* Success Section */
-        .success-section {
+        .success-message {
             text-align: center;
             padding: 1.5rem;
+            display: none;
         }
 
         .success-icon {
@@ -335,6 +337,27 @@
             color: var(--success);
             margin-bottom: 1.5rem;
             display: inline-block;
+        }
+
+        .success-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .success-text {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 120, 212, 0.1);
         }
 
         @keyframes checkmark {
@@ -370,12 +393,27 @@
             right: 10%;
         }
 
+        /* Loading spinner */
+        .spinner {
+            display: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
             .container {
                 padding: 1.5rem;
             }
-            
+
             .form-section {
                 padding: 1.5rem;
                 max-height: 85vh;
@@ -386,7 +424,7 @@
             .container {
                 padding: 1rem;
             }
-            
+
             .form-section {
                 padding: 1.25rem;
                 max-height: 90vh;
@@ -407,11 +445,11 @@
                 height: 100%;
                 border-radius: 0;
             }
-            
-            .class-options {
+
+            .program-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .btn, .submit-btn {
                 width: 100%;
                 max-width: none;
@@ -433,56 +471,6 @@
                 width: 32px;
                 height: 32px;
             }
-        }
-
-        /* Loading spinner */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .fa-spinner {
-            animation: spin 1s linear infinite;
-        }
-
-        /* Return button */
-        .return-btn {
-            background: var(--surface);
-            color: var(--primary);
-            border: 1px solid var(--light-gray);
-            border-radius: var(--border-radius);
-            padding: 0.5rem 1rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-            min-height: 32px;
-        }
-
-        .return-btn:hover {
-            background: var(--light);
-            box-shadow: var(--shadow-sm);
-        }
-
-        /* Microsoft-style focus indicators */
-        .btn:focus, .submit-btn:focus, .return-btn:focus, input:focus, .class-option:focus {
-            outline: 2px solid var(--primary);
-            outline-offset: 2px;
-        }
-
-        /* Subtle animation for form appearance */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .form-section.visible {
-            animation: fadeIn 0.3s ease-out forwards;
         }
 
         /* Close button for mobile */
@@ -510,335 +498,337 @@
                 border-radius: 0;
             }
         }
+
+        /* Microsoft-style focus indicators */
+        .btn:focus, .submit-btn:focus, .return-btn:focus, input:focus, .program-option:focus {
+            outline: 2px solid var(--primary);
+            outline-offset: 2px;
+        }
+
+        /* Subtle animation for form appearance */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-section.visible {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
     </style>
 </head>
 <body>
-    <!-- Background elements -->
+    <!-- Background Elements -->
     <div class="bg-blob blob-1"></div>
     <div class="bg-blob blob-2"></div>
 
     <div class="container">
         <!-- Welcome Section -->
-        <div class="welcome-section">
-            <div class="logo">
+        <section class="welcome-section" id="welcomeSection">
+            <a href="#" class="logo">
                 <div class="logo-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
-                <span>EduVision Pro</span>
-            </div>
-            <h1>BAC Preparation Excellence</h1>
-            <p>Register for our specialized BAC programs and gain access to premium educational resources tailored for Tunisian students.</p>
+                <span>EduWell Claasroom</span>
+            </a>
+            
+            <h1>Bac 2026 Summer Camp </h1>
+            <p class="subtitle">Join our BAC programs and unlock premium resources for guaranteed success</p>
+            
             <button class="btn" id="startBtn">
                 <i class="fas fa-user-graduate"></i>
                 Begin Registration
             </button>
-        </div>
+        </section>
 
-        <!-- Form Section -->
-        <div class="form-section" id="formSection">
-            <button class="close-btn" id="closeBtn">
+        <!-- Form Container -->
+        <div class="form-section" id="formContainer">
+            <button class="close-btn" id="closeBtn" aria-label="Close form">
                 <i class="fas fa-times"></i>
             </button>
+            
             <div class="form-header">
                 <h2 class="form-title">BAC Program Registration</h2>
-                <p class="form-subtitle">Enter your details to join our program</p>
+                <p class="form-subtitle">Complete this form to join our program</p>
             </div>
+
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name" class="required">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your full name">
+                    <div class="error-message" id="nameError">Please enter your full name</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="required">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="example@domain.com">
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="required">Program Selection</label>
+                    <div class="program-grid">
+                        <div class="program-option" data-value="Bac Math" tabindex="0">
+                            <i class="fas fa-square-root-alt"></i>
+                            <span class="program-name">Bac Math</span>
+                        </div>
+                        <div class="program-option" data-value="Bac Science" tabindex="0">
+                            <i class="fas fa-flask"></i>
+                            <span class="program-name">Bac Science</span>
+                        </div>
+                        <div class="program-option" data-value="Bac Technique" tabindex="0">
+                            <i class="fas fa-cogs"></i>
+                            <span class="program-name">Bac Technique</span>
+                        </div>
+                        <div class="program-option" data-value="Bac Eco" tabindex="0">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="program-name">Bac Eco</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="program" name="program" required>
+                    <div class="error-message" id="programError">Please select a program</div>
+                </div>
+                
+                <button type="submit" class="btn submit-btn" id="submitBtn">
+                    <i class="fas fa-paper-plane"></i>
+                    <span>Submit Application</span>
+                    <div class="spinner" id="spinner"></div>
+                </button>
+            </form>
             
-            <div class="input-group">
-                <i class="fab fa-whatsapp"></i>
-                <input type="tel" id="whatsapp" placeholder="Tunisian WhatsApp Number" required pattern="[2,4,5,9][0-9]{7}" maxlength="8">
-                <div class="error-message" id="whatsappError">Please enter a valid Tunisian number starting with 2, 4, 5, or 9 (8 digits)</div>
+            <div id="successMessage" class="success-message">
+                <i class="fas fa-check-circle success-icon animate"></i>
+                <h3 class="success-title">Registration Successful!</h3>
+                <p class="success-text">We've received your application and will contact you shortly.</p>
+                <button class="btn btn-outline" id="returnBtn">
+                    <i class="fas fa-arrow-left"></i>
+                    Return to Home
+                </button>
             </div>
-            
-            <div class="input-group">
-                <i class="fas fa-envelope"></i>
-                <input type="email" id="email" placeholder="Email Address" required>
-                <div class="error-message" id="emailError">Please enter a valid email address</div>
-            </div>
-            
-            <div class="class-options">
-                <div class="class-option" data-value="bac-math">
-                    <i class="fas fa-square-root-alt"></i>
-                    <div class="class-name">BAC Math</div>
-                </div>
-                <div class="class-option" data-value="bac-science">
-                    <i class="fas fa-flask"></i>
-                    <div class="class-name">BAC Science</div>
-                </div>
-                <div class="class-option" data-value="bac-technique">
-                    <i class="fas fa-cogs"></i>
-                    <div class="class-name">BAC Technique</div>
-                </div>
-                <div class="class-option" data-value="bac-eco">
-                    <i class="fas fa-chart-line"></i>
-                    <div class="class-name">BAC Eco</div>
-                </div>
-            </div>
-            
-            <button class="submit-btn" id="submitBtn">
-                <i class="fas fa-paper-plane"></i>
-                Submit Application
-            </button>
         </div>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // DOM Elements
+            const welcomeSection = document.getElementById('welcomeSection');
+            const formContainer = document.getElementById('formContainer');
             const startBtn = document.getElementById('startBtn');
-            const formSection = document.getElementById('formSection');
-            const welcomeSection = document.querySelector('.welcome-section');
-            const classOptions = document.querySelectorAll('.class-option');
-            const submitBtn = document.getElementById('submitBtn');
-            const whatsappInput = document.getElementById('whatsapp');
-            const whatsappError = document.getElementById('whatsappError');
-            const emailInput = document.getElementById('email');
-            const emailError = document.getElementById('emailError');
             const closeBtn = document.getElementById('closeBtn');
-
-            // Validate Tunisian phone number format
-            function validatePhoneNumber(number) {
-                const regex = /^[2,4,5,9][0-9]{7}$/;
-                return regex.test(number);
-            }
-
-            // Validate email format
-            function validateEmail(email) {
-                const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                return regex.test(email);
-            }
-
+            const returnBtn = document.getElementById('returnBtn');
+            const contactForm = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const spinner = document.getElementById('spinner');
+            const successMessage = document.getElementById('successMessage');
+            const programOptions = document.querySelectorAll('.program-option');
+            const programInput = document.getElementById('program');
+            
+            // Error elements
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const programError = document.getElementById('programError');
+            
             // Show form when start button is clicked
-            startBtn.addEventListener('click', function() {
+            startBtn.addEventListener('click', function(e) {
+                e.preventDefault();
                 welcomeSection.classList.add('hidden');
-                setTimeout(() => {
-                    formSection.classList.add('visible');
-                    document.body.style.overflow = 'hidden';
-                }, 300);
+                formContainer.classList.add('visible');
+                document.body.style.overflow = 'hidden';
             });
-
+            
             // Close form (mobile)
             closeBtn.addEventListener('click', function() {
-                formSection.classList.remove('visible');
-                setTimeout(() => {
-                    welcomeSection.classList.remove('hidden');
-                    document.body.style.overflow = 'auto';
-                }, 300);
+                formContainer.classList.remove('visible');
+                welcomeSection.classList.remove('hidden');
+                document.body.style.overflow = 'auto';
+                resetForm();
             });
-
-            // Class selection functionality
-            classOptions.forEach(option => {
+            
+            // Return to welcome section
+            returnBtn.addEventListener('click', function() {
+                formContainer.classList.remove('visible');
+                welcomeSection.classList.remove('hidden');
+                document.body.style.overflow = 'auto';
+                resetForm();
+            });
+            
+            // Reset form function
+            function resetForm() {
+                contactForm.reset();
+                successMessage.style.display = 'none';
+                contactForm.style.display = 'block';
+                
+                // Reset program selection
+                programOptions.forEach(option => {
+                    option.classList.remove('selected');
+                });
+                programInput.value = '';
+                
+                // Reset error messages
+                nameError.style.display = 'none';
+                emailError.style.display = 'none';
+                programError.style.display = 'none';
+                
+                // Reset input borders
+                document.getElementById('name').style.borderColor = '';
+                document.getElementById('email').style.borderColor = '';
+            }
+            
+            // Program selection
+            programOptions.forEach(option => {
                 option.addEventListener('click', function() {
-                    classOptions.forEach(opt => opt.classList.remove('selected'));
+                    programOptions.forEach(opt => opt.classList.remove('selected'));
                     this.classList.add('selected');
+                    programInput.value = this.getAttribute('data-value');
+                    programError.style.display = 'none';
+                });
+                
+                // Add keyboard support
+                option.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        programOptions.forEach(opt => opt.classList.remove('selected'));
+                        this.classList.add('selected');
+                        programInput.value = this.getAttribute('data-value');
+                        programError.style.display = 'none';
+                    }
                 });
             });
-
-            // Phone number validation on input
-            whatsappInput.addEventListener('input', function() {
-                if (!validatePhoneNumber(whatsappInput.value)) {
-                    whatsappError.style.display = 'block';
-                    whatsappInput.style.borderColor = 'var(--error)';
-                } else {
-                    whatsappError.style.display = 'none';
-                    whatsappInput.style.borderColor = 'var(--light-gray)';
-                }
-            });
-
-            // Email validation on input
-            emailInput.addEventListener('input', function() {
-                if (!validateEmail(emailInput.value)) {
-                    emailError.style.display = 'block';
-                    emailInput.style.borderColor = 'var(--error)';
-                } else {
-                    emailError.style.display = 'none';
-                    emailInput.style.borderColor = 'var(--light-gray)';
-                }
-            });
-
-            // Function to send email using EmailJS
-            function sendEmail(formData) {
-                // Initialize EmailJS with your public key
-                emailjs.init("YOUR_EMAILJS_PUBLIC_KEY"); // Replace with your actual EmailJS public key
-                
-                const templateParams = {
-                    to_email: "eduwellofficial@gmail.com",
-                    from_name: "EduVision Pro Registration",
-                    whatsapp: formData.whatsapp,
-                    email: formData.email,
-                    selected_class: formData.selectedClass,
-                    timestamp: formData.timestamp
-                };
-
-                return emailjs.send("YOUR_EMAILJS_SERVICE_ID", "YOUR_EMAILJS_TEMPLATE_ID", templateParams);
-            }
-
-            // Form submission with email sending
-            submitBtn.addEventListener('click', async function() {
-                const whatsapp = whatsappInput.value;
-                const email = emailInput.value;
-                const selectedClass = document.querySelector('.class-option.selected');
-
-                // Validate all fields
+            
+            // Form validation
+            function validateForm() {
                 let isValid = true;
                 
-                if (!validatePhoneNumber(whatsapp)) {
-                    whatsappError.style.display = 'block';
-                    whatsappInput.style.borderColor = 'var(--error)';
+                // Name validation
+                const name = document.getElementById('name').value.trim();
+                if (!name) {
+                    nameError.style.display = 'block';
+                    document.getElementById('name').style.borderColor = 'var(--error)';
                     isValid = false;
+                } else {
+                    nameError.style.display = 'none';
+                    document.getElementById('name').style.borderColor = '';
                 }
                 
-                if (!validateEmail(email)) {
+                // Email validation
+                const email = document.getElementById('email').value.trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!email || !emailRegex.test(email)) {
                     emailError.style.display = 'block';
-                    emailInput.style.borderColor = 'var(--error)';
+                    document.getElementById('email').style.borderColor = 'var(--error)';
                     isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                    document.getElementById('email').style.borderColor = '';
                 }
                 
-                if (!selectedClass) {
-                    alert('Please select a BAC program');
+                // Program validation
+                if (!programInput.value) {
+                    programError.style.display = 'block';
                     isValid = false;
+                } else {
+                    programError.style.display = 'none';
                 }
-
-                if (!isValid) return;
-
-                // Create a loading effect
-                const originalBtnContent = submitBtn.innerHTML;
-                submitBtn.innerHTML = '<i class="fas fa-spinner"></i> Processing...';
+                
+                return isValid;
+            }
+            
+            // Form submission
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) return;
+                
+                // Show loading state
+                const submitText = submitBtn.querySelector('span');
+                submitText.textContent = 'Submitting...';
+                spinner.style.display = 'block';
                 submitBtn.disabled = true;
-
+                
                 // Prepare form data
                 const formData = {
-                    whatsapp: whatsapp,
-                    email: email,
-                    selectedClass: selectedClass.querySelector('.class-name').textContent,
-                    timestamp: new Date().toLocaleString()
+                    name: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    program: programInput.value,
+                    _subject: `New BAC Registration: ${programInput.value}`,
+                    _template: "table",
+                    _replyto: document.getElementById('email').value
                 };
-
-                try {
-                    // First try to send email via EmailJS
-                    try {
-                        await sendEmail(formData);
-                    } catch (emailError) {
-                        console.error('EmailJS error:', emailError);
-                        // Fallback to Formspree if EmailJS fails
-                        await fetch("https://formspree.io/f/eduwellofficial@gmail.com", {
-                            method: "POST",
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify(formData)
-                        });
-                    }
-                    
+                
+                // Send data via FormSubmit
+                fetch('https://formsubmit.co/ajax/eduwelltn@gmail.com', {
+                    method: 'POST',
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
                     // Show success message
-                    formSection.innerHTML = `
-                        <div class="success-section">
-                            <i class="fas fa-check-circle success-icon animate"></i>
-                            <h2 style="margin-bottom: 1rem; font-weight: 600;">Registration Successful!</h2>
-                            <p style="margin-bottom: 1.5rem; color: var(--gray); font-size: 0.9375rem;">We've sent confirmation details to ${email}. You'll receive WhatsApp instructions shortly.</p>
-                            <button class="return-btn" id="returnBtn">
-                                <i class="fas fa-arrow-left"></i>
-                                Return to Home
-                            </button>
-                        </div>
-                    `;
-
-                    // Add event listener to return button
-                    document.getElementById('returnBtn').addEventListener('click', function() {
-                        // Hide form
-                        formSection.classList.remove('visible');
-                        
-                        // Reset form fields
-                        whatsappInput.value = '';
-                        emailInput.value = '';
-                        classOptions.forEach(opt => opt.classList.remove('selected'));
-                        
-                        // Show welcome section after a delay
-                        setTimeout(() => {
-                            welcomeSection.classList.remove('hidden');
-                            document.body.style.overflow = 'auto';
-                            
-                            // Reset form content
-                            formSection.innerHTML = `
-                                <button class="close-btn" id="closeBtn">
-                                    <i class="fas fa-times"></i>
-                                </button>
-                                <div class="form-header">
-                                    <h2 class="form-title">BAC Program Registration</h2>
-                                    <p class="form-subtitle">Enter your details to join our program</p>
-                                </div>
-                                
-                                <div class="input-group">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <input type="tel" id="whatsapp" placeholder="Tunisian WhatsApp Number" required pattern="[2,4,5,9][0-9]{7}" maxlength="8">
-                                    <div class="error-message" id="whatsappError">Please enter a valid Tunisian number starting with 2, 4, 5, or 9 (8 digits)</div>
-                                </div>
-                                
-                                <div class="input-group">
-                                    <i class="fas fa-envelope"></i>
-                                    <input type="email" id="email" placeholder="Email Address" required>
-                                    <div class="error-message" id="emailError">Please enter a valid email address</div>
-                                </div>
-                                
-                                <div class="class-options">
-                                    <div class="class-option" data-value="bac-math">
-                                        <i class="fas fa-square-root-alt"></i>
-                                        <div class="class-name">BAC Math</div>
-                                    </div>
-                                    <div class="class-option" data-value="bac-science">
-                                        <i class="fas fa-flask"></i>
-                                        <div class="class-name">BAC Science</div>
-                                    </div>
-                                    <div class="class-option" data-value="bac-technique">
-                                        <i class="fas fa-cogs"></i>
-                                        <div class="class-name">BAC Technique</div>
-                                    </div>
-                                    <div class="class-option" data-value="bac-eco">
-                                        <i class="fas fa-chart-line"></i>
-                                        <div class="class-name">BAC Eco</div>
-                                    </div>
-                                </div>
-                                
-                                <button class="submit-btn" id="submitBtn">
-                                    <i class="fas fa-paper-plane"></i>
-                                    Submit Application
-                                </button>
-                            `;
-                            
-                            // Reattach event listeners
-                            document.getElementById('submitBtn').addEventListener('click', arguments.callee);
-                            document.getElementById('closeBtn').addEventListener('click', function() {
-                                formSection.classList.remove('visible');
-                                setTimeout(() => {
-                                    welcomeSection.classList.remove('hidden');
-                                    document.body.style.overflow = 'auto';
-                                }, 300);
-                            });
-                        }, 300);
-                    });
-                } catch (error) {
-                    console.error('Error:', error);
-                    submitBtn.innerHTML = originalBtnContent;
+                    contactForm.style.display = 'none';
+                    successMessage.style.display = 'block';
+                    
+                    // Reset form state
+                    submitText.textContent = 'Submit Application';
+                    spinner.style.display = 'none';
                     submitBtn.disabled = false;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
                     alert('There was an error submitting your form. Please try again.');
+                    
+                    // Reset button state
+                    submitText.textContent = 'Submit Application';
+                    spinner.style.display = 'none';
+                    submitBtn.disabled = false;
+                });
+            });
+            
+            // Input validation on blur
+            document.getElementById('name').addEventListener('blur', function() {
+                if (!this.value.trim()) {
+                    nameError.style.display = 'block';
+                    this.style.borderColor = 'var(--error)';
+                } else {
+                    nameError.style.display = 'none';
+                    this.style.borderColor = '';
                 }
             });
+            
+            document.getElementById('email').addEventListener('blur', function() {
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!this.value.trim() || !emailRegex.test(this.value.trim())) {
+                    emailError.style.display = 'block';
+                    this.style.borderColor = 'var(--error)';
+                } else {
+                    emailError.style.display = 'none';
+                    this.style.borderColor = '';
+                }
+            });
+            
+            // Handle Escape key to close form
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && formContainer.classList.contains('visible')) {
+                    formContainer.classList.remove('visible');
+                    welcomeSection.classList.remove('hidden');
+                    document.body.style.overflow = 'auto';
+                    resetForm();
+                }
+            });
+            
+            // Handle mobile viewport height
+            function setViewportHeight() {
+                let vh = window.innerHeight * 0.01;
+                document.documentElement.style.setProperty('--vh', `${vh}px`);
+            }
+            
+            window.addEventListener('resize', setViewportHeight);
+            setViewportHeight();
         });
-    </script>
-    
-    <!-- Load EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-        // Initialize EmailJS with your public key
-        (function() {
-            emailjs.init({
-                publicKey: "YOUR_EMAILJS_PUBLIC_KEY", // Replace with your actual EmailJS public key
-                blockHeadless: true,
-                limitRate: {
-                    id: 'app',
-                    throttle: 10000, // 10 seconds
-                }
-            });
-        })();
     </script>
 </body>
 </html>
