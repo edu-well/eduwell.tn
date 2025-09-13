@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interactif - 4ème SI (STI)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #0078D4;
+            --primary-light: #50E6FF;
+            --secondary: #505AE6;
+            --dark: #201F1E;
+            --light: #F5F5F5;
+            --gray: #E1DFDD;
+            --success: #107C10;
+            --warning: #D83B01;
+        }
+        
+        body { 
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark) 0%, #323130 100%);
+            color: var(--light);
+            min-height: 100vh;
+        }
+        
+        .card {
+            background: rgba(32, 31, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 120, 212, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            padding: 12px 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .theme-chip {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-chip:hover {
+            background: rgba(0, 120, 212, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .theme-chip.selected {
+            background: rgba(0, 120, 212, 0.3);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.5);
+        }
+        
+        .option-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .option-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+        
+        .option-item.selected {
+            background: rgba(0, 120, 212, 0.2);
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(0, 120, 212, 0.3);
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .animate-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Code styling */
+        :not(pre) > code {
+            background-color: rgba(55, 65, 81, 0.5);
+            color: #e2e8f0; 
+            padding: 0.2em 0.4em;
+            margin: 0 0.2em; 
+            font-size: 0.9em; 
+            border-radius: 6px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        pre[class*="language-"] {
+            margin: 1.5em 0;
+            border-radius: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-size: 0.9em;
+            background: rgba(40, 42, 54, 0.7) !important;
+        }
+        
+        /* Floating animation for background elements */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        
+        /* Micro-interactions */
+        .micro-interaction {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        /* Screen transitions */
+        .screen {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            display: none;
+        }
+        
+        .screen.active {
+            opacity: 1;
+            transform: translateY(0);
+            display: block;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen py-8 overflow-x-hidden">
+
+    <!-- Animated background elements -->
+    <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-10 floating"></div>
+    <div class="absolute bottom-10 right-10 w-24 h-24 rounded-full bg-gradient-to-br from-green-500 to-teal-600 opacity-10 floating" style="animation-delay: 1s"></div>
+    <div class="absolute top-1/2 left-1/4 w-16 h-16 rounded-full bg-gradient-to-br from-orange-500 to-red-600 opacity-10 floating" style="animation-delay: 2s"></div>
+
+    <div class="container mx-auto p-4 md:p-8 max-w-3xl relative z-10">
+        <!-- Home Screen -->
+        <section id="home-screen" class="screen active text-center">
+            <div class="card p-8 md:p-12 mb-8 animate-fadeIn">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center micro-interaction animate-pulse">
+                    <i class="fas fa-brain text-white text-5xl"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Quiz STI</h1>
+                <h2 class="text-xl md:text-2xl font-semibold text-gray-300 mb-2">4<sup>ème</sup> Sciences de l'informatique</h2>
+                <p class="text-lg text-gray-400 mb-8">Testez vos connaissances sur les points clés du programme.</p>
+                <button id="start-config-btn" class="btn-primary micro-interaction">
+                    Commencer le Quiz <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mt-12">
+                <div class="card p-6 micro-interaction">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-puzzle-piece text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Questions Variées</h3>
+                    <p class="text-gray-400">Des questions couvrant l'ensemble du programme de 4ème Sciences de l'informatique.</p>
+                </div>
+                
+                <div class="card p-6 micro-interaction">
+                    <div class="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-clock text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Timer Challenge</h3>
+                    <p class="text-gray-400">Testez vos connaissances sous la pression du temps pour un défi supplémentaire.</p>
+                </div>
+                
+                <div class="card p-6 micro-interaction">
+                    <div class="w-12 h-12 rounded-lg bg-green-500/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Résultats Détaillés</h3>
+                    <p class="text-gray-400">Analysez vos performances avec des statistiques détaillées par thème.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Configuration Screen -->
+        <section id="config-screen" class="screen">
+            <div class="card p-6 md:p-8 mb-8">
+                <h2 class="text-3xl font-bold mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Configurer votre Quiz</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-paint-brush text-blue-400"></i>
+                        </div>
+                        Choisissez un ou plusieurs thèmes :
+                    </h3>
+                    <div id="themes-container" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-purple-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-signal text-purple-400"></i>
+                        </div>
+                        Choisissez le niveau :
+                    </h3>
+                    <div id="level-container" class="flex flex-col md:flex-row gap-3"></div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center mr-3">
+                            <i class="fas fa-ruler text-green-400"></i>
+                        </div>
+                        Choisissez la longueur de l'épreuve :
+                    </h3>
+                    <div id="length-container" class="flex flex-col md:flex-row gap-3"></div>
+                </div>
+                
+                <div class="text-center pt-4">
+                    <button id="start-quiz-btn" class="btn-primary micro-interaction" disabled>
+                        Démarrer le Quiz <i class="fas fa-play ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="screen">
+            <div class="card p-6 md:p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <div id="progress-indicator" class="text-lg font-medium text-gray-300"></div>
+                    <div id="timer" class="text-xl font-bold bg-blue-500/20 text-blue-400 px-4 py-2 rounded-lg"></div>
+                </div>
+                
+                <div class="progress-bar mb-6">
+                    <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                </div>
+                
+                <div class="mb-4">
+                    <span id="question-theme" class="inline-block bg-blue-500/20 text-blue-400 text-sm font-medium px-3 py-1.5 rounded-full"></span>
+                </div>
+                
+                <div id="question-text" class="text-xl md:text-2xl font-semibold leading-relaxed mb-6"></div>
+                
+                <div id="options-container" class="space-y-3 mb-8"></div>
+                
+                <div class="flex justify-between items-center pt-4 border-t border-gray-700">
+                    <button id="prev-btn" class="btn-secondary micro-interaction">
+                        <i class="fas fa-arrow-left mr-2"></i> Précédent
+                    </button>
+                    
+                    <div>
+                        <button id="skip-btn" class="btn-secondary micro-interaction mr-3">
+                            Ignorer <i class="fas fa-forward ml-2"></i>
+                        </button>
+                        <button id="next-btn" class="btn-primary micro-interaction">
+                            Suivant <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="card p-6 md:p-8 mb-8 text-center">
+                <h2 class="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">Résultats du Quiz</h2>
+                
+                <div class="bg-gradient-to-br from-blue-500/10 to-purple-500/10 p-8 rounded-xl mb-8">
+                    <p class="text-lg mb-2 text-gray-300">Votre score final est de :</p>
+                    <p id="final-score" class="text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400"></p>
+                    <p id="total-time" class="text-gray-400"></p>
+                </div>
+                
+                <div id="theme-scores-container" class="mb-8"></div>
+                
+                <div id="wrong-answers-container" class="mb-8"></div>
+                
+                <div class="flex justify-center gap-4 mt-8">
+                    <button id="replay-btn" class="btn-primary micro-interaction">
+                        <i class="fas fa-redo mr-2"></i> Rejouer
+                    </button>
+                    <button id="quit-btn" class="btn-secondary micro-interaction">
+                        <i class="fas fa-home mr-2"></i> Quitter
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center text-gray-500 text-sm mt-12">
+            <address>
+                Créé par Abidi Mohamed Fadhel - 28552707
+            </address>
+        </footer>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Sample data for demonstration
+        const quizData = {
+            themes: [
+                { id: 'algo', name: 'Algorithmique' },
+                { id: 'web', name: 'Développement Web' },
+                { id: 'db', name: 'Bases de données' },
+                { id: 'network', name: 'Réseaux' },
+                { id: 'security', name: 'Sécurité' },
+                { id: 'oop', name: 'Programmation Orientée Objet' }
+            ],
+            levels: [
+                { id: 'easy', name: 'Facile' },
+                { id: 'medium', name: 'Moyen' },
+                { id: 'hard', name: 'Difficile' }
+            ],
+            lengths: [
+                { id: 'short', name: 'Court (5 questions)' },
+                { id: 'medium', name: 'Moyen (10 questions)' },
+                { id: 'long', name: 'Long (20 questions)' }
+            ],
+            questions: [
+                {
+                    id: 1,
+                    theme: 'Algorithmique',
+                    question: "Quelle est la complexité temporelle de l'algorithme de tri par bulles dans le pire des cas?",
+                    options: [
+                        "O(n log n)",
+                        "O(n²)",
+                        "O(n)",
+                        "O(1)"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    id: 2,
+                    theme: 'Développement Web',
+                    question: "Quelle balise HTML est utilisée pour définir un lien hypertexte?",
+                    options: [
+                        "<link>",
+                        "<a>",
+                        "<href>",
+                        "<url>"
+                    ],
+                    correctAnswer: 1
+                },
+                {
+                    id: 3,
+                    theme: 'Bases de données',
+                    question: "Qu'est-ce qu'une clé étrangère dans une base de données relationnelle?",
+                    options: [
+                        "Une clé qui chiffre les données",
+                        "Une clé qui fait référence à la clé primaire d'une autre table",
+                        "Une clé unique à chaque enregistrement",
+                        "Une clé qui n'est plus utilisée"
+                    ],
+                    correctAnswer: 1
+                }
+            ]
+        };
+
+        // DOM Elements
+        const homeScreen = document.getElementById('home-screen');
+        const configScreen = document.getElementById('config-screen');
+        const quizScreen = document.getElementById('quiz-screen');
+        const resultsScreen = document.getElementById('results-screen');
+        
+        const startConfigBtn = document.getElementById('start-config-btn');
+        const startQuizBtn = document.getElementById('start-quiz-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const skipBtn = document.getElementById('skip-btn');
+        const replayBtn = document.getElementById('replay-btn');
+        const quitBtn = document.getElementById('quit-btn');
+        
+        const themesContainer = document.getElementById('themes-container');
+        const levelContainer = document.getElementById('level-container');
+        const lengthContainer = document.getElementById('length-container');
+        
+        const progressIndicator = document.getElementById('progress-indicator');
+        const progressFill = document.getElementById('progress-fill');
+        const timerElement = document.getElementById('timer');
+        const questionTheme = document.getElementById('question-theme');
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        
+        const finalScore = document.getElementById('final-score');
+        const totalTime = document.getElementById('total-time');
+        const themeScoresContainer = document.getElementById('theme-scores-container');
+        const wrongAnswersContainer = document.getElementById('wrong-answers-container');
+
+        // State variables
+        let selectedThemes = [];
+        let selectedLevel = null;
+        let selectedLength = null;
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let startTime = null;
+        let timerInterval = null;
+        let timeSpent = 0;
+
+        // Initialize the app
+        function initApp() {
+            renderThemeOptions();
+            renderLevelOptions();
+            renderLengthOptions();
+            setupEventListeners();
+        }
+
+        // Render theme options
+        function renderThemeOptions() {
+            themesContainer.innerHTML = '';
+            quizData.themes.forEach(theme => {
+                const themeElement = document.createElement('div');
+                themeElement.className = 'theme-chip micro-interaction';
+                themeElement.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 rounded-full border-2 border-gray-400 mr-3 flex-shrink-0"></div>
+                        <span>${theme.name}</span>
+                    </div>
+                `;
+                themeElement.addEventListener('click', () => {
+                    themeElement.classList.toggle('selected');
+                    const indicator = themeElement.querySelector('.w-5');
+                    if (themeElement.classList.contains('selected')) {
+                        indicator.classList.remove('border-gray-400');
+                        indicator.classList.add('bg-blue-400', 'border-blue-400');
+                        selectedThemes.push(theme.id);
+                    } else {
+                        indicator.classList.remove('bg-blue-400', 'border-blue-400');
+                        indicator.classList.add('border-gray-400');
+                        selectedThemes = selectedThemes.filter(id => id !== theme.id);
+                    }
+                    updateStartButtonState();
+                });
+                themesContainer.appendChild(themeElement);
+            });
+        }
+
+        // Render level options
+        function renderLevelOptions() {
+            levelContainer.innerHTML = '';
+            quizData.levels.forEach(level => {
+                const levelElement = document.createElement('div');
+                levelElement.className = 'theme-chip micro-interaction';
+                levelElement.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 rounded-full border-2 border-gray-400 mr-3 flex-shrink-0"></div>
+                        <span>${level.name}</span>
+                    </div>
+                `;
+                levelElement.addEventListener('click', () => {
+                    document.querySelectorAll('#level-container .theme-chip').forEach(el => {
+                        el.classList.remove('selected');
+                        el.querySelector('.w-5').classList.remove('bg-blue-400', 'border-blue-400');
+                        el.querySelector('.w-5').classList.add('border-gray-400');
+                    });
+                    
+                    levelElement.classList.add('selected');
+                    const indicator = levelElement.querySelector('.w-5');
+                    indicator.classList.remove('border-gray-400');
+                    indicator.classList.add('bg-blue-400', 'border-blue-400');
+                    
+                    selectedLevel = level.id;
+                    updateStartButtonState();
+                });
+                levelContainer.appendChild(levelElement);
+            });
+        }
+
+        // Render length options
+        function renderLengthOptions() {
+            lengthContainer.innerHTML = '';
+            quizData.lengths.forEach(length => {
+                const lengthElement = document.createElement('div');
+                lengthElement.className = 'theme-chip micro-interaction';
+                lengthElement.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-5 h-5 rounded-full border-2 border-gray-400 mr-3 flex-shrink-0"></div>
+                        <span>${length.name}</span>
+                    </div>
+                `;
+                lengthElement.addEventListener('click', () => {
+                    document.querySelectorAll('#length-container .theme-chip').forEach(el => {
+                        el.classList.remove('selected');
+                        el.querySelector('.w-5').classList.remove('bg-blue-400', 'border-blue-400');
+                        el.querySelector('.w-5').classList.add('border-gray-400');
+                    });
+                    
+                    lengthElement.classList.add('selected');
+                    const indicator = lengthElement.querySelector('.w-5');
+                    indicator.classList.remove('border-gray-400');
+                    indicator.classList.add('bg-blue-400', 'border-blue-400');
+                    
+                    selectedLength = length.id;
+                    updateStartButtonState();
+                });
+                lengthContainer.appendChild(lengthElement);
+            });
+        }
+
+        // Update start button state based on selections
+        function updateStartButtonState() {
+            startQuizBtn.disabled = !(selectedThemes.length > 0 && selectedLevel && selectedLength);
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            startConfigBtn.addEventListener('click', () => {
+                showScreen(configScreen);
+            });
+            
+            startQuizBtn.addEventListener('click', startQuiz);
+            
+            prevBtn.addEventListener('click', goToPreviousQuestion);
+            nextBtn.addEventListener('click', goToNextQuestion);
+            skipBtn.addEventListener('click', skipQuestion);
+            
+            replayBtn.addEventListener('click', () => {
+                showScreen(homeScreen);
+            });
+            
+            quitBtn.addEventListener('click', () => {
+                showScreen(homeScreen);
+            });
+        }
+
+        // Show a specific screen
+        function showScreen(screen) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            screen.classList.add('active');
+        }
+
+        // Start the quiz
+        function startQuiz() {
+            userAnswers = [];
+            currentQuestionIndex = 0;
+            startTime = new Date();
+            timeSpent = 0;
+            
+            // Start timer
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(updateTimer, 1000);
+            updateTimer();
+            
+            showScreen(quizScreen);
+            displayQuestion();
+        }
+
+        // Update timer display
+        function updateTimer() {
+            const now = new Date();
+            timeSpent = Math.floor((now - startTime) / 1000);
+            
+            const minutes = Math.floor(timeSpent / 60);
+            const seconds = timeSpent % 60;
+            
+            timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        // Display current question
+        function displayQuestion() {
+            const question = quizData.questions[currentQuestionIndex];
+            
+            progressIndicator.textContent = `Question ${currentQuestionIndex + 1} sur ${quizData.questions.length}`;
+            progressFill.style.width = `${((currentQuestionIndex + 1) / quizData.questions.length) * 100}%`;
+            
+            questionTheme.textContent = question.theme;
+            questionText.textContent = question.question;
+            
+            optionsContainer.innerHTML = '';
+            question.options.forEach((option, index) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option-item micro-interaction';
+                optionElement.innerHTML = `
+                    <div class="flex items-center">
+                        <div class="w-6 h-6 rounded-full border-2 border-gray-400 mr-4 flex-shrink-0"></div>
+                        <span>${option}</span>
+                    </div>
+                `;
+                
+                optionElement.addEventListener('click', () => {
+                    document.querySelectorAll('#options-container .option-item').forEach(el => {
+                        el.classList.remove('selected');
+                        el.querySelector('.w-6').classList.remove('bg-blue-400', 'border-blue-400');
+                        el.querySelector('.w-6').classList.add('border-gray-400');
+                    });
+                    
+                    optionElement.classList.add('selected');
+                    const indicator = optionElement.querySelector('.w-6');
+                    indicator.classList.remove('border-gray-400');
+                    indicator.classList.add('bg-blue-400', 'border-blue-400');
+                    
+                    userAnswers[currentQuestionIndex] = index;
+                });
+                
+                optionsContainer.appendChild(optionElement);
+            });
+            
+            // Update navigation buttons state
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === quizData.questions.length - 1) {
+                nextBtn.textContent = 'Terminer';
+                nextBtn.removeEventListener('click', goToNextQuestion);
+                nextBtn.addEventListener('click', finishQuiz);
+            } else {
+                nextBtn.textContent = 'Suivant';
+                nextBtn.removeEventListener('click', finishQuiz);
+                nextBtn.addEventListener('click', goToNextQuestion);
+            }
+        }
+
+        // Go to previous question
+        function goToPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }
+
+        // Go to next question
+        function goToNextQuestion() {
+            if (currentQuestionIndex < quizData.questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            }
+        }
+
+        // Skip current question
+        function skipQuestion() {
+            userAnswers[currentQuestionIndex] = -1; // Mark as skipped
+            
+            if (currentQuestionIndex < quizData.questions.length - 1) {
+                currentQuestionIndex++;
+                displayQuestion();
+            } else {
+                finishQuiz();
+            }
+        }
+
+        // Finish the quiz and show results
+        function finishQuiz() {
+            clearInterval(timerInterval);
+            
+            // Calculate score
+            let correctAnswers = 0;
+            quizData.questions.forEach((question, index) => {
+                if (userAnswers[index] === question.correctAnswer) {
+                    correctAnswers++;
+                }
+            });
+            
+            const score = Math.round((correctAnswers / quizData.questions.length) * 100);
+            finalScore.textContent = `${score}%`;
+            
+            // Format time spent
+            const minutes = Math.floor(timeSpent / 60);
+            const seconds = timeSpent % 60;
+            totalTime.textContent = `Temps total: ${minutes} minute${minutes !== 1 ? 's' : ''} et ${seconds} seconde${seconds !== 1 ? 's' : ''}`;
+            
+            showScreen(resultsScreen);
+        }
+
+        // Initialize the app when the DOM is loaded
+        document.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
