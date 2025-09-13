@@ -11,168 +11,99 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         
         :root {
-            --primary: #2563EB;
-            --primary-light: #3B82F6;
-            --primary-dark: #1D4ED8;
-            --surface: #FFFFFF;
-            --card-bg: #FFFFFF;
-            --text-primary: #1F2937;
-            --text-secondary: #4B5563;
-            --border: #E5E7EB;
-            --accent: #8B5CF6;
+            --primary: #0078D4;
+            --primary-light: #50B6FF;
+            --primary-dark: #106EBE;
+            --surface: #201F1E;
+            --card-bg: rgba(32, 31, 30, 0.7);
+            --text-primary: #FFFFFF;
+            --text-secondary: #D2D2D2;
         }
         
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .card {
             background: var(--card-bg);
-            border: 1px solid var(--border);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+            border-radius: 12px;
+            transition: all 0.3s ease;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
         }
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            color: white;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
         }
 
         .btn-secondary {
-            background: #F3F4F6;
-            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease;
-            border: 1px solid var(--border);
         }
 
         .btn-secondary:hover {
-            background: #E5E7EB;
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .theme-chip {
             transition: all 0.3s ease;
             cursor: pointer;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .theme-chip::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: -1;
         }
 
         .theme-chip.selected {
-            color: white;
-            transform: scale(1.03);
-            border-color: var(--primary);
-        }
-
-        .theme-chip.selected::before {
-            opacity: 1;
-        }
-
-        .theme-chip:hover {
-            border-color: var(--primary-light);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transform: scale(1.05);
         }
 
         .progress-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #F3F4F6;
+            height: 6px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.1);
             overflow: hidden;
-            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 4px;
-            transition: width 0.6s cubic-bezier(0.65, 0, 0.35, 1);
-            box-shadow: 0 0 10px rgba(37, 99, 235, 0.4);
+            border-radius: 3px;
+            transition: width 0.5s ease;
         }
 
         .option-item {
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .option-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.05), transparent);
-            transition: 0.5s;
-        }
-
-        .option-item:hover::before {
-            left: 100%;
+            transition: all 0.2s ease;
         }
 
         .option-item:hover {
-            background: rgba(37, 99, 235, 0.03);
-            border-color: var(--primary-light);
+            background: rgba(0, 120, 212, 0.1);
             transform: translateX(5px);
         }
 
         .fade-in {
-            animation: fadeIn 0.8s ease forwards;
+            animation: fadeIn 0.5s ease forwards;
         }
 
         .slide-in {
-            animation: slideIn 0.8s ease forwards;
+            animation: slideIn 0.5s ease forwards;
         }
 
-        .scale-in {
-            animation: scaleIn 0.6s ease forwards;
+        .pulse {
+            animation: pulse 2s infinite;
         }
 
         @keyframes fadeIn {
@@ -181,165 +112,52 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateY(30px); opacity: 0; }
+            from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        /* Loading animation */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease;
-        }
-
-        .loader {
-            width: 70px;
-            height: 70px;
-            position: relative;
-        }
-
-        .loader-circle {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border: 4px solid transparent;
-            border-top: 4px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        }
-
-        .loader-circle:nth-child(2) {
-            animation-delay: -0.3s;
-            border-top-color: var(--primary-light);
-            width: 80%;
-            height: 80%;
-            top: 10%;
-            left: 10%;
-        }
-
-        .loader-circle:nth-child(3) {
-            animation-delay: -0.6s;
-            border-top-color: var(--accent);
-            width: 60%;
-            height: 60%;
-            top: 20%;
-            left: 20%;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .floating {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .particle {
-            position: absolute;
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent) 100%);
-            border-radius: 50%;
-            opacity: 0.4;
-            animation: particleFloat 15s infinite linear;
-        }
-
-        @keyframes particleFloat {
-            0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
-            100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 120, 212, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
         }
 
         /* Style pour le code DANS une phrase (inline) */
         :not(pre) > code {
-            background-color: #F3F4F6; 
-            color: var(--text-primary); 
+            background-color: #334155; 
+            color: #e2e8f0; 
             padding: 0.2em 0.4em;
             margin: 0 0.2em; 
             font-size: 0.9em; 
             border-radius: 6px;
             font-family: 'Courier New', Courier, monospace;
-            border: 1px solid var(--border);
         }
 
         /* Style pour le CADRE de code (bloc), géré en partie par prism.css */
         pre[class*="language-"] {
             margin: 1em 0;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+            border-radius: 8px;
+            border: 1px solid var(--primary);
             font-size: 0.9em;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .result-chart {
-            height: 10px;
-            border-radius: 5px;
-            background: #F3F4F6;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .result-fill {
-            height: 100%;
-            border-radius: 5px;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
-            transition: width 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
-            box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
         }
     </style>
 </head>
-<body class="text-gray-800">
-    <!-- Loading Screen -->
-    <div id="loading-screen" class="loading-screen">
-        <div class="loader">
-            <div class="loader-circle"></div>
-            <div class="loader-circle"></div>
-            <div class="loader-circle"></div>
-        </div>
-        <p class="text-lg text-gray-600 mt-6">Préparation de votre expérience quiz...</p>
-    </div>
+<body class="text-white flex items-center justify-center min-h-screen py-8">
+    <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[var(--primary)] to-transparent opacity-10 pointer-events-none"></div>
 
-    <!-- Background particles -->
-    <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
-
-    <div class="container mx-auto p-4 md:p-8 max-w-4xl py-12 relative z-10">
+    <div class="container mx-auto p-4 md:p-8 max-w-3xl relative z-10">
         <!-- Home Screen -->
         <section id="home-screen" class="text-center fade-in">
-            <div class="card p-10 mb-10 scale-in">
-                <div class="w-40 h-40 mx-auto mb-8 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--accent)] flex items-center justify-center floating">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-20 w-20 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div class="card p-8 mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-dark)] flex items-center justify-center pulse">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
                 </div>
-                <h1 class="text-5xl md:text-6xl font-bold mb-4 gradient-text">Quiz STI</h1>
-                <h2 class="text-2xl text-[var(--text-secondary)] mb-4">4<sup>ème</sup> Sciences de l'informatique</h2>
-                <p class="text-xl text-[var(--text-secondary)] mb-10 max-w-2xl mx-auto">Testez vos connaissances sur les points clés du programme avec une expérience interactive moderne.</p>
-                <button id="start-config-btn" class="btn-primary font-bold py-4 px-12 rounded-xl text-xl">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Quiz STI</h1>
+                <h2 class="text-xl text-[var(--text-secondary)] mb-2">4<sup>ème</sup> Sciences de l'informatique</h2>
+                <p class="text-lg text-[var(--text-secondary)] mb-8">Testez vos connaissances sur les points clés du programme.</p>
+                <button id="start-config-btn" class="btn-primary text-white font-bold py-3 px-8 rounded-lg text-xl">
                     Commencer le Quiz
                 </button>
             </div>
@@ -347,41 +165,26 @@
 
         <!-- Config Screen -->
         <section id="config-screen" class="hidden slide-in">
-            <div class="card p-10">
-                <h2 class="text-4xl font-bold mb-8 text-center gradient-text">Configurer votre Quiz</h2>
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-[var(--text-primary)]">Configurer votre Quiz</h2>
                 
-                <div class="mb-10">
-                    <h3 class="text-2xl font-semibold mb-6 text-[var(--text-primary)] border-b border-[var(--border)] pb-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-                        </svg>
-                        Choisissez un ou plusieurs thèmes
-                    </h3>
-                    <div id="themes-container" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">1. Choisissez un ou plusieurs thèmes :</h3>
+                    <div id="themes-container" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
                 </div>
                 
-                <div class="mb-10">
-                    <h3 class="text-2xl font-semibold mb-6 text-[var(--text-primary)] border-b border-[var(--border)] pb-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                        Choisissez le niveau
-                    </h3>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">2. Choisissez le niveau :</h3>
                     <div id="level-container" class="flex flex-wrap gap-4"></div>
                 </div>
                 
-                <div class="mb-10">
-                    <h3 class="text-2xl font-semibold mb-6 text-[var(--text-primary)] border-b border-[var(--border)] pb-3 flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-[var(--primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        Choisissez la longueur de l'épreuve
-                    </h3>
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">3. Choisissez la longueur de l'épreuve :</h3>
                     <div id="length-container" class="flex flex-wrap gap-4"></div>
                 </div>
                 
                 <div class="text-center">
-                    <button id="start-quiz-btn" class="btn-primary font-bold py-4 px-14 rounded-xl text-xl" disabled>
+                    <button id="start-quiz-btn" class="btn-primary text-white font-bold py-3 px-12 rounded-lg text-lg" disabled>
                         Démarrer le Quiz
                     </button>
                 </div>
@@ -390,50 +193,30 @@
 
         <!-- Quiz Screen -->
         <section id="quiz-screen" class="hidden">
-            <div class="card p-8">
-                <div class="mb-8">
-                    <div class="progress-bar mb-3">
+            <div class="card p-6">
+                <div class="mb-6">
+                    <div class="progress-bar mb-2">
                         <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
                     </div>
                     <div class="flex justify-between items-center">
                         <div id="progress-indicator" class="text-lg font-medium text-[var(--text-secondary)]"></div>
-                        <div id="timer" class="text-2xl font-bold text-[var(--primary)] flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <span id="timer-value">00:00</span>
-                        </div>
+                        <div id="timer" class="text-xl font-bold text-[var(--primary-light)]"></div>
                     </div>
                 </div>
                 
-                <div class="mb-6">
-                    <span id="question-theme" class="inline-block text-sm font-medium px-4 py-2 rounded-full bg-blue-50 text-[var(--primary)] border border-blue-100"></span>
+                <div class="mb-4">
+                    <span id="question-theme" class="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[rgba(0,120,212,0.2)] text-[var(--primary-light)]"></span>
                 </div>
                 
-                <div id="question-text" class="text-2xl md:text-3xl font-semibold leading-relaxed mb-8 text-[var(--text-primary)]"></div>
+                <div id="question-text" class="text-xl md:text-2xl font-semibold leading-relaxed mb-6 text-[var(--text-primary)]"></div>
                 
-                <div id="options-container" class="space-y-4"></div>
+                <div id="options-container" class="space-y-3"></div>
                 
-                <div class="flex justify-between items-center mt-10">
-                    <button id="prev-btn" class="btn-secondary font-bold py-3 px-8 rounded-xl flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                        </svg>
-                        Précédent
-                    </button>
-                    <div class="flex gap-4">
-                        <button id="skip-btn" class="btn-secondary font-bold py-3 px-8 rounded-xl flex items-center">
-                            Ignorer
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
-                        <button id="next-btn" class="btn-primary font-bold py-3 px-8 rounded-xl flex items-center">
-                            Suivant
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </button>
+                <div class="flex justify-between items-center mt-8">
+                    <button id="prev-btn" class="btn-secondary font-bold py-2 px-6 rounded-lg">Précédent</button>
+                    <div>
+                        <button id="skip-btn" class="btn-secondary font-bold py-2 px-6 rounded-lg mr-4">Ignorer</button>
+                        <button id="next-btn" class="btn-primary font-bold py-2 px-6 rounded-lg">Suivant</button>
                     </div>
                 </div>
             </div>
@@ -441,35 +224,25 @@
 
         <!-- Results Screen -->
         <section id="results-screen" class="hidden slide-in">
-            <div class="card p-10 mb-10 text-center">
-                <h2 class="text-4xl font-bold mb-8 gradient-text">Résultats du Quiz</h2>
-                
-                <div class="mb-10">
-                    <p class="text-xl mb-4 text-[var(--text-secondary)]">Votre score final est de :</p>
-                    <p id="final-score" class="text-6xl font-bold mb-6 text-[var(--primary)]"></p>
-                    <p id="total-time" class="text-[var(--text-secondary)] text-lg"></p>
-                </div>
+            <div class="card p-8 mb-8 text-center">
+                <h2 class="text-3xl font-bold mb-6 text-[var(--text-primary)]">Résultats du Quiz</h2>
                 
                 <div class="mb-8">
-                    <h3 class="text-2xl font-semibold mb-6 text-[var(--text-primary)]">Performance par thème</h3>
-                    <div id="theme-scores-container" class="grid grid-cols-1 md:grid-cols-2 gap-6"></div>
+                    <p class="text-lg mb-2 text-[var(--text-secondary)]">Votre score final est de :</p>
+                    <p id="final-score" class="text-5xl font-bold mb-4 text-[var(--primary-light)]"></p>
+                    <p id="total-time" class="text-[var(--text-secondary)]"></p>
                 </div>
                 
-                <div id="wrong-answers-container" class="mb-8"></div>
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)]">Performance par thème</h3>
+                    <div id="theme-scores-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
                 
-                <div class="flex justify-center gap-6 mt-10">
-                    <button id="replay-btn" class="btn-primary font-bold py-3 px-10 rounded-xl text-lg flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                        </svg>
-                        Rejouer
-                    </button>
-                    <button id="quit-btn" class="btn-secondary font-bold py-3 px-10 rounded-xl text-lg flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                        Quitter
-                    </button>
+                <div id="wrong-answers-container" class="mb-6"></div>
+                
+                <div class="flex justify-center gap-4 mt-8">
+                    <button id="replay-btn" class="btn-primary font-bold py-3 px-8 rounded-lg">Rejouer</button>
+                    <button id="quit-btn" class="btn-secondary font-bold py-3 px-8 rounded-lg">Quitter</button>
                 </div>
             </div>
         </section>
@@ -483,52 +256,6 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script>
-        // Loading animation handler
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create background particles
-            createParticles();
-            
-            setTimeout(function() {
-                document.getElementById('loading-screen').style.opacity = '0';
-                setTimeout(function() {
-                    document.getElementById('loading-screen').style.display = 'none';
-                }, 800);
-            }, 2500); // Show loading for 2.5 seconds
-        });
-
-        // Create floating particles in background
-        function createParticles() {
-            const container = document.getElementById('particles-container');
-            const particleCount = 20;
-            
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size, position, and animation delay
-                const size = Math.random() * 20 + 5;
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                const delay = Math.random() * 15;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.left = `${posX}vw`;
-                particle.style.top = `${posY}vh`;
-                particle.style.animationDelay = `${delay}s`;
-                
-                container.appendChild(particle);
-            }
-        }
-
-        // This is a placeholder for your original app.js functionality
-        // In a real implementation, this would be in a separate file
-        document.getElementById('start-config-btn').addEventListener('click', function() {
-            document.getElementById('home-screen').classList.add('hidden');
-            document.getElementById('config-screen').classList.remove('hidden');
-        });
-    </script>
     <script src="app.js"></script>
 </body>
 </html>
