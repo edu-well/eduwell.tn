@@ -24,6 +24,100 @@
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        /* Loading Animation */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
+
+        .loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .loader:before, .loader:after {
+            content: '';
+            position: absolute;
+            border: 4px solid var(--primary);
+            opacity: 1;
+            border-radius: 50%;
+            animation: pulse 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        .loader:after {
+            animation-delay: -0.75s;
+        }
+
+        .loader-text {
+            margin-top: 20px;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .loader-dots {
+            display: flex;
+            margin-top: 15px;
+        }
+
+        .loader-dots span {
+            width: 10px;
+            height: 10px;
+            margin: 0 5px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+
+        .loader-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .loader-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes pulse {
+            0% {
+                top: 36px;
+                left: 36px;
+                width: 0;
+                height: 0;
+                opacity: 1;
+            }
+            100% {
+                top: 0;
+                left: 0;
+                width: 72px;
+                height: 72px;
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(-15px);
+                opacity: 1;
+            }
         }
 
         .card {
@@ -143,6 +237,17 @@
     </style>
 </head>
 <body class="text-white flex items-center justify-center min-h-screen py-8">
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+        <div class="loader-text">Chargement du Quiz</div>
+        <div class="loader-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[var(--primary)] to-transparent opacity-10 pointer-events-none"></div>
 
     <div class="container mx-auto p-4 md:p-8 max-w-3xl relative z-10">
@@ -256,6 +361,17 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Script pour gérer l'écran de chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simuler un temps de chargement (à remplacer par le chargement réel des ressources)
+            setTimeout(function() {
+                const loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+            }, 2000); // 2 secondes de simulation de chargement
+        });
+    </script>
     <script src="app.js"></script>
 </body>
 </html>
