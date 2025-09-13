@@ -252,14 +252,6 @@ body {
     letter-spacing: -0.5px;
 }
 
-.tagline {
-    font-size: 1.5rem;
-    color: var(--text);
-    font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto 40px;
-    line-height: 1.6;
-}
 
 .tagline strong {
     font-weight: 600;
@@ -326,7 +318,7 @@ body {
     align-items: center;
     padding: 20px;
     background-color: var(--card-bg);
-    border-radius: var(--border-radius);
+   
     box-shadow: var(--shadow-md);
     margin: 0 auto 25px;
     transition: var(--transition);
@@ -341,7 +333,7 @@ body {
     left: 0;
     width: 5px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    
 }
 
 .header:hover {
@@ -898,7 +890,7 @@ body {
 
 .particle {
     position: absolute;
-    background: rgba(67, 97, 238, 0.08);
+    
     border-radius: 50%;
     animation: float linear infinite;
 }
