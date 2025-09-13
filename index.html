@@ -1,381 +1,1160 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Interactif - 4ème SI (STI)</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        :root {
-            --primary: #0078D4;
-            --primary-light: #50B6FF;
-            --primary-dark: #106EBE;
-            --surface: #201F1E;
-            --card-bg: rgba(32, 31, 30, 0.7);
-            --text-primary: #FFFFFF;
-            --text-secondary: #D2D2D2;
-        }
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            min-height: 100vh;
-            margin: 0;
-            overflow-x: hidden;
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="7-FD479xFj_8HbH9UlwHCnnMl0gziIaCUqk5R_oU6L4" />
+  <title>EduWell</title>
+ 
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
 
-        /* Modern Loading Animation */
-        #loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            z-index: 9999;
-            transition: opacity 0.5s ease-out, visibility 0.5s;
-        }
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="pop.css">
 
-        .modern-loader {
-            width: 80px;
-            height: 80px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modern-loader::before {
-            content: '';
-            width: 64px;
-            height: 64px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            position: absolute;
-        }
-
-        .modern-loader::after {
-            content: '';
-            width: 64px;
-            height: 64px;
-            border: 3px solid transparent;
-            border-top: 3px solid var(--primary-light);
-            border-radius: 50%;
-            position: absolute;
-            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        }
-
-        .modern-loader-inner {
-            width: 48px;
-            height: 48px;
-            border: 2px solid transparent;
-            border-top: 2px solid var(--primary);
-            border-radius: 50%;
-            animation: spin 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
-        }
-
-        .loader-logo {
-            position: absolute;
-            width: 24px;
-            height: 24px;
-            background: var(--primary);
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-        }
-
-        .loader-text {
-            margin-top: 24px;
-            color: var(--text-secondary);
-            font-size: 1rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .progress-bar {
-            width: 200px;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            margin-top: 16px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
-            border-radius: 2px;
-            animation: loading 2s ease-in-out infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes loading {
-            0% { width: 0%; }
-            50% { width: 70%; }
-            100% { width: 100%; }
-        }
-
-        .card {
-            background: var(--card-bg);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            transition: all 0.3s ease;
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .theme-chip {
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .theme-chip.selected {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-            transform: scale(1.05);
-        }
-
-        .option-item {
-            transition: all 0.2s ease;
-        }
-
-        .option-item:hover {
-            background: rgba(0, 120, 212, 0.1);
-            transform: translateX(5px);
-        }
-
-        .fade-in {
-            animation: fadeIn 0.5s ease forwards;
-        }
-
-        .slide-in {
-            animation: slideIn 0.5s ease forwards;
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(0, 120, 212, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
-        }
-
-        /* Style pour le code DANS une phrase (inline) */
-        :not(pre) > code {
-            background-color: #334155; 
-            color: #e2e8f0; 
-            padding: 0.2em 0.4em;
-            margin: 0 0.2em; 
-            font-size: 0.9em; 
-            border-radius: 6px;
-            font-family: 'Courier New', Courier, monospace;
-        }
-
-        /* Style pour le CADRE de code (bloc), géré en partie par prism.css */
-        pre[class*="language-"] {
-            margin: 1em 0;
-            border-radius: 8px;
-            border: 1px solid var(--primary);
-            font-size: 0.9em;
-        }
-    </style>
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body class="text-white flex items-center justify-center min-h-screen py-8">
-    <!-- Modern Loading Screen -->
-    <div id="loading-screen">
-        <div class="modern-loader">
-            <div class="modern-loader-inner"></div>
-            <div class="loader-logo">Q</div>
+
+<body>
+
+
+  <div class="popup-screen1">
+    <div class="popup-box1">
+      <i class="fas fa-times close-btn1"></i>
+      <h2>Notification</h2>
+      <p>Nous sommes actuellement en train de développer le site,<br> ce qui peut entraîner certains dysfonctionnements.</p>
+      <a href="#" class="btn">Masquer</a>
+    </div>
+  </div>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./img/avp.png" alt="Richard hanrick" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Richard hanrick">EduWell</h1>
+
+          <p class="title"> Personnages virtuels
+
+
+
+
+
+
+
+
+          </p>
         </div>
-        <div class="loader-text">Chargement</div>
-        <div class="progress-bar">
-            <div class="progress-fill"></div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Voir la notification</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+        
+         
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+        
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Notification</p>
+
+              <address> Rien à signaler aujourd’hui </address>
+                
+              </div>
+
+         </li> 
+
+        </ul>
+
+
+
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+        
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/eduWellofficial" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+     </div> 
+
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>Accueil</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Espaces Interactifs</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Matieres</button>
+          </li>
+
+          <li class="navbar-item">
+            <button class="navbar-link" data-nav-link>Espace etudiant</button>
+          </li>
+
+         
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="accueil">
+
+        <header>
+          <h2 class="h2 article-title">" Eduwell "
+            <br> 
+            Donnez de la force à votre parcours éducatif
+          </h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            EduWell Academy est une plateforme éducative gratuite et interactive qui propose des cours de qualité adaptés aux besoins et au rythme de chaque apprenant.
+
+          </p>
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">"Apprenez encore plus"</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./img/course-3.png
+                " alt="icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Science</h4>
+
+                <p class="service-item-text">
+                  Des leçons claires, des outils interactifs pour expérimenter et mieux comprendre.
+
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./img/course-6.png" alt="icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Mathématiques</h4>
+
+                <p class="service-item-text">
+                  Accédez à des résumés clairs, des exercices pratiques et des outils interactifs pour calculer, visualiser les courbes et mieux comprendre les concepts. </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./img/course-1.png" alt=" icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Informatique</h4>
+
+                <p class="service-item-text">
+                  Apprenez Python avec des leçons pratiques, testez votre code en direct et recevez des corrections instantanées pour progresser efficacement.
+
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./img/course-2.png" alt="icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Analyse & Suivi</h4>
+
+                <p class="service-item-text">
+                  Le site évalue votre niveau, suit vos progrès et vous propose des contenus adaptés pour vous aider à progresser à chaque étape. </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Espaces virtuels</h3>
+          
+
+          <ul class="testimonials-list has-scrollbar">
+            
+
+           
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="img/icont1.png"  width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>SpeakWell  </h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    SpeakWell est une plateforme innovante qui accompagne tous les apprenants dans leur progression en anglais, quel que soit leur niveau. Grâce à des jeux interactifs, des cours en tunisien et des contenus variés, elle rend l’apprentissage actif, motivant et accessible. </p>
+                  </p>
+                </div>
+                
+
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="img/serche ew.png" alt="edu virtual m2" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Eduwell Search </h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p> "Bibliothèque complète de séries, cours, vidéos, fiches méthodologiques et exercices adaptés aux lycées tunisiens (Sfax, Tunis, Sousse). Trouvez rapidement ce dont vous avez besoin et obtenez des réponses précises."
+
+                  
+⁣
+
+</p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="img/icont2.png"  width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Serexa Lab</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Revisitez et approfondissez vos expériences de classe en physique et chimie. Analysez vos résultats et progressez pour mieux comprendre chaque exercice.  </p>
+                </div>
+                
+
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+                <figure class="testimonials-avatar-box">
+                  <img src="img/mathew.png"  width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>X-Well Calcule </h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Calculez les limites, dérivées, tangentes et plus encore. Visualisez vos fonctions grâce à des graphiques interactifs pour mieux comprendre vos cours de mathématiques.  </div>
+                
+
+
+              </div>
+            </li>
+
+
+            
+ 
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title></h4>
+
+              <time datetime="2021-06-14"></time>
+
+              <div data-modal-text>
+                <p>
+                 
+                </p>
+              </div>
+
+            </div>
+
+          </section>
         </div>
+
+
+       
+
+      </article>
+
+
+
+
+
+      <!--
+        - #Espaces Interactifs
+      -->
+
+      <article class="espaces interactifs" data-page="espaces interactifs">
+
+        <header>
+          <h2 class="h2 article-title">EPS Interactifs</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Découvrez nos outils </h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">SpeakWell </h4>
+
+              <span>Avantage principal</span>
+
+              <p class="timeline-text">
+                "Améliorez votre anglais à tout niveau grâce à des jeux, des cours en tunisien, et une approche interactive.
+
+                "
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Eduwell Search </h4>
+
+              <span>Fonction clé</span>
+
+              <p class="timeline-text">
+                "Accédez rapidement à des séries, fiches, vidéos et exercices issus des meilleurs lycées tunisiens." </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 cla class="h4 timeline-item-title"> Serexa Lab</h4>
+
+              <span> Bénéfice pour l’élève </span>
+
+              <p class="timeline-text">
+                "Reproduisez vos expériences de physique et chimie pour analyser vos résultats et renforcer votre compréhension."
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        
+
+
+
+
+
+       
+        <section class="projects">
+         
+
+          <ul class="filter-list">
+            
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn></button>
+            </li>
+
+              
+              
+              
+             
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+               <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+
+          </ul>
+          
+          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+       
+         <div class="filter-select-bo0x">
+
+            <button class="filter-sel0ect" data-select>
+
+              <div class="select-va0lue" data-selecct-value></div>
+
+              <div class="sele0ct-icon">
+                <ion-icon name="chevro0n-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-li0st">
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+             
+            </ul>
+            
+
+          </div>
+          
+
+         
+            
+            
+            
+            
+            
+            
+           
+
+          <ul class="project-list">
+
+              
+              
+              
+               <!-- -----  subject   ---- -->
+
+
+
+          
+              
+
+            <li class="project-item  active" data-filter-item data-category="math">
+              <a href="speakwell">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                    
+                  <img src="img/z1.png" alt="math" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">SpeakWell</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+              
+              
+              
+              
+              <li class="project-item  active" data-filter-item data-category="sciencs">
+              <a href="search-ew">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                  <img src="./img/z2.png" >
+                   </figure>
+
+                <h3 class="project-title">Eduwell Search </h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+              
+              
+              
+               <li class="project-item  active" data-filter-item data-category="serexalab">
+              <a href="error">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                  <img src="./img/ot4.png" alt="physique" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Serexa Lab</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+
+              
+             
+              
+              
+        
+           
+
+           
+          </ul>
+
+        </section>
+
+
+
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">Progression</h3>
+
+          <ul class="skills-list content-card">
+
+           
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">SpeakWell</h5>
+                <data value="09">63%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 63%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Eduwell Search</h5>
+                <data value="10">35%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 35%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5"> Serexa Lab</h5>
+                <data value="2">2%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 2%;"></div>
+              </div>
+
+            </li>
+
+          
+
+          </ul>
+            
+  
+
+        </section>
+
+      </article>
+
+
+
+      <!--
+        - #SUBJECT SECTION MODIFAI 3 TIME 
+      -->
+  
+ 
+      <article class="matieres" data-page="matieres">
+
+        <header>
+          <h2 class="h2 article-title">Matieres</h2>
+        </header>
+        
+       
+
+        <section class="projects">
+         
+
+          <ul class="filter-list">
+            
+
+            <li class="filter-item">
+              <button class="active" data-filter-btn></button>
+            </li>
+
+              
+              
+              
+             
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+
+            <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+               <li class="filter-item">
+              <button data-filter-btn></button>
+            </li>
+
+          </ul>
+          
+          
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+       
+         <div class="filter-select-bo0x">
+
+            <button class="filter-sel0ect" data-select>
+
+              <div class="select-va0lue" data-selecct-value></div>
+
+              <div class="sele0ct-icon">
+                <ion-icon name="chevro0n-down"></ion-icon>
+              </div>
+
+            </button>
+
+            <ul class="select-li0st">
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+              <li class="select-it0em">
+                <button data-select-item></button>
+              </li>
+             
+            </ul>
+            
+
+          </div>
+          
+
+         
+            
+            
+            
+            
+            
+            
+           
+
+          <ul class="project-list">
+
+              
+              
+              
+               <!-- -----  subject   ---- -->
+
+
+
+          
+              
+
+            <li class="project-item  active" data-filter-item data-category="math">
+              <a href="error">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                    
+                  <img src="img/173.jpg" alt="math" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">Math</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+              
+              
+              
+              
+              <li class="project-item  active" data-filter-item data-category="sciencs">
+              <a href="error">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                  <img src="./img/p2.png" >
+                   </figure>
+
+                <h3 class="project-title">SCIENCES</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+              
+              
+              
+               <li class="project-item  active" data-filter-item data-category="physique">
+              <a href="error">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                  <img src="./img/phys.jpg" alt="physique" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">PHYSIQUE</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+
+
+
+
+             <li class="project-item  active" data-filter-item data-category="philo">
+              <a href="error">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                  <img src="./img/0201485.jpg" alt="physique" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">فلسفة</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+
+
+            <li class="project-item  active" data-filter-item data-category="info">
+              <a href="error">
+
+                <figure class="project-img">
+                  <div class="project-item-icon-box">
+                    <ion-icon name="eye-outline"></ion-icon>
+                  </div>
+                    
+                   <img src="./img/p3.png" alt="physique" loading="lazy">
+                </figure>
+
+                <h3 class="project-title">informatique</h3>
+
+                <p class="project-category">BAC</p>
+
+              </a>
+            </li>
+              
+
+              
+             
+              
+              
+        
+           
+
+           
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+    <!-- docements -->
+
+      <article class="espace etudiant" data-page="espace etudiant">
+
+        <header>
+          <h2 class="h2 article-title">EPS étudiant</h2>
+        </header>
+
+        <section class="blog-posts">
+          <ul class="blog-posts-list">
+
+
+
+
+            <li class="blog-post-item">
+              <a href="error">
+        
+                <figure class="blog-banner-box">
+                  <img src="img/161.jpg" alt="sciencs" loading="lazy">
+                </figure>
+        
+                <div class="blog-content">
+        
+                  <div class="blog-meta">
+                    <p class="blog-category">EduWell</p>
+        
+                    <span class="dot"></span>
+        
+                    <time datetime="2022-02-23">DOC</time>
+                  </div>
+        
+                  <h3 class="h3 blog-item-title">Scientific Exploration</h3>
+        
+                  <p class="blog-text">
+                     Découvre, analyse, et brille avec la science   <br> #BacSciences #EduWell
+                  </p>
+        
+                </div>
+        
+              </a>
+            </li>
+        
+            <li class="blog-post-item">
+              <a href="error">
+        
+                <figure class="blog-banner-box">
+                  <img src="img/162.jpg" alt="sciencs" loading="lazy">
+                </figure>
+        
+                <div class="blog-content">
+        
+                  <div class="blog-meta">
+                    <p class="blog-category">EduWell</p>
+        
+                    <span class="dot"></span>
+        
+                    <time datetime="2022-02-23">DOC</time>
+                  </div>
+        
+                  <h3 class="h3 blog-item-title"> Apprends autrement avec EduWell Academy</h3>
+        
+                  <p class="blog-text">
+                    Plus qu’une plateforme, c’est ton raccourci vers la réussite.  <br> #EduWellAcademy #RéussiteBac
+                  </p>
+        
+                </div>
+        
+              </a>
+            </li>
+
+            <li class="blog-post-item">
+              <a href="error">
+        
+                <figure class="blog-banner-box">
+                  <img src="assets/images/172.jpg" alt="sciencs" loading="lazy">
+                </figure>
+        
+                <div class="blog-content">
+        
+                  <div class="blog-meta">
+                    <p class="blog-category">EduWell</p>
+        
+                    <span class="dot"></span>
+        
+                    <time datetime="2022-02-23">DOC</time>
+                  </div>
+        
+                  <h3 class="h3 blog-item-title">Planifie, Progresse, Réussis</h3>
+        
+                  <p class="blog-text">
+                     Organise ton temps, fixe tes objectifs, et transforme chaque jour en pas vers ta réussite. <br> #BackToSchool  #RéussiteScolaire
+                  </p>
+        
+                </div>
+        
+              </a>
+            </li>
+          </ul>
+
+        </section>
+
+      </article>
+
+
+
+
+
+
     </div>
 
-    <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[var(--primary)] to-transparent opacity-10 pointer-events-none"></div>
+  </main>
 
-    <div class="container mx-auto p-4 md:p-8 max-w-3xl relative z-10">
-        <!-- Home Screen -->
-        <section id="home-screen" class="text-center fade-in">
-            <div class="card p-8 mb-8">
-                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-dark)] flex items-center justify-center pulse">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                    </svg>
-                </div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Quiz STI</h1>
-                <h2 class="text-xl text-[var(--text-secondary)] mb-2">4<sup>ème</sup> Sciences de l'informatique</h2>
-                <p class="text-lg text-[var(--text-secondary)] mb-8">Testez vos connaissances sur les points clés du programme.</p>
-                <button id="start-config-btn" class="btn-primary text-white font-bold py-3 px-8 rounded-lg text-xl">
-                    Commencer le Quiz
-                </button>
-            </div>
-        </section>
 
-        <!-- Config Screen -->
-        <section id="config-screen" class="hidden slide-in">
-            <div class="card p-8">
-                <h2 class="text-3xl font-bold mb-6 text-center text-[var(--text-primary)]">Configurer votre Quiz</h2>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">1. Choisissez un ou plusieurs thèmes :</h3>
-                    <div id="themes-container" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
-                </div>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">2. Choisissez le niveau :</h3>
-                    <div id="level-container" class="flex flex-wrap gap-4"></div>
-                </div>
-                
-                <div class="mb-8">
-                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">3. Choisissez la longueur de l'épreuve :</h3>
-                    <div id="length-container" class="flex flex-wrap gap-4"></div>
-                </div>
-                
-                <div class="text-center">
-                    <button id="start-quiz-btn" class="btn-primary text-white font-bold py-3 px-12 rounded-lg text-lg" disabled>
-                        Démarrer le Quiz
-                    </button>
-                </div>
-            </div>
-        </section>
 
-        <!-- Quiz Screen -->
-        <section id="quiz-screen" class="hidden">
-            <div class="card p-6">
-                <div class="mb-6">
-                    <div class="progress-bar mb-2">
-                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div id="progress-indicator" class="text-lg font-medium text-[var(--text-secondary)]"></div>
-                        <div id="timer" class="text-xl font-bold text-[var(--primary-light)]"></div>
-                    </div>
-                </div>
-                
-                <div class="mb-4">
-                    <span id="question-theme" class="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[rgba(0,120,212,0.2)] text-[var(--primary-light)]"></span>
-                </div>
-                
-                <div id="question-text" class="text-xl md:text-2xl font-semibold leading-relaxed mb-6 text-[var(--text-primary)]"></div>
-                
-                <div id="options-container" class="space-y-3"></div>
-                
-                <div class="flex justify-between items-center mt-8">
-                    <button id="prev-btn" class="btn-secondary font-bold py-2 px-6 rounded-lg">Précédent</button>
-                    <div>
-                        <button id="skip-btn" class="btn-secondary font-bold py-2 px-6 rounded-lg mr-4">Ignorer</button>
-                        <button id="next-btn" class="btn-primary font-bold py-2 px-6 rounded-lg">Suivant</button>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Results Screen -->
-        <section id="results-screen" class="hidden slide-in">
-            <div class="card p-8 mb-8 text-center">
-                <h2 class="text-3xl font-bold mb-6 text-[var(--text-primary)]">Résultats du Quiz</h2>
-                
-                <div class="mb-8">
-                    <p class="text-lg mb-2 text-[var(--text-secondary)]">Votre score final est de :</p>
-                    <p id="final-score" class="text-5xl font-bold mb-4 text-[var(--primary-light)]"></p>
-                    <p id="total-time" class="text-[var(--text-secondary)]"></p>
-                </div>
-                
-                <div class="mb-6">
-                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)]">Performance par thème</h3>
-                    <div id="theme-scores-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-                </div>
-                
-                <div id="wrong-answers-container" class="mb-6"></div>
-                
-                <div class="flex justify-center gap-4 mt-8">
-                    <button id="replay-btn" class="btn-primary font-bold py-3 px-8 rounded-lg">Rejouer</button>
-                    <button id="quit-btn" class="btn-secondary font-bold py-3 px-8 rounded-lg">Quitter</button>
-                </div>
-            </div>
-        </section>
 
-        <footer class="text-center text-[var(--text-secondary)] text-sm mt-12">
-            <address>
-                Built with code & care — Eduwell Quantum
-            </address>
-        </footer>
-    </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script>
-        // Script pour gérer l'écran de chargement
-        document.addEventListener('DOMContentLoaded', function() {
-            // Simuler un temps de chargement (à remplacer par le chargement réel des ressources)
-            setTimeout(function() {
-                const loadingScreen = document.getElementById('loading-screen');
-                loadingScreen.style.opacity = '0';
-                loadingScreen.style.visibility = 'hidden';
-                
-                // Afficher l'écran d'accueil
-                document.getElementById('home-screen').classList.remove('hidden');
-            }, 2500); // 2.5 secondes de simulation de chargement
-        });
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script type="text/javascript">
+    const popupScreen = document.querySelector(".popup-screen1");
+    const popupBox = document.querySelector(".popup-box1");
+    const closeBtn = document.querySelector(".popup-box1");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        popupScreen.classList.add("active");
+      }, 2000); //Popup the screen in 02 seconds after the page is loaded.
+    });
+
+    closeBtn.addEventListener("click", () => {
+      popupScreen.classList.remove("active"); //Close the popup screen on click the close button.
+      //Create a cookie for a day (to expire within a day) on click the close button.
+      document.cookie = "WebsiteName=testWebsite; max-age=" + 24 * 60 * 60; //1 day = 24 hours = 24*60*60
+    });
+
+    //Use the created cookie to hide or show the popup screen.
+    const WebsiteCookie = document.cookie.indexOf("WebsiteName=");
+
+    if(WebsiteCookie != -1){
+      popupScreen.style.display = "none"; //Hide the popup screen if the cookie is not expired.
+    }
+    else{
+      popupScreen.style.display = "flex"; //Show the popup screen if the cookie is expired.
+    }
     </script>
-    <script src="app.js"></script>
+
+
 </body>
+
 </html>
