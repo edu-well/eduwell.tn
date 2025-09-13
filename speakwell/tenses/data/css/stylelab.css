@@ -33,6 +33,12 @@
             color: var(--text-primary);
             line-height: 1.5;
         }
+body, html {
+    overflow: hidden;
+    height: 100%;
+    position: fixed;
+    width: 100%;
+}
 
         /* Loading Screen - Microsoft Spinner Style */
         #loading-screen {
