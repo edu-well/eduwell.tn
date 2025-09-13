@@ -1,646 +1,381 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="google-site-verification" content="7-FD479xFj_8HbH9UlwHCnnMl0gziIaCUqk5R_oU6L4" />
-  <title>EduWell - Education Platform</title>
-  <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
-  <style>
-    /* Optimized font loading */
-    @font-face {
-      font-family: 'SF Pro Display';
-      src: local('SF Pro Display'), local('San Francisco Display'),
-           url('https://sf.abarba.me/SF-Pro-Display-Regular.otf') format('opentype');
-      font-weight: 400;
-      font-style: normal;
-      font-display: swap;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interactif - 4ème SI (STI)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="shortcut icon" href="./assets/images/logoo.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #0078D4;
+            --primary-light: #50B6FF;
+            --primary-dark: #106EBE;
+            --surface: #201F1E;
+            --card-bg: rgba(32, 31, 30, 0.7);
+            --text-primary: #FFFFFF;
+            --text-secondary: #D2D2D2;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
 
-    @font-face {
-      font-family: 'SF Pro Display';
-      src: local('SF Pro Display Medium'), local('San Francisco Display Medium'),
-           url('https://sf.abarba.me/SF-Pro-Display-Medium.otf') format('opentype');
-      font-weight: 500;
-      font-style: normal;
-      font-display: swap;
-    }
+        /* Modern Loading Animation */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s;
+        }
 
-    @font-face {
-      font-family: 'SF Pro Display';
-      src: local('SF Pro Display Semibold'), local('San Francisco Display Semibold'),
-           url('https://sf.abarba.me/SF-Pro-Display-Semibold.otf') format('opentype');
-      font-weight: 600;
-      font-style: normal;
-      font-display: swap;
-    }
+        .modern-loader {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+        .modern-loader::before {
+            content: '';
+            width: 64px;
+            height: 64px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            position: absolute;
+        }
 
-    body {
-      background-color: #f5f5f7;
-      color: #1d1d1f;
-      height: 100vh;
-      overflow: hidden;
-      position: relative;
-    }
+        .modern-loader::after {
+            content: '';
+            width: 64px;
+            height: 64px;
+            border: 3px solid transparent;
+            border-top: 3px solid var(--primary-light);
+            border-radius: 50%;
+            position: absolute;
+            animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        }
 
-    /* Enhanced Geometric Background */
-    .geometric-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
+        .modern-loader-inner {
+            width: 48px;
+            height: 48px;
+            border: 2px solid transparent;
+            border-top: 2px solid var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s cubic-bezier(0.5, 0, 0.5, 1) infinite reverse;
+        }
 
-    .shape {
-      position: absolute;
-      opacity: 0.08;
-      background: linear-gradient(135deg, #0071e3, #34aadc);
-      filter: blur(60px);
-      animation: float 25s infinite ease-in-out;
-      border-radius: 50% 50% 20% 80% / 25% 80% 20% 75%;
-      will-change: transform;
-    }
+        .loader-logo {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: var(--primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
 
-    .shape:nth-child(1) {
-      width: 400px;
-      height: 400px;
-      top: -100px;
-      left: -100px;
-      animation-delay: 0s;
-      animation-duration: 30s;
-    }
+        .loader-text {
+            margin-top: 24px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
 
-    .shape:nth-child(2) {
-      width: 500px;
-      height: 500px;
-      bottom: -150px;
-      right: -150px;
-      animation-delay: 5s;
-      animation-duration: 35s;
-      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
-    }
+        .progress-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            margin-top: 16px;
+            overflow: hidden;
+        }
 
-    .shape:nth-child(3) {
-      width: 300px;
-      height: 300px;
-      top: 30%;
-      right: 20%;
-      animation-delay: 10s;
-      animation-duration: 25s;
-      border-radius: 38% 62% 65% 35% / 75% 55% 45% 25%;
-    }
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 2px;
+            animation: loading 2s ease-in-out infinite;
+        }
 
-    @keyframes float {
-      0%, 100% {
-        transform: translate(0, 0) rotate(0deg);
-      }
-      25% {
-        transform: translate(40px, 50px) rotate(5deg);
-      }
-      50% {
-        transform: translate(-30px, 40px) rotate(-5deg);
-      }
-      75% {
-        transform: translate(20px, -25px) rotate(3deg);
-      }
-    }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-    /* Refined Glass Overlay */
-    .glass-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      backdrop-filter: blur(50px);
-      -webkit-backdrop-filter: blur(50px);
-      z-index: 1;
-      background: rgba(245, 245, 247, 0.92);
-    }
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
 
-    /* Elegant Loading Animation */
-    .loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.9);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      z-index: 1000;
-      opacity: 1;
-      transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
 
-    .loader.hidden {
-      opacity: 0;
-      pointer-events: none;
-    }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.4);
+        }
 
-    .loader-logo {
-      width: 100px;
-      height: 100px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 26px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 28px;
-      animation: pulse 2.5s infinite ease-in-out;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-    }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transition: all 0.3s ease;
+        }
 
-    .loader-logo-inner {
-      width: 88px;
-      height: 88px;
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 32px;
-      font-weight: 600;
-      color: white;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-    }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 120, 212, 0.4);
+        }
 
-    @keyframes pulse {
-      0% { transform: scale(0.98); opacity: 0.9; }
-      50% { transform: scale(1.04); opacity: 1; }
-      100% { transform: scale(0.98); opacity: 0.9; }
-    }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
 
-    .loader-text {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 18px;
-      margin-top: 24px;
-      font-weight: 500;
-      letter-spacing: -0.2px;
-      text-align: center;
-      max-width: 280px;
-      line-height: 1.4;
-    }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
 
-    .progress-container {
-      width: 220px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.15);
-      border-radius: 3px;
-      margin-top: 28px;
-      overflow: hidden;
-    }
+        .theme-chip {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
 
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #ffffff, #f0f0f0);
-      border-radius: 3px;
-      transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1);
-    }
+        .theme-chip.selected {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transform: scale(1.05);
+        }
 
-    /* Professional Main Content */
-    .container {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      padding: 24px;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 1s cubic-bezier(0.215, 0.61, 0.355, 1);
-      position: relative;
-      z-index: 2;
-    }
+        .option-item {
+            transition: all 0.2s ease;
+        }
 
-    .container.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+        .option-item:hover {
+            background: rgba(0, 120, 212, 0.1);
+            transform: translateX(5px);
+        }
 
-    .header {
-      margin-bottom: 48px;
-      position: relative;
-    }
+        .fade-in {
+            animation: fadeIn 0.5s ease forwards;
+        }
 
-    .header .version {
-      position: absolute;
-      top: 0;
-      right: 0;
-      font-size: 14px;
-      color: #86868b;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-      background: rgba(255, 255, 255, 0.7);
-      padding: 4px 10px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-    }
+        .slide-in {
+            animation: slideIn 0.5s ease forwards;
+        }
 
-    .main-content {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
 
-    .logo-container {
-      position: relative;
-      width: 160px;
-      height: 160px;
-      margin-bottom: 48px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
 
-    .logo-background {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 34px;
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-      animation: float 8s ease-in-out infinite;
-    }
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
 
-    .logo {
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      top: 10px;
-      left: 10px;
-      background: linear-gradient(135deg, rgba(0, 113, 227, 0.95), rgba(52, 170, 220, 0.98));
-      border-radius: 28px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0 12px 40px rgba(0, 113, 227, 0.25);
-      animation: logoPulse 4s ease-in-out infinite;
-    }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 120, 212, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 120, 212, 0); }
+        }
 
-    .logo-inner {
-      width: 120px;
-      height: 120px;
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 22px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 28px;
-      font-weight: 600;
-      color: #0071e3;
-      box-shadow: 0 4px 15px rgba(0, 113, 227, 0.1);
-    }
+        /* Style pour le code DANS une phrase (inline) */
+        :not(pre) > code {
+            background-color: #334155; 
+            color: #e2e8f0; 
+            padding: 0.2em 0.4em;
+            margin: 0 0.2em; 
+            font-size: 0.9em; 
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+        }
 
-    @keyframes logoPulse {
-      0%, 100% { transform: scale(1); box-shadow: 0 12px 40px rgba(0, 113, 227, 0.25); }
-      50% { transform: scale(1.02); box-shadow: 0 16px 50px rgba(0, 113, 227, 0.35); }
-    }
-
-    h2 {
-      font-size: 32px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      color: #1d1d1f;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeInUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.3s;
-    }
-
-    .subtitle {
-      font-size: 18px;
-      color: #86868b;
-      margin-bottom: 48px;
-      max-width: 320px;
-      line-height: 1.6;
-      font-weight: 400;
-      opacity: 0;
-      transform: translateY(10px);
-      animation: fadeInUp 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 0.5s;
-    }
-
-    @keyframes fadeInUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .start-button {
-      background-color: #0071e3;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      padding: 18px 36px;
-      font-size: 18px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-      box-shadow: 0 12px 40px rgba(0, 113, 227, 0.25);
-      position: relative;
-      overflow: hidden;
-      opacity: 0;
-      transform: translateY(20px) scale(0.96);
-      animation: buttonEntrance 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) forwards 3s;
-    }
-
-    @keyframes buttonEntrance {
-      0% { opacity: 0; transform: translateY(20px) scale(0.96); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .start-button:hover {
-      background-color: #0077ed;
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 16px 50px rgba(0, 113, 227, 0.35);
-    }
-
-    .start-button:active {
-      transform: translateY(0) scale(0.98);
-      background-color: #0065c9;
-    }
-
-    /* Enhanced Ripple Effect */
-    .ripple {
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.4);
-      transform: scale(0);
-      animation: ripple 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
-      pointer-events: none;
-    }
-
-    @keyframes ripple {
-      to {
-        transform: scale(4);
-        opacity: 0;
-      }
-    }
-
-    /* Smooth Transition Overlay */
-    .transition-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: #0071e3;
-      z-index: 2000;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-    }
-
-    .transition-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      h2 {
-        font-size: 26px;
-      }
-      
-      .subtitle {
-        font-size: 16px;
-        max-width: 280px;
-      }
-      
-      .start-button {
-        padding: 16px 32px;
-        font-size: 16px;
-      }
-      
-      .logo-container {
-        width: 140px;
-        height: 140px;
-        margin-bottom: 40px;
-      }
-      
-      .logo {
-        width: 120px;
-        height: 120px;
-        top: 10px;
-        left: 10px;
-      }
-      
-      .logo-inner {
-        width: 100px;
-        height: 100px;
-        font-size: 24px;
-      }
-    }
-  </style>
+        /* Style pour le CADRE de code (bloc), géré en partie par prism.css */
+        pre[class*="language-"] {
+            margin: 1em 0;
+            border-radius: 8px;
+            border: 1px solid var(--primary);
+            font-size: 0.9em;
+        }
+    </style>
 </head>
-
-<body>
-  <!-- Premium Geometric Background -->
-  <div class="geometric-bg">
-    <div class="shape"></div>
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-
-  <!-- Refined Glass Overlay -->
-  <div class="glass-overlay"></div>
-
-  <!-- Elegant Loading Animation -->
-  <div class="loader" id="loader">
-    <div class="loader-logo">
-      <div class="loader-logo-inner">EW</div>
-    </div>
-    <div class="loader-text">Connexion au serveur...</div>
-    <div class="progress-container">
-      <div class="progress-bar" id="progressBar"></div>
-    </div>
-  </div>
-
-  <!-- Professional Transition Overlay -->
-  <div class="transition-overlay" id="transitionOverlay"></div>
-
-  <!-- Main Content -->
-  <div class="container" id="mainContainer">
-    <div class="header">
-      <div class="version">v0.2</div>
-    </div>
-
-    <div class="main-content">
-      <div class="logo-container">
-        <div class="logo-background"></div>
-        <div class="logo">
-          <div class="logo-inner">EW</div>
+<body class="text-white flex items-center justify-center min-h-screen py-8">
+    <!-- Modern Loading Screen -->
+    <div id="loading-screen">
+        <div class="modern-loader">
+            <div class="modern-loader-inner"></div>
+            <div class="loader-logo">Q</div>
         </div>
-      </div>
-
-      <h2>EduWell</h2>
-      <p class="subtitle">
-      Apprends avec passion, avance avec vision
-      </p>
-
-      <button class="start-button" id="startButton">Commencer</button>
+        <div class="loader-text">Chargement</div>
+        <div class="progress-bar">
+            <div class="progress-fill"></div>
+        </div>
     </div>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Enhanced Loading Simulation
-      const progressBar = document.getElementById('progressBar');
-      let progress = 0;
-      const progressSteps = [10, 25, 40, 55, 70, 85, 95, 100];
-      let currentStep = 0;
+    <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-[var(--primary)] to-transparent opacity-10 pointer-events-none"></div>
 
-      const simulateNetworkLatency = () => {
-        return Math.random() * 300 + 200; // 200-500ms delay
-      };
+    <div class="container mx-auto p-4 md:p-8 max-w-3xl relative z-10">
+        <!-- Home Screen -->
+        <section id="home-screen" class="text-center fade-in">
+            <div class="card p-8 mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-[var(--primary)] to-[var(--primary-dark)] flex items-center justify-center pulse">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4 text-[var(--text-primary)]">Quiz STI</h1>
+                <h2 class="text-xl text-[var(--text-secondary)] mb-2">4<sup>ème</sup> Sciences de l'informatique</h2>
+                <p class="text-lg text-[var(--text-secondary)] mb-8">Testez vos connaissances sur les points clés du programme.</p>
+                <button id="start-config-btn" class="btn-primary text-white font-bold py-3 px-8 rounded-lg text-xl">
+                    Commencer le Quiz
+                </button>
+            </div>
+        </section>
 
-      const updateProgress = () => {
-        if (currentStep < progressSteps.length) {
-          progress = progressSteps[currentStep];
-          progressBar.style.width = `${progress}%`;
-          currentStep++;
+        <!-- Config Screen -->
+        <section id="config-screen" class="hidden slide-in">
+            <div class="card p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center text-[var(--text-primary)]">Configurer votre Quiz</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">1. Choisissez un ou plusieurs thèmes :</h3>
+                    <div id="themes-container" class="grid grid-cols-2 md:grid-cols-3 gap-3"></div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">2. Choisissez le niveau :</h3>
+                    <div id="level-container" class="flex flex-wrap gap-4"></div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)] border-b border-[rgba(255,255,255,0.1)] pb-2">3. Choisissez la longueur de l'épreuve :</h3>
+                    <div id="length-container" class="flex flex-wrap gap-4"></div>
+                </div>
+                
+                <div class="text-center">
+                    <button id="start-quiz-btn" class="btn-primary text-white font-bold py-3 px-12 rounded-lg text-lg" disabled>
+                        Démarrer le Quiz
+                    </button>
+                </div>
+            </div>
+        </section>
 
-          // Update loading text based on progress
-          const loaderText = document.querySelector('.loader-text');
-          if (progress < 30) {
-            loaderText.textContent = "Connexion au serveur...";
-          } else if (progress < 60) {
-            loaderText.textContent = "Chargement des ressources...";
-          } else if (progress < 90) {
-            loaderText.textContent = "Préparation de l'interface...";
-          } else {
-            loaderText.textContent = "Presque terminé...";
-          }
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="hidden">
+            <div class="card p-6">
+                <div class="mb-6">
+                    <div class="progress-bar mb-2">
+                        <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <div id="progress-indicator" class="text-lg font-medium text-[var(--text-secondary)]"></div>
+                        <div id="timer" class="text-xl font-bold text-[var(--primary-light)]"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <span id="question-theme" class="inline-block text-xs font-medium px-3 py-1 rounded-full bg-[rgba(0,120,212,0.2)] text-[var(--primary-light)]"></span>
+                </div>
+                
+                <div id="question-text" class="text-xl md:text-2xl font-semibold leading-relaxed mb-6 text-[var(--text-primary)]"></div>
+                
+                <div id="options-container" class="space-y-3"></div>
+                
+                <div class="flex justify-between items-center mt-8">
+                    <button id="prev-btn" class="btn-secondary font-bold py-2 px-6 rounded-lg">Précédent</button>
+                    <div>
+                        <button id="skip-btn" class="btn-secondary font-bold py-2 px-6 rounded-lg mr-4">Ignorer</button>
+                        <button id="next-btn" class="btn-primary font-bold py-2 px-6 rounded-lg">Suivant</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-          if (progress === 100) {
-            // Finalize loading
-            setTimeout(() => {
-              document.getElementById('loader').classList.add('hidden');
-              document.getElementById('mainContainer').classList.add('visible');
+        <!-- Results Screen -->
+        <section id="results-screen" class="hidden slide-in">
+            <div class="card p-8 mb-8 text-center">
+                <h2 class="text-3xl font-bold mb-6 text-[var(--text-primary)]">Résultats du Quiz</h2>
+                
+                <div class="mb-8">
+                    <p class="text-lg mb-2 text-[var(--text-secondary)]">Votre score final est de :</p>
+                    <p id="final-score" class="text-5xl font-bold mb-4 text-[var(--primary-light)]"></p>
+                    <p id="total-time" class="text-[var(--text-secondary)]"></p>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold mb-4 text-[var(--text-primary)]">Performance par thème</h3>
+                    <div id="theme-scores-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+                
+                <div id="wrong-answers-container" class="mb-6"></div>
+                
+                <div class="flex justify-center gap-4 mt-8">
+                    <button id="replay-btn" class="btn-primary font-bold py-3 px-8 rounded-lg">Rejouer</button>
+                    <button id="quit-btn" class="btn-secondary font-bold py-3 px-8 rounded-lg">Quitter</button>
+                </div>
+            </div>
+        </section>
 
-              // Additional animations after content loads
-              setTimeout(() => {
-                animateContentElements();
-              }, 500);
-            }, 600);
-          } else {
-            // Random delay between steps for more natural feel
-            setTimeout(updateProgress, simulateNetworkLatency());
-          }
-        }
-      };
-
-      // Start progress simulation
-      setTimeout(updateProgress, 500);
-
-      function animateContentElements() {
-        // Smoother shape animations
-        const shapes = document.querySelectorAll('.shape');
-        shapes.forEach((shape, index) => {
-          const xOffset = (Math.random() - 0.5) * 150;
-          const yOffset = (Math.random() - 0.5) * 150;
-
-          let angle = 0;
-          const animate = () => {
-            angle += 0.15;
-            const moveX = Math.sin(angle * Math.PI / 180) * 50 + xOffset;
-            const moveY = Math.cos(angle * Math.PI / 180) * 50 + yOffset;
-
-            shape.style.transform = `translate(${moveX}px, ${moveY}px) rotate(${angle}deg)`;
-            requestAnimationFrame(animate);
-          };
-          requestAnimationFrame(animate);
+        <footer class="text-center text-[var(--text-secondary)] text-sm mt-12">
+            <address>
+                Built with code & care — Eduwell Quantum
+            </address>
+        </footer>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script>
+        // Script pour gérer l'écran de chargement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Simuler un temps de chargement (à remplacer par le chargement réel des ressources)
+            setTimeout(function() {
+                const loadingScreen = document.getElementById('loading-screen');
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+                
+                // Afficher l'écran d'accueil
+                document.getElementById('home-screen').classList.remove('hidden');
+            }, 2500); // 2.5 secondes de simulation de chargement
         });
-      }
-
-      // Enhanced Button Interaction
-      const startButton = document.getElementById('startButton');
-      const transitionOverlay = document.getElementById('transitionOverlay');
-      const DESTINATION_URL = "ew";
-      
-      let buttonDebounce = false;
-
-      startButton.addEventListener('click', function(e) {
-        if (buttonDebounce) return;
-        buttonDebounce = true;
-        
-        // Add ripple effect
-        const ripple = document.createElement('span');
-        ripple.classList.add('ripple');
-        this.appendChild(ripple);
-
-        // Position ripple at click location
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        ripple.style.left = `${x}px`;
-        ripple.style.top = `${y}px`;
-
-        // Clean up ripple
-        setTimeout(() => {
-          ripple.remove();
-        }, 800);
-
-        // Click feedback
-        this.style.transform = 'translateY(2px) scale(0.98)';
-        
-        // Activate transition overlay
-        transitionOverlay.classList.add('active');
-
-        // Navigate after transition
-        setTimeout(() => {
-          window.location.href = DESTINATION_URL;
-        }, 800);
-      });
-
-      // Smooth hover effects
-      startButton.addEventListener('mouseenter', () => {
-        startButton.style.transition = 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)';
-        startButton.style.transform = 'translateY(-4px) scale(1.02)';
-        startButton.style.boxShadow = '0 16px 50px rgba(0, 113, 227, 0.35)';
-      });
-
-      startButton.addEventListener('mouseleave', () => {
-        if (!buttonDebounce) {
-          startButton.style.transform = 'translateY(0) scale(1)';
-          startButton.style.boxShadow = '0 12px 40px rgba(0, 113, 227, 0.25)';
-        }
-      });
-
-      // Preload destination page if connection is good
-      if ('connection' in navigator) {
-        if (navigator.connection.effectiveType !== 'slow-2g' && 
-            navigator.connection.effectiveType !== '2g') {
-          const preloadLink = document.createElement('link');
-          preloadLink.href = DESTINATION_URL;
-          preloadLink.rel = 'prefetch';
-          document.head.appendChild(preloadLink);
-        }
-      }
-    });
-  </script>
+    </script>
+    <script src="app.js"></script>
 </body>
 </html>
