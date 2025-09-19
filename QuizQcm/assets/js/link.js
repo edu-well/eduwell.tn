@@ -2,7 +2,7 @@
             // Test links configuration for each focus area
             const testLinks = {
                 "Reproduction Humaine": [
-                    { name: "Pack 1 (Défi SVT): Chez l'Homme", link: "#" },
+                    { name: "Pack 1 (Défi SVT): Chez l'Homme", link: "seek1" },
                     { name: "Pack 2 (Défi SVT): Chez l'Homme", link: "#" },
                     { name: "Pack 1 (Défi SVT): Chez la Femme", link: "#" },
                     { name: "Pack 2 (Défi SVT): Chez la Femme", link: "#" },
@@ -39,5 +39,6 @@
                     { name: "Pack (Défi SVT): SIDA", link: "#" }
                 ],
             };
+
 
            
