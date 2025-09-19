@@ -1,5 +1,6 @@
 
-        // DOM Elements
+
+        // Éléments DOM
         const currentCard = document.getElementById('current-card');
         const questionText = document.getElementById('question-text');
         const progressFill = document.getElementById('progress-fill');
@@ -22,7 +23,7 @@
         const falseHint = document.querySelector('.swipe-hint.false');
         const backBtn = document.getElementById('backBtn');
 
-        // App State
+        // État de l'application
         let currentQuestionIndex = 0;
         let correctAnswers = 0;
         let incorrectAnswers = 0;
@@ -30,9 +31,9 @@
         let startX = 0;
         let currentX = 0;
         let isDragging = false;
-        let threshold = 100; // Swipe threshold
+        let threshold = 100; // Seuil de glissement
 
-        // Initialize the quiz
+        // Initialiser le quiz
         function initQuiz() {
             currentQuestionIndex = 0;
             correctAnswers = 0;
@@ -41,14 +42,14 @@
             loadQuestion(currentQuestionIndex);
             updateProgress();
             
-            // Hide results screen if it's visible
+            // Masquer l'écran de résultats s'il est visible
             resultsScreen.classList.remove('active');
             
-            // Reset card styles
+            // Réinitialiser les styles de la carte
             resetCard();
         }
 
-        // Load a specific question
+        // Charger une question spécifique
         function loadQuestion(index) {
             if (index >= quizQuestions.length) {
                 showResults();
@@ -58,30 +59,30 @@
             questionText.textContent = quizQuestions[index].question;
             currentQuestionElement.textContent = index + 1;
             
-            // Reset card position with animation
+            // Réinitialiser la position de la carte avec animation
             resetCard();
             
-            // Add pulse animation to draw attention
+            // Ajouter une animation de pulsation pour attirer l'attention
             currentCard.classList.add('pulse');
             setTimeout(() => {
                 currentCard.classList.remove('pulse');
             }, 2000);
         }
 
-        // Reset card to original position
+        // Réinitialiser la carte à sa position d'origine
         function resetCard() {
             currentCard.style.transform = 'translateX(0) rotate(0) scale(1)';
             currentCard.style.opacity = '1';
             currentCard.style.transition = 'transform 0.3s ease, opacity 0.3s ease';
         }
 
-        // Update progress bar
+        // Mettre à jour la barre de progression
         function updateProgress() {
             const progress = (currentQuestionIndex / quizQuestions.length) * 100;
             progressFill.style.width = `${progress}%`;
         }
 
-        // Show feedback popup
+        // Afficher le popup de feedback
         function showFeedback(isCorrect, correctAnswer) {
             overlay.classList.add('active');
             feedbackPopup.classList.add('active');
@@ -89,50 +90,50 @@
             const currentQuestion = quizQuestions[currentQuestionIndex];
             
             if (isCorrect) {
-                feedbackPopup.classList.add('Exact');
-                feedbackPopup.classList.remove('Faux');
-                feedbackTitle.textContent = 'Correct!';
-                feedbackMessage.textContent = 'C’est juste !';
-                correctAnswerElement.textContent = `La bonne réponse est: ${correctAnswer ? 'Exact' : 'Faux'}`;
+                feedbackPopup.classList.add('correct');
+                feedbackPopup.classList.remove('incorrect');
+                feedbackTitle.textContent = 'Correct !';
+                feedbackMessage.textContent = 'Parfait ! Vous avez trouvé la bonne réponse.';
+                correctAnswerElement.textContent = `La bonne réponse est : ${correctAnswer ? 'Vrai' : 'Faux'}`;
                 feedbackTitle.style.color = 'var(--success-color)';
                 explanationElement.textContent = currentQuestion.explanation;
                 explanationElement.style.borderLeftColor = 'var(--success-color)';
             } else {
                 feedbackPopup.classList.add('incorrect');
                 feedbackPopup.classList.remove('correct');
-                feedbackTitle.textContent = 'Mauvaise réponse';
-                feedbackMessage.textContent = 'Laisse-moi t’expliquer .';
-                correctAnswerElement.textContent = `La bonne réponse est: ${correctAnswer ? 'Exact' : 'Faux'}`;
+                feedbackTitle.textContent = 'Incorrect !';
+                feedbackMessage.textContent = 'Permettez-moi de vous expliquer cela.';
+                correctAnswerElement.textContent = `La bonne réponse est : ${correctAnswer ? 'Vrai' : 'Faux'}`;
                 feedbackTitle.style.color = 'var(--error-color)';
                 explanationElement.textContent = currentQuestion.explanation;
                 explanationElement.style.borderLeftColor = 'var(--error-color)';
             }
         }
 
-        // Show results screen
+        // Afficher l'écran de résultats
         function showResults() {
             const totalQuestions = quizQuestions.length;
             const percentage = Math.round((correctAnswers / totalQuestions) * 100);
             
-            // Update results screen
+            // Mettre à jour l'écran de résultats
             finalPercentage.textContent = `${percentage}%`;
             finalPercentage.setAttribute('data-value', `${percentage}%`);
             correctCount.textContent = correctAnswers;
             incorrectCount.textContent = incorrectAnswers;
             totalScore.textContent = `${correctAnswers}/${totalQuestions}`;
             
-            // Show confetti if perfect score
+            // Afficher des confettis si score parfait
             if (correctAnswers === totalQuestions) {
                 createConfetti();
             }
             
-            // Show results screen
+            // Afficher l'écran de résultats
             setTimeout(() => {
                 resultsScreen.classList.add('active');
             }, 500);
         }
 
-        // Create confetti animation for perfect score
+        // Créer une animation de confettis pour un score parfait
         function createConfetti() {
             const colors = ['#ff4081', '#3f51b5', '#009688', '#ff9800', '#e91e63', '#2196f3', '#4caf50'];
             
@@ -149,33 +150,33 @@
                 
                 document.body.appendChild(confetti);
                 
-                // Remove confetti after animation
+                // Supprimer les confettis après l'animation
                 setTimeout(() => {
                     confetti.remove();
                 }, 5000);
             }
         }
 
-        // Handle swipe
+        // Gérer le glissement
         function handleSwipe(isRightSwipe) {
             if (isSwiping) return;
             isSwiping = true;
             
             const currentQuestion = quizQuestions[currentQuestionIndex];
-            const userAnswer = isRightSwipe; // Right swipe = true, Left swipe = false
+            const userAnswer = isRightSwipe; // Glissement vers la droite = vrai, vers la gauche = faux
             const isCorrect = userAnswer === currentQuestion.answer;
             
-            // Update score
+            // Mettre à jour le score
             if (isCorrect) {
                 correctAnswers++;
             } else {
                 incorrectAnswers++;
             }
             
-            // Remove transition for smooth swipe
+            // Supprimer la transition pour un glissement fluide
             currentCard.style.transition = 'none';
             
-            // Animate card based on swipe direction
+            // Animer la carte en fonction de la direction du glissement
             requestAnimationFrame(() => {
                 const translateAmount = window.innerWidth * 0.8;
                 currentCard.style.transform = isRightSwipe ? 
@@ -183,14 +184,14 @@
                     `translateX(-${translateAmount}px) rotate(-25deg) scale(0.9)`;
                 currentCard.style.opacity = '0';
                 
-                // Show feedback after animation
+                // Afficher le feedback après l'animation
                 setTimeout(() => {
                     showFeedback(isCorrect, currentQuestion.answer);
                 }, 300);
             });
         }
 
-        // Continue to next question
+        // Passer à la question suivante
         function nextQuestion() {
             feedbackPopup.classList.remove('active');
             overlay.classList.remove('active');
@@ -204,13 +205,13 @@
             }, 300);
         }
 
-        // Reset hints
+        // Réinitialiser les indices
         function resetHints() {
             trueHint.classList.remove('active');
             falseHint.classList.remove('active');
         }
 
-        // Touch Events for Mobile
+        // Événements tactiles pour mobile
         currentCard.addEventListener('touchstart', (e) => {
             if (isSwiping) return;
             e.preventDefault();
@@ -225,9 +226,9 @@
             currentX = e.touches[0].clientX;
             const diff = currentX - startX;
             
-            // Only allow swiping if moved more than 5px
+            // Autoriser le glissement uniquement si déplacé de plus de 5px
             if (Math.abs(diff) > 5) {
-                // Update hint opacity based on swipe direction
+                // Mettre à jour l'opacité de l'indice en fonction de la direction du glissement
                 if (diff > 0) {
                     trueHint.classList.add('active');
                     falseHint.classList.remove('active');
@@ -236,7 +237,7 @@
                     trueHint.classList.remove('active');
                 }
                 
-                // Apply transform
+                // Appliquer la transformation
                 currentCard.style.transform = `translateX(${diff}px) rotate(${diff * 0.06}deg)`;
                 currentCard.style.opacity = 1 - Math.abs(diff) / (window.innerWidth * 0.4);
             }
@@ -252,9 +253,9 @@
             const diff = currentX - startX;
             
             if (Math.abs(diff) > threshold) {
-                handleSwipe(diff > 0); // Right swipe if positive, left if negative
+                handleSwipe(diff > 0); // Glissement vers la droite si positif, vers la gauche si négatif
             } else {
-                // Reset card position if not swiped far enough
+                // Réinitialiser la position de la carte si pas assez glissée
                 resetCard();
                 resetHints();
             }
@@ -268,7 +269,7 @@
             resetHints();
         });
 
-        // Mouse Events for Desktop
+        // Événements souris pour bureau
         let isMouseDown = false;
         let mouseStartX = 0;
         let mouseCurrentX = 0;
@@ -287,7 +288,7 @@
             const diff = mouseCurrentX - mouseStartX;
             
             if (Math.abs(diff) > 5) {
-                // Update hint opacity based on swipe direction
+                // Mettre à jour l'opacité de l'indice en fonction de la direction du glissement
                 if (diff > 0) {
                     trueHint.classList.add('active');
                     falseHint.classList.remove('active');
@@ -296,7 +297,7 @@
                     trueHint.classList.remove('active');
                 }
                 
-                // Apply transform
+                // Appliquer la transformation
                 currentCard.style.transform = `translateX(${diff}px) rotate(${diff * 0.06}deg)`;
                 currentCard.style.opacity = 1 - Math.abs(diff) / 500;
             }
@@ -323,7 +324,7 @@
             currentCard.style.cursor = 'grab';
         });
 
-        // Event Listeners
+        // Écouteurs d'événements
         continueBtn.addEventListener('click', nextQuestion);
 
         retryBtn.addEventListener('click', () => {
@@ -331,19 +332,19 @@
             setTimeout(initQuiz, 300);
         });
 
-        // Back button functionality
+        // Fonctionnalité du bouton retour
         backBtn.addEventListener('click', () => {
-            if (confirm('Es-tu sûr(e) de vouloir revenir en arrière ? Tes progrès seront perdus')) {
+            if (confirm('Êtes-vous sûr de vouloir revenir en arrière ? Votre progression sera perdue.')) {
                 window.history.back();
             }
         });
 
-        // Prevent text selection during drag
+        // Empêcher la sélection de texte pendant le glissement
         currentCard.addEventListener('dragstart', (e) => {
             e.preventDefault();
         });
 
-        // Add keyboard support
+        // Ajouter le support du clavier
         document.addEventListener('keydown', (e) => {
             if (isSwiping) return;
             
@@ -354,16 +355,16 @@
             }
         });
 
-        // Adjust threshold based on screen size
+        // Ajuster le seuil en fonction de la taille de l'écran
         function adjustThreshold() {
             threshold = Math.min(100, window.innerWidth * 0.2);
         }
 
-        // Initialize the quiz when page loads
+        // Initialiser le quiz au chargement de la page
         window.addEventListener('DOMContentLoaded', () => {
             initQuiz();
             adjustThreshold();
         });
 
-        // Adjust for window resize
+        // Ajuster pour le redimensionnement de la fenêtre
         window.addEventListener('resize', adjustThreshold);
