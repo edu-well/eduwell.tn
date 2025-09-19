@@ -1,27 +1,25 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Interactive Quiz App</title>
+    <title>Quiz Interactif | EduWell</title>
     <link rel="shortcut icon" href="./assets/images/QuizQcm icon png.png" type="image/x-icon">
     <link rel="stylesheet" href="./assets/css/styleseek.css">
-    <style>
-     
-    </style>
+  
 </head>
 <body>
     <div class="floating-element floating-1"></div>
     <div class="floating-element floating-2"></div>
     <div class="floating-element floating-3"></div>
     
-    <button class="back-btn" id="backBtn">← Back</button>
-    <br><br>
+    <button class="back-btn" id="backBtn">← Retour</button>
+    
     <div class="app-container">
         <div class="header">
-            <h1>Quiz Challenge</h1>
-            <p>Swipe right for True, left for False</p>
+            <h1>Défi Quiz</h1>
+            <p>Glissez vers la droite pour Vrai, vers la gauche pour Faux</p>
         </div>
 
         <div class="progress-container">
@@ -36,10 +34,10 @@
 
         <div class="card-container">
             <div class="quiz-card" id="current-card">
-                <h2 id="question-text">Sample question will appear here</h2>
+                <h2 id="question-text">Un exemple de question apparaîtra ici</h2>
                 <div class="swipe-hints">
-                    <div class="swipe-hint false">FALSE</div>
-                    <div class="swipe-hint true">TRUE</div>
+                    <div class="swipe-hint false">FAUX</div>
+                    <div class="swipe-hint true">VRAI</div>
                 </div>
             </div>
         </div>
@@ -47,68 +45,69 @@
         <div class="overlay" id="overlay"></div>
 
         <div class="feedback-popup" id="feedback-popup">
-            <h3 id="feedback-title">Correct!</h3>
-            <p id="feedback-message">You got it right!</p>
-            <div class="correct-answer" id="correct-answer">The correct answer is: True</div>
-            <div class="explanation" id="explanation">This is where the explanation will appear.</div>
-            <button id="continue-btn">Continue</button>
+            <h3 id="feedback-title">Correct !</h3>
+            <p id="feedback-message">Vous avez trouvé la bonne réponse !</p>
+            <div class="correct-answer" id="correct-answer">La bonne réponse est : Vrai</div>
+            <div class="explanation" id="explanation">L'explication apparaîtra ici.</div>
+            <button id="continue-btn">Continuer</button>
         </div>
 
         <div class="results-screen" id="results-screen">
-            <h2>Quiz Complete!</h2>
-            <p>Great job completing the quiz!</p>
+            <h2>Quiz Terminé !</h2>
+            <p>Bravo pour avoir terminé le quiz !</p>
             <div class="percentage" id="final-percentage" data-value="100%">100%</div>
             <div class="score-container">
                 <div class="score-row">
-                    <span class="score-label">Correct:</span>
+                    <span class="score-label">Correct :</span>
                     <span class="score-value" id="correct-count">0</span>
                 </div>
                 <div class="score-row">
-                    <span class="score-label">Incorrect:</span>
+                    <span class="score-label">Incorrect :</span>
                     <span class="score-value" id="incorrect-count">0</span>
                 </div>
                 <div class="score-row">
-                    <span class="score-label">Total Score:</span>
+                    <span class="score-label">Score Total :</span>
                     <span class="score-value" id="total-score">0/5</span>
                 </div>
             </div>
-            <button class="retry-btn" id="retry-btn">Try Again</button>
+            <button class="retry-btn" id="retry-btn">Recommencer</button>
         </div>
     </div>
-  <footer class="footer">
-    Eduwell Quantum Group
-  </footer>
-   <script src="./assets/js/arcseek.js"></script>
-    <script>
 
-        // Quiz Questions Data with explanations
+    <script>
+        // Données des questions du quiz avec explications
         const quizQuestions = [
             {
-                question: "JavaScript is a programming language primarily used for web development.",
+                question: "JavaScript est un langage de programmation principalement utilisé pour le développement web.",
                 answer: true,
-                explanation: "JavaScript is indeed primarily used for web development. It's the programming language of the web that allows developers to create interactive elements on websites."
+                explanation: "JavaScript est effectivement principalement utilisé pour le développement web. C'est le langage de programmation du web qui permet aux développeurs de créer des éléments interactifs sur les sites web."
             },
             {
-                question: "HTML stands for Hyper Text Markup Language.",
+                question: "HTML signifie Hyper Text Markup Language.",
                 answer: true,
-                explanation: "HTML stands for Hyper Text Markup Language. It's the standard markup language used to create web pages and web applications."
+                explanation: "HTML signifie Hyper Text Markup Language. C'est le langage de balisage standard utilisé pour créer des pages web et des applications web."
             },
             {
-                question: "CSS is used to add interactivity to websites.",
-                answer: false, // JavaScript is used for interactivity, CSS for styling
-                explanation: "CSS (Cascading Style Sheets) is used for styling and layout of web pages, not for adding interactivity. JavaScript is the language used to add interactivity to websites."
+                question: "CSS est utilisé pour ajouter de l'interactivité aux sites web.",
+                answer: false, // JavaScript est utilisé pour l'interactivité, CSS pour le style
+                explanation: "CSS (Cascading Style Sheets) est utilisé pour le style et la mise en page des pages web, pas pour ajouter de l'interactivité. JavaScript est le langage utilisé pour ajouter de l'interactivité aux sites web."
             },
             {
-                question: "The 'console.log()' function is used to display output in the browser console.",
+                question: "La fonction 'console.log()' est utilisée pour afficher une sortie dans la console du navigateur.",
                 answer: true,
-                explanation: "The console.log() function is a built-in JavaScript method that outputs messages to the browser's console. It's commonly used for debugging purposes."
+                explanation: "La fonction console.log() est une méthode JavaScript intégrée qui affiche des messages dans la console du navigateur. Elle est couramment utilisée à des fins de débogage."
             },
             {
-                question: "React is a backend framework for building server applications.",
-                answer: false, // React is a frontend library
-                explanation: "React is actually a frontend JavaScript library for building user interfaces, not a backend framework. Backend frameworks include Node.js, Django, Ruby on Rails, etc."
+                question: "React est un framework backend pour construire des applications serveur.",
+                answer: false, // React est une bibliothèque frontend
+                explanation: "React est en fait une bibliothèque JavaScript frontend pour construire des interfaces utilisateur, pas un framework backend. Les frameworks backend incluent Node.js, Django, Ruby on Rails, etc."
             }
         ];
-    </script>
+        
+        </script>
+         <script src="./assets/js/arcseek.js"></script>
+         <footer class="footer">
+    Eduwell Quantum Group
+  </footer>
 </body>
 </html>
