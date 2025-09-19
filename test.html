@@ -13,7 +13,7 @@
             --secondary-gradient: linear-gradient(135deg, #059669, #047857);
             --accent-gradient: linear-gradient(135deg, #DC2626, #B91C1C);
             --gold-gradient: linear-gradient(135deg, #F59E0B, #D97706);
-            --banckground-gradient: linear-gradient(135deg, #f0f9ff, #e0f2fe, #dbeafe);
+            --background-gradient: linear-gradient(135deg, #f0f9ff, #e0f2fe, #dbeafe);
             --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
             --text-primary: #1E293B;
             --text-secondary: #64748B;
@@ -21,7 +21,7 @@
             --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
             --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --border-radius: 24px;
         }
         * {
@@ -35,14 +35,13 @@
         body {
             background: var(--background-gradient);
             color: var(--text-primary);
-           
             display: flex;
             flex-direction: column;
             align-items: center;
-              min-height: 100vh;
-           padding: 24px;
-    position: relative;
-    overflow-x: hidden;
+            min-height: 100vh;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
         }
         /* Header with logo - Microsoft-sized */
         .header-container {
@@ -70,6 +69,7 @@
             position: relative;
             overflow: hidden;
             border: 2px solid rgba(255, 255, 255, 0.2);
+            will-change: transform;
         }
         .logo::before {
             content: '';
@@ -140,6 +140,7 @@
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            will-change: transform;
         }
         .glass-card::before {
             content: '';
@@ -271,6 +272,7 @@
             backdrop-filter: blur(12px);
             box-shadow: var(--shadow-sm);
             min-height: 120px;
+            will-change: transform;
         }
         .interactive-card::before {
             content: '';
@@ -469,6 +471,7 @@
             backdrop-filter: blur(10px);
             z-index: 10;
             box-shadow: 0 3px 15px rgba(79, 70, 229, 0.15);
+            will-change: transform;
         }
         .modern-back-btn:hover {
             background: rgba(79, 70, 229, 0.25);
@@ -498,10 +501,12 @@
             opacity: 0;
             visibility: hidden;
             transition: all 0.4s ease;
+            pointer-events: none;
         }
         .modern-loading.active {
             opacity: 1;
             visibility: visible;
+            pointer-events: all;
         }
         .loading-container {
             text-align: center;
@@ -589,6 +594,7 @@
             opacity: 1;
             transform: translateY(0);
             transition: opacity 0.4s ease, transform 0.4s ease;
+            will-change: transform, opacity;
         }
         .page-transition.fade-out {
             opacity: 0;
@@ -839,52 +845,48 @@
                 transition-duration: 0.01ms !important;
             }
         }
-        
         /* Footer styling */
         .footer {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
             font-size: 14px;
             color: #6c757d;
             opacity: 0.8;
-            z-index: 10;
             font-family: "Segoe UI", sans-serif;
             text-align: center;
             padding: 10px 20px;
             background: rgba(255, 255, 255, 0.7);
             border-radius: 20px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 100%;
+            max-width: 600px;
+        }
+        /* Hide loading screen by default */
+        #loadingScreen {
+            display: none;
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    
-    
+    <!-- Loading Screen (hidden by default) -->
     <div class="header-container">
         <a href="#" class="logo">
             <i class="fas fa-brain"></i>
             <span>QuizQcm</span>
         </a>
-      
     </div>
-    
-   
         <!-- Main Selection Page -->
         <div class="page-transition" id="mainPage">
             <div class="glass-card">
                 <div class="section-header">
+                     
                     <div class="step-badge">1ère étape : Pick ton chapitre</div>
+                    <br><br>
                     <h1 class="section-title">SVT Challenge</h1>
                     <p class="section-subtitle">Choisissez le chapitre que vous souhaitez étudier aujourd'hui.</p>
                 </div>
-                
                 <div class="progress-container">
                     <div class="progress-bar" style="width: 33%;"></div>
                 </div>
-
                 <div class="interactive-cards" id="mainCards">
                     <div class="interactive-card" data-focus="Reproduction Humaine" data-name="Reproduction chez l'homme et la femme">
                         <div class="card-icon-container">
@@ -900,7 +902,6 @@
                         </div>
                         <div class="selection-indicator"></div>
                     </div>
-                    
                     <div class="interactive-card" data-focus="Evolution Biologique" data-name="Evolution Biologique">
                         <div class="card-icon-container">
                             <div class="card-icon-glow"></div>
@@ -915,7 +916,6 @@
                         </div>
                         <div class="selection-indicator"></div>
                     </div>
-                    
                     <div class="interactive-card" data-focus="Genetique" data-name="Genetique humaine ">
                         <div class="card-icon-container">
                             <div class="card-icon-glow"></div>
@@ -930,7 +930,6 @@
                         </div>
                         <div class="selection-indicator"></div>
                     </div>
-
                     <div class="interactive-card" data-focus="Neurophysiologie" data-name="Chapitre système nerveux">
                         <div class="card-icon-container">
                             <div class="card-icon-glow"></div>
@@ -945,7 +944,6 @@
                         </div>
                         <div class="selection-indicator"></div>
                     </div>
-
                     <div class="interactive-card" data-focus="Immunite" data-name="immunite ">
                         <div class="card-icon-container">
                             <div class="card-icon-glow"></div>
@@ -963,32 +961,27 @@
                 </div>
             </div>
         </div>
-
         <!-- Test Selection Page -->
         <div class="page-transition fade-out" id="testPage">
             <div class="glass-card">
                 <button class="modern-back-btn" id="backBtn">
                     <i class="fas fa-arrow-left"></i>
-                    <span>Retour</span><br><br>
+                    <span>Retour</span>
                 </button>
-                
                 <div class="section-header">
+                     <br><br><br><br>
                     <div class="step-badge" id="testStepIndicator">Step 2: </div>
                     <h1 class="section-title" id="testTitle">SELECT YOUR TEST</h1>
                     <p class="section-subtitle" id="testSubtitle">Choisissez un test qui correspond à votre niveau actuel et à vos objectifs d'apprentissage.</p>
                 </div>
-
                 <div class="progress-container">
                     <div class="progress-bar" style="width: 66%;"></div>
                 </div>
-
                 <div class="interactive-cards" id="testCards">
                     <!-- Test options will be dynamically generated here -->
                 </div>
             </div>
         </div>
-    </div>
-
     <div class="modern-loading" id="loadingOverlay">
         <div class="loading-container">
             <div class="loading-spinner"></div>
@@ -996,18 +989,11 @@
             <p class="loading-subtitle">Nous préparons votre test personnalisé avec des exercices interactifs...</p>
         </div>
     </div>
-    
     <footer class="footer">
         Eduwell Quantum Group
     </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Loading screen elements
-            const loadingScreen = document.getElementById('loadingScreen');
-            const loadingBar = document.getElementById('loadingBar');
-            const loadingMessage = document.getElementById('loadingMessage');
-            
             // DOM Elements
             const mainPage = document.getElementById('mainPage');
             const testPage = document.getElementById('testPage');
@@ -1017,41 +1003,9 @@
             const testCards = document.getElementById('testCards');
             const loadingOverlay = document.getElementById('loadingOverlay');
             const mainCards = document.getElementById('mainCards');
-            
             const mainInteractiveCards = mainPage.querySelectorAll('.interactive-card');
             let selectedFocus = null;
-
-            // Simulate loading progress
-            let progress = 0;
-            const loadingMessages = [
-                "Initialisation des modules d'apprentissage...",
-                "Chargement des exercices SVT...",
-                "Configuration de l'interface interactive...",
-                "Préparation du contenu personnalisé...",
-                "Finalisation de votre expérience d'apprentissage..."
-            ];
             
-            const loadingInterval = setInterval(() => {
-                progress += Math.random() * 15;
-                if (progress >= 100) {
-                    progress = 100;
-                    clearInterval(loadingInterval);
-                    
-                    // Hide loading screen after a brief delay
-                    setTimeout(() => {
-                        loadingScreen.classList.add('hidden');
-                    }, 500);
-                }
-                
-                loadingBar.style.width = `${progress}%`;
-                
-                // Update message based on progress
-                const messageIndex = Math.floor(progress / 25);
-                if (messageIndex < loadingMessages.length) {
-                    loadingMessage.textContent = loadingMessages[messageIndex];
-                }
-            }, 300);
-
             // Test links configuration for each focus area with enhanced icons and descriptions
             const testLinks = {
                 "Reproduction Humaine": [
@@ -1073,22 +1027,22 @@
                     { name: "Pack 1 (Défi SVT): Génétiques des diploïdes", link: "#" },
                     { name: "Pack 2 (Défi SVT): Génétiques des diploïdes", link: "#" },
                     { name: "Pack 1 (Défi SVT): Génétique Humaine", link: "#" },
-                    { name: "Pack 1 (Défi SVT): Génétique Humaine", link: "#" }
+                    { name: "Pack 2 (Défi SVT): Génétique Humaine", link: "#" }
                 ],
                 "Neurophysiologie": [
-                    { name: "Pack  (Défi SVT): Tissu Nerveux", link: "#" },
+                    { name: "Pack 1 (Défi SVT): Tissu Nerveux", link: "#" },
                     { name: "Pack 1 (Défi SVT): Réflexe myotatique", link: "#" },
                     { name: "Pack 2 (Défi SVT): Réflexe myotatique", link: "#" },
-                    { name: "Pack  (Défi SVT): Fonctionnement du muscle squelettique", link: "#" },
-                    { name: "Pack  (Défi SVT): Régulation de la pression artérielle", link: "#" },
-                    { name: "Pack  (Défi SVT): Hygiéne du système nerveux", link: "#" }
+                    { name: "Pack 1 (Défi SVT): Fonctionnement du muscle squelettique", link: "#" },
+                    { name: "Pack 1 (Défi SVT): Régulation de la pression artérielle", link: "#" },
+                    { name: "Pack 1 (Défi SVT): Hygiéne du système nerveux", link: "#" }
                 ],
                 "Immunite": [
                     { name: "Pack 1 (Défi SVT): Réponse immunitaire spécifique", link: "#" },
                     { name: "Pack 2 (Défi SVT): Réponse immunitaire spécifique", link: "#" },
                     { name: "Pack 1 (Défi SVT): Allergies", link: "#" },
                     { name: "Pack 2 (Défi SVT): Allergies", link: "#" },
-                    { name: "Pack (Défi SVT): SIDA", link: "#" }
+                    { name: "Pack 1 (Défi SVT): SIDA", link: "#" }
                 ]
             };
 
@@ -1198,12 +1152,10 @@
                 tests.forEach((test, index) => {
                     const level = index + 1;
                     const difficulty = difficultyConfig["Beginner"]; // Default to Beginner for all tests
-                    
                     const testCard = document.createElement('div');
                     testCard.className = 'interactive-card';
                     testCard.setAttribute('data-link', test.link);
                     testCard.setAttribute('data-difficulty', "Beginner");
-                    
                     testCard.innerHTML = `
                         <div class="card-icon-container">
                             <div class="card-icon-glow"></div>
@@ -1236,10 +1188,10 @@
                         // Show loading overlay
                         setTimeout(() => {
                             showLoadingOverlay();
-                            
                             // Navigate to the test link after a short delay
                             setTimeout(() => {
-                                window.location.href = this.getAttribute('data-link');
+                                hideLoadingOverlay();
+                                // window.location.href = this.getAttribute('data-link');
                             }, 1200);
                         }, 300);
                     });
@@ -1270,7 +1222,6 @@
                         setTimeout(() => {
                             mainPage.classList.remove('fade-out');
                         }, 300);
-                        
                         selectedFocus = null;
                         mainInteractiveCards.forEach(card => {
                             card.classList.remove('selected');
@@ -1294,6 +1245,19 @@
                     }, 2000);
                 });
             }, 500);
+
+            // Prevent default behavior for links to avoid page refresh
+            document.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
+                    e.preventDefault();
+                }
+            });
+
+            // Optimize animations for better performance
+            const animatedElements = document.querySelectorAll('.interactive-card, .logo, .glass-card, .modern-back-btn');
+            animatedElements.forEach(el => {
+                el.style.willChange = 'transform';
+            });
         });
     </script>
 </body>
