@@ -89,20 +89,20 @@
             const currentQuestion = quizQuestions[currentQuestionIndex];
             
             if (isCorrect) {
-                feedbackPopup.classList.add('correct');
-                feedbackPopup.classList.remove('incorrect');
+                feedbackPopup.classList.add('Exact');
+                feedbackPopup.classList.remove('Faux');
                 feedbackTitle.textContent = 'Correct!';
-                feedbackMessage.textContent = 'Perfect! You got it right.';
-                correctAnswerElement.textContent = `The correct answer is: ${correctAnswer ? 'True' : 'False'}`;
+                feedbackMessage.textContent = 'C’est juste !';
+                correctAnswerElement.textContent = `La bonne réponse est: ${correctAnswer ? 'Exact' : 'Faux'}`;
                 feedbackTitle.style.color = 'var(--success-color)';
                 explanationElement.textContent = currentQuestion.explanation;
                 explanationElement.style.borderLeftColor = 'var(--success-color)';
             } else {
                 feedbackPopup.classList.add('incorrect');
                 feedbackPopup.classList.remove('correct');
-                feedbackTitle.textContent = 'Incorrect!';
-                feedbackMessage.textContent = 'Let me explain this to you.';
-                correctAnswerElement.textContent = `The correct answer is: ${correctAnswer ? 'True' : 'False'}`;
+                feedbackTitle.textContent = 'Mauvaise réponse';
+                feedbackMessage.textContent = 'Laisse-moi t’expliquer .';
+                correctAnswerElement.textContent = `La bonne réponse est: ${correctAnswer ? 'Exact' : 'Faux'}`;
                 feedbackTitle.style.color = 'var(--error-color)';
                 explanationElement.textContent = currentQuestion.explanation;
                 explanationElement.style.borderLeftColor = 'var(--error-color)';
@@ -333,7 +333,7 @@
 
         // Back button functionality
         backBtn.addEventListener('click', () => {
-            if (confirm('Are you sure you want to go back? Your progress will be lost.')) {
+            if (confirm('Es-tu sûr(e) de vouloir revenir en arrière ? Tes progrès seront perdus')) {
                 window.history.back();
             }
         });
