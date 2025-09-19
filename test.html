@@ -13,7 +13,7 @@
             --secondary-gradient: linear-gradient(135deg, #059669, #047857);
             --accent-gradient: linear-gradient(135deg, #DC2626, #B91C1C);
             --gold-gradient: linear-gradient(135deg, #F59E0B, #D97706);
-            --background-gradient: linear-gradient(135deg, #f0f9ff, #e0f2fe, #dbeafe);
+            --banckground-gradient: linear-gradient(135deg, #f0f9ff, #e0f2fe, #dbeafe);
             --card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
             --text-primary: #1E293B;
             --text-secondary: #64748B;
@@ -35,139 +35,14 @@
         body {
             background: var(--background-gradient);
             color: var(--text-primary);
-            min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+           
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
-        /* Loading Screen */
-        .loading-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-        .loading-logo {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-        .loading-logo-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: var(--primary-gradient);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2.5rem;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.3);
-            animation: float 3s ease-in-out infinite;
-        }
-        .loading-logo-text {
-            font-size: 2.5rem;
-            font-weight: 800;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .loading-progress {
-            width: 300px;
-            height: 8px;
-            background: rgba(79, 70, 229, 0.1);
-            border-radius: 4px;
-            margin: 30px 0;
-            overflow: hidden;
-            position: relative;
-        }
-        .loading-bar {
-            height: 100%;
-            background: var(--primary-gradient);
-            width: 0%;
-            border-radius: 4px;
-            transition: width 0.4s ease;
-            position: relative;
-        }
-        .loading-bar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-            animation: progressShine 2s infinite;
-        }
-        .loading-message {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-            margin-top: 20px;
-        }
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-        @keyframes progressShine {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        /* Animated background elements */
-        .background-element {
-            position: fixed;
-            z-index: -1;
-            opacity: 0.15;
-            pointer-events: none;
-            filter: blur(2px);
-        }
-        .bg-circle-1 {
-             width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(0, 120, 212, 0.12) 0%, transparent 70%);
-    top: 10%;
-    left: 10%;
-    animation: float 10s ease-in-out infinite;
-        }
-        .bg-circle-2 {
-             width: 120px;
-    height: 120px;
-    background: radial-gradient(circle, rgba(16, 124, 16, 0.12) 0%, transparent 70%);
-    bottom: 20%;
-    right: 10%;
-    animation: float 15s ease-in-out infinite;
-        }
-        .bg-circle-3 {
-            width: 100px;
-    height: 100px;
-    background: radial-gradient(circle, rgba(216, 59, 1, 0.12) 0%, transparent 70%);
-    bottom: 30%;
-    left: 15%;
-    animation: float 12s ease-in-out infinite;
-        }
-        @keyframes float-bg {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-40px) rotate(180deg); }
-            100% { transform: translateY(0px) rotate(360deg); }
+              min-height: 100vh;
+           padding: 24px;
+    position: relative;
+    overflow-x: hidden;
         }
         /* Header with logo - Microsoft-sized */
         .header-container {
@@ -986,22 +861,7 @@
 </head>
 <body>
     <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">
-            <div class="loading-logo-icon">
-                <i class="fas fa-brain"></i>
-            </div>
-            <div class="loading-logo-text">QuizQcm</div>
-        </div>
-        <div class="loading-progress">
-            <div class="loading-bar" id="loadingBar"></div>
-        </div>
-        <div class="loading-message" id="loadingMessage">Loading EduWell Quantum Group...</div>
-    </div>
     
-    <div class="background-element bg-circle-1"></div>
-    <div class="background-element bg-circle-2"></div>
-    <div class="background-element bg-circle-3"></div>
     
     <div class="header-container">
         <a href="#" class="logo">
@@ -1011,7 +871,7 @@
       
     </div>
     
-    <div class="container">
+   
         <!-- Main Selection Page -->
         <div class="page-transition" id="mainPage">
             <div class="glass-card">
@@ -1109,7 +969,7 @@
             <div class="glass-card">
                 <button class="modern-back-btn" id="backBtn">
                     <i class="fas fa-arrow-left"></i>
-                    <span>Retour</span>
+                    <span>Retour</span><br><br>
                 </button>
                 
                 <div class="section-header">
