@@ -20,6 +20,7 @@
         const retryBtn = document.getElementById('retry-btn');
         const trueHint = document.querySelector('.swipe-hint.true');
         const falseHint = document.querySelector('.swipe-hint.false');
+        const backBtn = document.getElementById('backBtn');
 
         // App State
         let currentQuestionIndex = 0;
@@ -328,6 +329,13 @@
         retryBtn.addEventListener('click', () => {
             resultsScreen.classList.remove('active');
             setTimeout(initQuiz, 300);
+        });
+
+        // Back button functionality
+        backBtn.addEventListener('click', () => {
+            if (confirm('Are you sure you want to go back? Your progress will be lost.')) {
+                window.history.back();
+            }
         });
 
         // Prevent text selection during drag
