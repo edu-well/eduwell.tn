@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quiz Interactif | EduWell</title>
+    <link rel="shortcut icon" href="./assets/images/QuizQcm icon png.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/styleseek.css">
+  
+</head>
+<body>
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+    <div class="floating-element floating-3"></div>
+    
+    <button class="back-btn" id="backBtn">← Retour</button>
+    
+    <div class="app-container">
+        <div class="header">
+            <h1>Défi Quiz</h1>
+            <p>Glissez vers la droite pour Vrai, vers la gauche pour Faux</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="current-question">1</span>
+                <span id="total-questions">5</span>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="quiz-card" id="current-card">
+                <h2 id="question-text">Un exemple de question apparaîtra ici</h2>
+                <div class="swipe-hints">
+                    <div class="swipe-hint false">FAUX</div>
+                    <div class="swipe-hint true">VRAI</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="feedback-popup" id="feedback-popup">
+            <h3 id="feedback-title">Correct !</h3>
+            <p id="feedback-message">Vous avez trouvé la bonne réponse !</p>
+            <div class="correct-answer" id="correct-answer">La bonne réponse est : Vrai</div>
+            <div class="explanation" id="explanation">L'explication apparaîtra ici.</div>
+            <button id="continue-btn">Continuer</button>
+        </div>
+
+        <div class="results-screen" id="results-screen">
+            <h2>Quiz Terminé !</h2>
+            <p>Bravo pour avoir terminé le quiz !</p>
+            <div class="percentage" id="final-percentage" data-value="100%">100%</div>
+            <div class="score-container">
+                <div class="score-row">
+                    <span class="score-label">Correct :</span>
+                    <span class="score-value" id="correct-count">0</span>
+                </div>
+                <div class="score-row">
+                    <span class="score-label">Incorrect :</span>
+                    <span class="score-value" id="incorrect-count">0</span>
+                </div>
+                <div class="score-row">
+                    <span class="score-label">Score Total :</span>
+                    <span class="score-value" id="total-score">0/5</span>
+                </div>
+            </div>
+            <button class="retry-btn" id="retry-btn">Recommencer</button>
+        </div>
+    </div>
+
+    <script>
+        // Données des questions du quiz avec explications
+        const quizQuestions = [
+  {
+    question: "Le spermatozoïde humain est une cellule caractérisée par la mobilité.",
+    answer: true,
+    explanation: "Le spermatozoïde possède un flagelle qui lui permet de se déplacer vers l’ovule, la mobilité est donc essentielle pour la fécondation."
+  },
+  {
+    question: "Le spermatozoïde humain possède un nombre de chromosomes égal à 23.",
+    answer: true,
+    explanation: "Le spermatozoïde est une cellule haploïde, il contient 23 chromosomes pour féconder l’ovule qui en contient 23 également."
+  },
+  {
+    question: "Le spermatozoïde humain est une cellule caractérisée par un noyau bloqué en métaphase II.",
+    answer: false,
+    explanation: "C’est l’ovocyte II qui est bloqué en métaphase II jusqu’à la fécondation, pas le spermatozoïde."
+  },
+  {
+    question: "L’inhibine est sécrétée par les cellules de Sertoli.",
+    answer: true,
+    explanation: "Les cellules de Sertoli produisent l’inhibine, qui agit en rétrocontrôle négatif sur la FSH pour réguler la spermatogenèse."
+  },
+  {
+    question: "L’inhibine exerce un rétrocontrôle négatif sur la sécrétion de LH.",
+    answer: false,
+    explanation: "L’inhibine agit uniquement sur la FSH, tandis que la testostérone exerce un rétrocontrôle sur la LH."
+  },
+  {
+    question: "Chez l’homme, les cellules hypothalamiques présentent des récepteurs à la testostérone.",
+    answer: false,
+    explanation: "La testostérone agit en rétrocontrôle négatif via des récepteurs spécifiques au niveau de l’hypothalamus et de l’hypophyse, mais pas directement par récepteurs classiques sur les neurones hypothalamiques."
+  },
+  {
+    question: "La testostérone est sécrétée par les cellules de Leydig.",
+    answer: true,
+    explanation: "Les cellules de Leydig, situées dans le tissu interstitiel du testicule, produisent la testostérone sous l’action de la LH."
+  },
+  {
+    question: "La testostérone exerce un rétrocontrôle négatif sur la sécrétion de FSH.",
+    answer: true,
+    explanation: "La testostérone agit en rétrocontrôle négatif sur l’hypothalamus et l’hypophyse, influençant la sécrétion de LH et FSH."
+  },
+  {
+    question: "La testostérone est sécrétée par les cellules de Sertoli.",
+    answer: false,
+    explanation: "Les cellules de Sertoli soutiennent la spermatogenèse mais ne sécrètent pas la testostérone, celle-ci est produite par les cellules de Leydig."
+  },
+  {
+    question: "La testostérone agit sur la spermatogenèse.",
+    answer: false,
+    explanation: "La testostérone stimule directement les cellules de Sertoli et soutient la spermatogenèse, mais n’agit pas seule : la FSH est aussi nécessaire."
+  },
+  {
+    question: "Dans la spermatogenèse, la réduction du nombre de chromosomes se produit pendant la phase de maturation.",
+    answer: true,
+    explanation: "C’est durant la méiose, incluse dans la phase de maturation, que les cellules germinales passent de 46 à 23 chromosomes."
+  },
+  {
+    question: "La spermiogenèse est la différenciation des spermatides en spermatozoïdes.",
+    answer: true,
+    explanation: "La spermiogenèse transforme les spermatides rondes en spermatozoïdes allongés et mobiles dans les tubes séminifères."
+  },
+  {
+    question: "La spermiogenèse se déroule dans l’épididyme.",
+    answer: false,
+    explanation: "La spermiogenèse se déroule dans les tubes séminifères ; dans l’épididyme, les spermatozoïdes achèvent leur maturation fonctionnelle."
+  },
+  {
+    question: "La GnRH est sécrétée de manière pulsatile.",
+    answer: true,
+    explanation: "La sécrétion pulsatile de GnRH est indispensable pour stimuler correctement l’hypophyse et déclencher la sécrétion de FSH et LH."
+  },
+  {
+    question: "La GnRH possède des récepteurs au niveau de la muqueuse utérine.",
+    answer: false,
+    explanation: "Les récepteurs de la GnRH se trouvent dans l’hypophyse, pas dans l’utérus."
+  },
+  {
+    question: "La phase de maturation de la spermatogenèse s’achève dans le testicule.",
+    answer: true,
+    explanation: "Les divisions méiotiques (phase de maturation) se déroulent dans les testicules avant que les spermatozoïdes ne soient libérés dans l’épididyme."
+  },
+  {
+    question: "La phase de maturation de la spermatogenèse s’achève dans l’épididyme.",
+    answer: false,
+    explanation: "L’épididyme sert au stockage et à la maturation fonctionnelle, pas à la phase de maturation génétique qui se fait dans le testicule."
+  },
+  {
+    question: "Les gonadostimulines stimulent les gonades.",
+    answer: false,
+    explanation: "Les gonadostimulines (LH et FSH) stimulent les gonades, mais elles ne sont pas produites par elles, elles viennent de l’hypophyse."
+  },
+  {
+    question: "Les gonadostimulines possèdent des récepteurs membranaires.",
+    answer: true,
+    explanation: "La LH et la FSH sont des hormones glycoprotéiques qui se lient à des récepteurs membranaires spécifiques sur les cellules cibles."
+  },
+  {
+    question: "Les gonadostimulines possèdent des récepteurs cytoplasmiques.",
+    answer: false,
+    explanation: "Seules les hormones stéroïdes (comme la testostérone) ont des récepteurs intracellulaires, pas la LH ni la FSH."
+  },
+  {
+    question: "Une baisse de la sécrétion de testostérone est corrigée par une stimulation des cellules de Leydig.",
+    answer: true,
+    explanation: "L’hypothalamus et l’hypophyse réagissent par augmentation de LH, ce qui stimule les cellules de Leydig à produire plus de testostérone."
+  },
+  {
+    question: "Chez l’homme, la testostérone agit seule pour stimuler la spermatogenèse.",
+    answer: false,
+    explanation: "La spermatogenèse nécessite l’action combinée de la testostérone (cellules de Leydig) et de la FSH (cellules de Sertoli)."
+  },
+  {
+    question: "La testostérone est sécrétée de façon pulsatile.",
+    answer: false,
+    explanation: "La testostérone est sécrétée de manière relativement continue sous l’action de la LH, contrairement à la GnRH qui est pulsatile."
+  },
+  {
+    question: "La destruction des cellules de Leydig entraîne l’absence de sécrétion de testostérone.",
+    answer: true,
+    explanation: "Les cellules de Leydig sont l’unique source de testostérone testiculaire, leur destruction supprime cette sécrétion."
+  },
+  {
+    question: "La destruction des cellules de Leydig provoque la baisse du taux des gonadostimulines.",
+    answer: false,
+    explanation: "Au contraire, l’absence de testostérone supprime le rétrocontrôle négatif, ce qui augmente la sécrétion de LH et FSH."
+  },
+  {
+    question: "L’injection d’extraits testiculaires à un rat castré entraîne la restauration des caractères sexuels secondaires.",
+    answer: true,
+    explanation: "Les extraits testiculaires apportent de la testostérone qui permet le développement des caractères sexuels secondaires."
+  },
+  {
+    question: "L’injection d’extraits testiculaires entraîne la baisse de la fréquence des pulses de FSH.",
+    answer: false,
+    explanation: "La testostérone agit surtout sur la LH et sur les caractères sexuels, mais la régulation spécifique de la FSH se fait via l’inhibine."
+  },
+  {
+    question: "Une augmentation de testostérone est corrigée par un rétrocontrôle négatif sur l’hypothalamus.",
+    answer: true,
+    explanation: "Un excès de testostérone inhibe la sécrétion de GnRH et donc réduit LH et FSH, restaurant l’équilibre hormonal."
+  },
+  {
+    question: "Une augmentation de testostérone est corrigée par un rétrocontrôle positif sur l’hypothalamus.",
+    answer: false,
+    explanation: "Il n’existe pas de rétrocontrôle positif de la testostérone, seulement un rétrocontrôle négatif."
+  }
+];
+
+        
+        </script>
+         <script src="./assets/js/arcseek.js"></script>
+         <footer class="footer">
+    Eduwell Quantum Group
+  </footer>
+</body>
+</html>
