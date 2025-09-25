@@ -3,9 +3,9 @@
             { name: "Pack 1 (Défi SVT): Chez l'Homme", link: "seek1" },
             { name: "Pack 2 (Défi SVT): Chez l'Homme", link: "seek2" },
             { name: "Pack 1 (Défi SVT): Chez la Femme", link: "seek3" },
-            { name: "Pack 2 (Défi SVT): Chez la Femme", link: "#" },
-            { name: "Pack 1 (Défi SVT): Procréation", link: "#" },
-            { name: "Pack 2 (Défi SVT): Procréation", link: "#" }
+            { name: "Pack 2 (Défi SVT): Chez la Femme", link: "seek4" },
+            { name: "Pack 1 (Défi SVT): Procréation", link: "seek5" },
+            { name: "Pack 2 (Défi SVT): Procréation", link: "seek6" }
         ],
         "Evolution Biologique": [
             { name: "Pack 1 (Défi SVT): Arguments", link: "#" },
