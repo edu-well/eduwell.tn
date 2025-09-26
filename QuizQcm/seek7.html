@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Quiz Interactif | EduWell</title>
+    <link rel="shortcut icon" href="./assets/images/QuizQcm icon png.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/styleseek.css">
+  
+</head>
+<body>
+    <div class="floating-element floating-1"></div>
+    <div class="floating-element floating-2"></div>
+    <div class="floating-element floating-3"></div>
+    
+    <button class="back-btn" id="backBtn">← Retour</button>
+    
+    <div class="app-container">
+        <div class="header">
+            <h1>Défi Quiz</h1>
+            <p>Glissez vers la droite pour Vrai, vers la gauche pour Faux</p>
+        </div>
+
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="current-question">1</span>
+                <span id="total-questions">5</span>
+            </div>
+        </div>
+
+        <div class="card-container">
+            <div class="quiz-card" id="current-card">
+                <h2 id="question-text">Un exemple de question apparaîtra ici</h2>
+                <div class="swipe-hints">
+                    <div class="swipe-hint false">FAUX</div>
+                    <div class="swipe-hint true">VRAI</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay" id="overlay"></div>
+
+        <div class="feedback-popup" id="feedback-popup">
+            <h3 id="feedback-title">Correct !</h3>
+            <p id="feedback-message">Vous avez trouvé la bonne réponse !</p>
+            <div class="correct-answer" id="correct-answer">La bonne réponse est : Vrai</div>
+            <div class="explanation" id="explanation">L'explication apparaîtra ici.</div>
+            <button id="continue-btn">Continuer</button>
+        </div>
+
+        <div class="results-screen" id="results-screen">
+            <h2>Quiz Terminé !</h2>
+            <p>Bravo pour avoir terminé le quiz !</p>
+            <div class="percentage" id="final-percentage" data-value="100%">100%</div>
+            <div class="score-container">
+                <div class="score-row">
+                    <span class="score-label">Correct :</span>
+                    <span class="score-value" id="correct-count">0</span>
+                </div>
+                <div class="score-row">
+                    <span class="score-label">Incorrect :</span>
+                    <span class="score-value" id="incorrect-count">0</span>
+                </div>
+                <div class="score-row">
+                    <span class="score-label">Score Total :</span>
+                    <span class="score-value" id="total-score">0/5</span>
+                </div>
+            </div>
+            <button class="retry-btn" id="retry-btn">Recommencer</button>
+        </div>
+    </div>
+
+    <script>
+        // Données des questions du quiz avec explications
+        const quizQuestions = [
+  {
+    question: "La formule chromosomique d’un garçon atteint du syndrome de Down est : 44 autosomes + XXY.",
+    answer: false,
+    explanation: "XXY correspond au syndrome de Klinefelter, pas à la trisomie 21."
+  },
+  {
+    question: "La formule chromosomique d’un garçon atteint du syndrome de Down est : 45 autosomes + XY.",
+    answer: true,
+    explanation: "La trisomie 21 résulte de 47 chromosomes au total (45 autosomes + XY)."
+  },
+  {
+    question: "La formule chromosomique d’un garçon atteint du syndrome de Down est : 45 autosomes + XXY.",
+    answer: false,
+    explanation: "45 autosomes + XXY correspond à la trisomie 21 chez un garçon, mais avec chromosome sexuel supplémentaire (Klinefelter + Down) — ce n’est pas la formule classique."
+  },
+  {
+    question: "La formule chromosomique d’un garçon atteint du syndrome de Down est : 44 autosomes + XX.",
+    answer: false,
+    explanation: "C’est la formule d’une fille normale, sans anomalie."
+  },
+  {
+    question: "Les mutations géniques conduisent à de nouveaux gènes.",
+    answer: false,
+    explanation: "Elles modifient un gène existant mais ne créent pas un nouveau gène totalement distinct."
+  },
+  {
+    question: "Les mutations géniques conduisent à des nouvelles versions d’un même gène.",
+    answer: true,
+    explanation: "Cela produit différents allèles d’un même gène."
+  },
+  {
+    question: "Les mutations géniques conduisent à la diversité des caractères au sein d’une même espèce.",
+    answer: true,
+    explanation: "Les allèles différents expliquent la variabilité intra-spécifique."
+  },
+  {
+    question: "Les mutations géniques conduisent à la naissance de nouvelles espèces.",
+    answer: false,
+    explanation: "Les mutations seules ne suffisent pas, il faut isolement reproductif et sélection naturelle."
+  },
+  {
+    question: "Les mutations chromosomiques peuvent s’effectuer par fusion des chromosomes.",
+    answer: true,
+    explanation: "Exemple : fusion robertsonienne modifie le nombre de chromosomes."
+  },
+  {
+    question: "Les mutations chromosomiques peuvent être dues à des changements de bases azotées.",
+    answer: false,
+    explanation: "Ça c’est une mutation génique, pas chromosomique."
+  },
+  {
+    question: "Les mutations chromosomiques peuvent conduire à de nouveaux allèles.",
+    answer: false,
+    explanation: "Les allèles dépendent des mutations géniques, pas chromosomiques."
+  },
+  {
+    question: "Les mutations chromosomiques peuvent conduire à de nouveaux caryotypes.",
+    answer: true,
+    explanation: "Elles modifient la structure ou le nombre de chromosomes."
+  },
+  {
+    question: "Un homme sain épouse une femme conductrice du daltonisme : leur garçon a 50 % de chance d’être sain.",
+    answer: true,
+    explanation: "Avec une mère conductrice (XᴺXᵈ) et père sain (XᴺY), le garçon a 50% XᴺY (sain) et 50% XᵈY (malade)."
+  },
+  {
+    question: "Un homme sain épouse une femme conductrice du daltonisme : leur garçon a 25 % de chance d’être sain.",
+    answer: false,
+    explanation: "La probabilité est 50 %, pas 25 %."
+  },
+  {
+    question: "Un homme sain épouse une femme conductrice du daltonisme : leur garçon a 50 % de risque d’être malade.",
+    answer: true,
+    explanation: "Il y a une chance sur deux d’hériter du Xᵈ de la mère."
+  },
+  {
+    question: "Un homme sain épouse une femme conductrice du daltonisme : leur garçon a 25 % de risque d’être malade.",
+    answer: false,
+    explanation: "C’est 50 %, pas 25 %."
+  },
+  {
+    question: "La sélection naturelle s’exerce de façon aléatoire sur certains individus d’une population.",
+    answer: false,
+    explanation: "Elle dépend de l’adaptation au milieu, pas du hasard pur."
+  },
+  {
+    question: "La sélection naturelle dépend de l’environnement dans lequel vivent les individus.",
+    answer: true,
+    explanation: "Un caractère peut être favorable dans un milieu et défavorable dans un autre."
+  },
+  {
+    question: "La sélection naturelle dépend des génotypes des individus d’une même population.",
+    answer: true,
+    explanation: "Les individus porteurs de certains génotypes survivent et se reproduisent plus."
+  },
+  {
+    question: "La sélection naturelle entraîne une adaptation des populations à leur environnement.",
+    answer: true,
+    explanation: "C’est le mécanisme principal d’adaptation évolutive."
+  },
+  {
+    question: "La spéciation est la naissance d’espèces nouvelles à partir de deux espèces originelles.",
+    answer: false,
+    explanation: "La spéciation correspond à la formation d’une nouvelle espèce à partir d’une population d’une même espèce."
+  },
+  {
+    question: "La spéciation ne peut se faire qu’après un isolement géographique.",
+    answer: false,
+    explanation: "Il existe aussi la spéciation sympatrique, sans isolement géographique."
+  },
+  {
+    question: "La spéciation est une conséquence de mutations géniques et non chromosomiques.",
+    answer: false,
+    explanation: "Elle peut résulter des deux types de mutations (ex : polyploïdie chez les plantes)."
+  },
+  
+  {
+    question: "La sélection naturelle permet de modifier l’information génétique et tend à transformer l’espèce au cours du temps.",
+    answer: true,
+    explanation: "En favorisant certains allèles, elle modifie la fréquence des gènes dans la population."
+  }
+
+];
+
+        
+        </script>
+         <script src="./assets/js/arcseek.js"></script>
+         <footer class="footer">
+    Eduwell Quantum Group
+  </footer>
+</body>
+</html>
+{
+    question: "La spéciation est conditionnée par l’apparition d’une barrière reproductive.",
+    answer: true,
+    explanation: "Sans isolement reproductif, les flux génétiques empêchent la divergence."
+  },
+  {
+    question: "Dans l’exemple de la phalène du bouleau, la pollution est un facteur de la sélection naturelle.",
+    answer: true,
+    explanation: "Elle favorise la survie de la forme sombre dans les zones polluées."
+  },
+  {
+    question: "Dans l’exemple de la phalène du bouleau, la pollution est un facteur de mutation.",
+    answer: false,
+    explanation: "Elle ne crée pas de nouvelles mutations mais agit comme un filtre sélectif."
+  },
+  {
+    question: "Dans l’exemple de la phalène du bouleau, la pollution a rendu stérile la forme claire.",
+    answer: false,
+    explanation: "La forme claire reste fertile mais devient plus vulnérable à la prédation."
+  },
+  {
+    question: "Dans l’exemple de la phalène du bouleau, la pollution a favorisé la prédominance de la forme claire.",
+    answer: false,
+    explanation: "Au contraire, c’est la forme sombre qui a été favorisée."
+  },
+  {
+    question: "Un individu atteint de trisomie 21, possédant 3 allèles A1, peut résulter d’une erreur en anaphase II de la spermatogenèse.",
+    answer: false,
+    explanation: "L’erreur vient souvent de l’ovogenèse et plus particulièrement de l’anaphase I."
+  },
+  {
+    question: "Un individu atteint de trisomie 21 peut résulter d’une erreur en anaphase II de l’ovogenèse.",
+    answer: false,
+    explanation: "La majorité des cas proviennent d’une non-disjonction en anaphase I, pas II."
+  },
+  {
+    question: "Un individu atteint de trisomie 21 peut résulter d’une erreur en anaphase I de l’ovogenèse.",
+    answer: true,
+    explanation: "C’est la cause la plus fréquente de la trisomie 21 (non-disjonction maternelle)."
+  },
+  {
+    question: "Un individu atteint de trisomie 21 peut résulter d’une erreur en anaphase I de la spermatogenèse.",
+    answer: false,
+    explanation: "Les cas paternels sont rares, la cause principale est maternelle."
+  },
+  {
+    question: "La fusion chromosomique est une mutation génique.",
+    answer: false,
+    explanation: "C’est une anomalie de structure chromosomique."
+  },
+  {
+    question: "La fusion chromosomique est une mutation chromosomique.",
+    answer: true,
+    explanation: "Elle modifie le caryotype par réduction du nombre de chromosomes."
+  },
+  {
+    question: "La fusion chromosomique augmente le nombre de chromosomes.",
+    answer: false,
+    explanation: "Elle diminue le nombre de chromosomes (fusion de deux en un)."
+  },
+  {
+    question: "La fusion chromosomique peut conduire à la naissance de nouvelles espèces.",
+    answer: true,
+    explanation: "Exemple : différence entre l’Homme (46 chr) et le Chimpanzé (48 chr)."
+  },
+  {
+    question: "La sélection naturelle est un processus aléatoire.",
+    answer: false,
+    explanation: "La variation est aléatoire, mais la sélection est orientée par l’environnement."
+  },
+  {
+    question: "La sélection naturelle effectue un tri des génotypes les plus adaptés à un milieu donné.",
+    answer: true,
+    explanation: "C’est la définition même de la sélection naturelle."
+  },
+  {
+    question: "La sélection naturelle assure une variabilité au sein de la même espèce.",
+    answer: false,
+    explanation: "La variabilité vient des mutations et recombinaisons, pas de la sélection."
+  },
