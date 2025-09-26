@@ -8,13 +8,13 @@
             { name: "Pack 2 (Défi SVT): Procréation", link: "seek6" }
         ],
         "Evolution Biologique": [
-            { name: "Pack 1 (Défi SVT): Arguments", link: "#" },
-            { name: "Pack 2 (Défi SVT): Arguments", link: "#" },
+            { name: "Pack 1 (Défi SVT): Arguments", link: "seek7" },
+            { name: "Pack 2 (Défi SVT): Arguments", link: "seek8" },
             { name: "Pack 1 (Défi SVT): Mécanismes", link: "#" },
             { name: "Pack 2 (Défi SVT): Mécanismes", link: "#" }
         ],
         "Genetique": [ 
-            { name: "Pack 1 (Défi SVT): Brassage de l'information Génétique", link: "#" },
+            { name: "Pack 1 (Défi SVT): Brassage de l'information Génétique", link: "seek11" },
             { name: "Pack 1 (Défi SVT): Génétiques des diploïdes", link: "#" },
             { name: "Pack 2 (Défi SVT): Génétiques des diploïdes", link: "#" },
             { name: "Pack 1 (Défi SVT): Génétique Humaine", link: "#" },
